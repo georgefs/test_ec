@@ -1,0 +1,1561 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> 
+	<head>
+		
+
+
+
+
+
+
+<title>有. 設計uDesign－遇見台灣好設計</title>
+		
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Description" content="有. 設計uDesign集結獨具巧思的設計商品，提供台灣設計師一個創意的舞台，多層次剖析介紹讓好設計被深度看見，被欣賞進而被收藏。" />
+<meta name="Keywords" content="有. 設計,uDesign,台灣設計,文創商品" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name ="WT.mc_id" content="" />
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+
+
+
+<meta property="og:site_name" content="udn買東西購物中心"/>
+<meta property="og:description" content="有. 設計uDesign集結獨具巧思的設計商品，提供台灣設計師一個創意的舞台，多層次剖析介紹讓好設計被深度看見，被欣賞進而被收藏。"/>
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://shopping.udn.com/mall/images/udesign_home_icon144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://shopping.udn.com/mall/images/udesign_home_icon114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://shopping.udn.com/mall/images/udesign_home_icon72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://shopping.udn.com/mall/images/udesign_home_icon57.png"/>
+    <link rel="Shortcut Icon" href="http://shopping.udn.com/mall/images/ud_favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="http://shopping.udn.com/mall/images/ud_favicon.ico" />
+
+	<link href="/mall/css/gbr/UD_style.css?t=20140804" rel="stylesheet" type="text/css" />
+	<link href="/mall/css/gbr/gbr_style.css?t=20140804" rel="stylesheet" type="text/css" />
+	<link href="/mall/css/colorbox.css?t=20140804" rel="stylesheet" type="text/css" />
+	<link href="/mall/css/jquery-ui-1.8.4.custom.css?t=20140804" rel="stylesheet" type="text/css" />
+	<link href="/mall/js/autocomplete/thickbox.css?t=20140804" type="text/css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/mall/js/gbr/jquery-1.7.2.min.js?t=20140804"></script>
+      
+    <script type="text/javascript" src="/mall/js/jquery-latest.min.js?t=20140804"></script>
+    <script type="text/javascript" src="/mall/js/jquery.blockUI.js?t=20140804"></script>
+    <script type="text/javascript" src="/mall/js/jquery.udn.utility.js?t=20140804"></script>  
+    <script type="text/javascript" src="/mall/js/date.js?t=20140804"></script>
+    <script type="text/javascript" src="/mall/js/pad/pad.utility.js?t=20140804"></script>
+
+
+
+
+		
+
+
+
+
+
+	
+<!-- SEO: google 標準網頁-->
+<link rel="canonical" href="http://shopping.udn.com/mall/cus/gbr/Cc1g00.do"/>
+	
+		<style>
+			body{background-color:#efefef;}
+		</style>
+	</head>
+	
+	<body>
+		<!-----/上方----->
+		<div id="headder">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+<script language=javascript type=text/javascript>
+$(document).ready(function() {
+	$("#HeaderMyCart").hover(
+		function () {
+			$(this).children("a:first").addClass("bg_menu_over");
+			$(this).children(".buyCart01").show();
+		},
+		function () {
+			$(this).children("a:first").removeClass("bg_menu_over");
+			$(this).children(".buyCart01").hide();
+		}
+	);
+});
+function makeSupplierOrderFromHeader() {
+	var current_amt_text = $('#tr_headercart_supplier').find('td:eq(2) span').text();
+	if (current_amt_text == '$0') {
+		alert('宅店配購物車中無商品資料!');
+		return;
+	}
+	$('#headercartlistbtn').val('Func_MakeSupplierOrder');
+	$('#headercartlistgroupid').val('');
+	
+	if($('#tr_headercart_supplier td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_headercart_supplier td a').attr('disabled', 'disabled');
+	
+	$('#headerCartListform').submit();
+}
+function make24OrderFromHeader() {
+	var current_amt_text = $('#tr_headercart_24hr').find('td:eq(2) span').text();
+	if (current_amt_text == '$0') {
+		alert('快速到貨購物車中無商品資料!');
+		return;
+	}
+	$('#headercartlistbtn').val('Func_Make24HROrder');
+	$('#headercartlistgroupid').val('');
+	
+	if($('#tr_headercart_24hr td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_headercart_24hr td a').attr('disabled', 'disabled');
+	
+	$('#headerCartListform').submit();
+}
+function makeBfyOrderFromHeader() {
+	var current_amt_text = $('#tr_headercart_bfy').find('td:eq(2) span').text();
+	if (current_amt_text == '$0') {
+		alert('BuyForYou購物車中無商品資料!');
+		return;
+	}
+	$('#headercartlistbtn').val('Func_MakeBuyForYouOrder');
+	$('#headercartlistgroupid').val('');
+	
+	if($('#tr_headercart_bfy td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_headercart_bfy td a').attr('disabled', 'disabled');
+	
+	$('#headerCartListform').submit();
+	
+}
+function makeGroupZoneOrderFromHeader(groupid) {
+	var grouperror = $('#tr_headercart_' + groupid).find('td:eq(2) span').text();
+	if ( grouperror != null && grouperror.length > 0 ) {
+		alert(grouperror);
+		var formUrl = $('#cartGroupform').attr('action') + '?dc_cateid_0=' + groupid;
+		$('#cartGroupform').attr('action', formUrl);
+		$('#cartGroupform').submit();
+		return;
+	}
+	$('#headercartlistbtn').val('Func_MakeGroupOrder');
+	$('#headercartlistgroupid').val(groupid);
+	
+	if($('#tr_headercart_' + groupid + ' td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_headercart_' + groupid + ' td a').attr('disabled', 'disabled');
+	
+	$('#headerCartListform').submit();
+}
+
+</script>
+
+<form id="headerCartListform" name="headerCartListform" method="post" action="https://shopping.udn.com/mall/cus/ord/Cc1o01.do">
+<input type="hidden" id="headercartlistbtn" name="dc_btn_0" value="" />
+<input type="hidden" id="headercartlistgroupid" name="dc_groupid_0" value="" />
+</form>
+
+<form id="cartGroupform" name="cartGroupform" method="post" action="https://shopping.udn.com/mall/cus/cat/Cc1c01.do">
+</form>
+
+<!-----/上方功能區塊----->
+<div id="function_top">
+	<div class="top_wid950">
+    	<h1><a href="http://shopping.udn.com/mall">udn shopping</a></h1>
+        <ul class="menu_top">
+        
+        	<li class="menu_tt"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g00.do?dc_btn_0=Func_Logon">登入</a></li>
+            <li class="menu_tt"><a href="https://shopping.udn.com/mall/cus/meb/Cc1m01.do">註冊</a></li>
+        
+            <li class="mything_tt"><a href="http://shopping.udn.com/mall/cus/cat/Cc1c04.do">my東西</a></li>
+            <li class="menu_tt"><a href="http://shopping.udn.com/mall/cus/meb/Cc1m05.do">帳戶</a></li>
+			<li class="cart_tt" id="HeaderMyCart">
+				<a class="cart_block" style="CURSOR: default; TEXT-DECORATION: none" href="#">購物車</a>
+				<div id="cart_h" class="buyCart01" style="display: none;">
+                	<div class="cart_h_outter">
+                    	<table  width="100%" border="0" cellspacing="0" cellpadding="0">
+                        	<tr id="tr_headercart_supplier">
+                            	<td style="text-align:left"><a href="javascript:makeSupplierOrderFromHeader()">・宅店配</a></td>
+                                <td width="50px"><span class="blue_t12"><a href="javascript:makeSupplierOrderFromHeader()" style="color:#2e8dc6">0</a></span><span class="text_12_blk"></span>件</td>
+                                <td width="35px"><a href="javascript:makeSupplierOrderFromHeader()">結帳</a><span style="display: none;">$0</span></td>
+                            </tr>
+                            <tr id="tr_headercart_24hr">
+                                <td style="text-align:left"><a href="javascript:make24OrderFromHeader()">・快速到貨</a></td>
+                                <td><span class="blue_t12"><a href="javascript:make24OrderFromHeader()" style="color:#2e8dc6">0</a></span><span class="text_12_blk"></span>件</td>
+                                <td ><a href="javascript:make24OrderFromHeader()">結帳</a><span style="display: none;">$0</span></td>
+                            </tr>
+                            <tr id="tr_headercart_bfy">
+                                <td style="text-align:left"><a href="javascript:makeBfyOrderFromHeader()">・海外購物</a></td>
+                                <td><span class="blue_t12"><a href="javascript:makeBfyOrderFromHeader()" style="color:#2e8dc6">0</a></span><span class="text_12_blk"></span>件</td>
+                                <td><a href="javascript:makeBfyOrderFromHeader()">結帳</a><span style="display: none;">$0</span></td>
+                            </tr>
+            		
+                        </table>
+                    </div>
+                </div>
+			</li>
+            <li class="menu_tt"><a href="https://shopping.udn.com/mall/cus/meb/Cc1m09.do">訂單</a></li>
+            <li class="menu_tt"><a href="https://tickets.udn.com/application/utk01/utk0101_.aspx" target="_blank">售票網</a></li>
+            <li class="menu_tt"><a href="http://udn.com/NEWS/mainpage.shtml" target="_blank">新聞網</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+			<div style="clear:both;"></div>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+<script>
+$(document).ready(function() {
+	defaultActiveBar();
+	//autocomplete close
+	//autocomplete($("#autocompleteId"));
+	$("#autocompleteId").attr('autocomplete', 'off');
+});
+
+function defaultActiveBar(){
+	
+        $( "ul.main_nav > li" ).children("a[href*=Cc1g00]").parent("li").addClass('main-nav-active');
+    
+}
+</script>
+		
+<!-----/上方主選單----->
+<div id="main_nav_block">
+	<div class="outter_wid950">
+    	<h1><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g00.do">uDesign</a></h1>
+        <h2><!--<a href="#">簡體版</a>--></h2>
+        <div class="top_function_block">
+        	<form action="http://shopping.udn.com/mall/cus/gbr/Search.do" method="post" id="searchForm" name="searchForm" target="_parent">
+        	<ul class="top_search_block">
+        		<li><a class="top_search_btn" href="javascript:document.searchForm.submit()">搜尋</a></li>
+            	<li>
+            		<input id="autocompleteId" name="keyword" class="wid320" type="text" value="請輸入關鍵字" onfocus="this.value=(this.value=='請輸入關鍵字')? '' : this.value;"  onblur="this.value=(this.value=='')? '請輸入關鍵字' : this.value;"/>
+            		<input type="hidden" id="sort" name="sort" value="weight" />
+					<input type="hidden" id="page" name="page" value="text" />	
+					<input type="hidden" id="cid" name="cid" value="0_059" />
+					<input type="hidden" id="key" name="key" value="32303134313130f4f159a7a0ad03c26ec0" />
+					<div id="searchResult"></div>
+            	</li>
+            </ul>
+            </form>
+            <ul class="main_nav">
+             	<li><a target="_blank" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&type=UD&url=http://img.udn.com/art/ud_contribute/ud-contribute.html">徵稿/徵件</a></li>
+                <li>｜</li>
+                <li><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do">設計大道</a></li>
+                <li>｜</li>
+                <li><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g01.do">募資預購區</a></li>
+                <li>｜</li>
+                <li>
+        		
+                	<a href="http://shopping.udn.com/mall/cus/cat/Cc1c01.do?dc_cateid_0=0_059">
+                		購.設計
+                	</a>
+                </li>
+                <li>｜</li>
+                <li><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do">閱.設計</a></li>
+            <!--<li>｜</li>
+                <li><a href="#">線上展</a></li> -->
+            </ul>
+		</div>
+    </div>
+	<div style="clear:both;"></div>			
+</div>
+		</div>
+		
+		<!-----/主內容----->
+		<div id="main_content_block" >
+			
+			<div class="outter_wid960_content">
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="index_top_ad">
+	
+	<li class="index_slide_ad1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/mall/css/gbr/flexslider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(document).ready(function() {
+	
+
+	
+	$('.flexslider').flexslider({
+		animation: "slide",
+    	slideshow: true,//自動撥放
+    	slideshowSpeed: 5000,
+    	animationSpeed: 250,
+		animationLoop: true,
+		directionNav: false,//是否顯示左右按鈕
+		pauseOnAction: true,
+		pauseOnHover: true,
+		useCSS: false,
+		startAt: 0,
+		after: function(slider){ 
+	         slider.pause(); 
+	         slider.play(); 
+	     }
+	});
+
+	
+	$(".flex-control-nav li a").bind( 'mouseover', function() {
+		this.click();
+	});
+	
+
+
+
+
+
+});
+
+</script>
+<style>
+
+</style>
+
+<div id="TopADBoxUD01">
+	<div class="flexslider">
+		<ul class="slides">
+		
+			<li id="ud01Item0">
+				<a href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&type=UD&url=http://img.udn.com/art/UDesign/event/11/maker/index.html&kdid=UD01" target="_self" title="我造 故我在">
+					<img src="http://img.udn.com/image/banner/20141031205636_s15483.jpg" alt="我造 故我在" title="我造 故我在" width="712" height="363" />
+				</a>
+			</li>
+		
+			<li id="ud01Item1">
+				<a href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&type=UD&url=http://img.udn.com/art/uDesign/event/10/halloween30/index-950.html&kdid=UD01" target="_self" title="萬聖節給你糖 加碼活動">
+					<img src="http://img.udn.com/image/banner/20141028211814_s55474.jpg" alt="萬聖節給你糖 加碼活動" title="萬聖節給你糖 加碼活動" width="712" height="363" />
+				</a>
+			</li>
+		
+			<li id="ud01Item2">
+				<a href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&type=UD&url=http://img.udn.com/art/UDesign/event/10/future_design/design_award.html&kdid=UD01" target="_self" title="聯合文創設計獎 正式開跑">
+					<img src="http://img.udn.com/image/banner/20141017175906_b77005.jpg" alt="聯合文創設計獎 正式開跑" title="聯合文創設計獎 正式開跑" width="712" height="363" />
+				</a>
+			</li>
+		
+			<li id="ud01Item3">
+				<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=8&kdid=UD01" target="_self" title="美好印花生活 無所不在">
+					<img src="http://img.udn.com/image/banner/20141031214809_b92888.jpg" alt="美好印花生活 無所不在" title="美好印花生活 無所不在" width="712" height="363" />
+				</a>
+			</li>
+		
+			<li id="ud01Item4">
+				<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=58&kdid=UD01" target="_self" title="把故事留在心裡 好風景戴上身體">
+					<img src="http://img.udn.com/image/banner/20141031214809_b94361.jpg" alt="把故事留在心裡 好風景戴上身體" title="把故事留在心裡 好風景戴上身體" width="712" height="363" />
+				</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+	
+	</li>
+		
+	<li class="index_top_ad2">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<a href="http://shopping.udn.com/mall/cus/cat/Cc1c02.do?dc_cargxuid_0=U004835068&dc_cateid_0=0_059&kdid=UD02">
+			<div class="index_top_ad1">
+				<div id="good_today">今日<br />好設計</div>
+				<img src="http://img.udn.com/image/banner/20141024174213_s33525.jpg"  alt="書寫觸控兩用筆" title="書寫觸控兩用筆" width="228" height="246" />
+				<p class="product_name ad_dsr">書寫觸控兩用筆</p>
+				<p class="product_owner ad_comt">now&amp;then全品牌↘85折</p>
+				<p class="price_index">NT.1604</p>
+			</div>
+		</a>
+	
+
+	</li>
+</ul>
+<div style="clear:both;"></div>
+<ul class="index_mid_ad">
+	
+	<li>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+function playVideo(){
+	
+				$("#startPlayVideo").html('<iframe src="http://www.youtube.com/embed/E65l15RZ3GM?autoplay=1" width="412" height="232" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+			
+			
+		
+	
+}
+
+</script>
+
+	<div class="index_video">
+		<div id="startPlayVideo">
+			<a href="javascript:playVideo()" title="一郎木創砧板首次使用說明影片">
+				<img src="http://img.udn.com/image/banner/20141009100823_s60698.jpg" alt="一郎木創砧板首次使用說明影片" title="一郎木創砧板首次使用說明影片" width="412" height="232" />
+			</a>
+		</div>
+		<p class="video_headline video_headtext">
+		
+			<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=32&kdid=UD03" target="_self" >一郎木創砧板首次使用說明影片</a>
+		
+		</p>
+		<p class="video_info video_infotext">有. 設計uDesign熱賣商品 "一郎木創-砧板"的使用說明。檜木本身有抗菌、除臭及防蟲的效果，一郎木創砧板特選斷面的部分製作，香氣特別濃厚，不易留下刀痕。</p>
+	</div>
+         
+	</li>
+	
+	<li>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g01.do?kdid=UD04">
+	<div class="index_mid_ad1">
+       <div id="pre_order">預訂<br />好設計</div>
+        <img src="http://img.udn.com/image/banner/20141031234802_s72123.jpg"  alt="3D PRINTER加DIY Workshop" title="3D PRINTER加DIY Workshop" width="228" height="246" />
+        <p class="product_name ad_dsr">3D PRINTER加DIY Workshop </p>
+        <p class="product_owner ad_comt">買3D PRINTER教你DIY 獨家優惠</p>
+        <p class="price_index">NT.39900</p>
+	</div>
+    </a>
+	
+
+	</li>
+	
+	<li>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<a href="http://shopping.udn.com/mall/cus/cat/Cc1c02.do?dc_cargxuid_0=U005038199&dc_cateid_0=0_059&kdid=UD05">
+		<div class="index_mid_ad1">
+	        <div id="good_today">本月<br />好設計</div>
+	         <img src="http://img.udn.com/image/banner/20141024202201_s23641.jpg"  alt="大燒杯夜燈" title="大燒杯夜燈" width="228" height="246" />
+	         <p class="product_name ad_dsr">大燒杯夜燈 </p>
+	         <p class="product_owner ad_comt">木入三分全品牌↘85折</p>
+	         <p class="price_index">NT.2210</p>
+		</div>
+	</a>
+	
+
+	</li>
+</ul>
+
+<div style="clear:both;"></div>
+<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do"><h3 class="index_head_read">閱.設計</h3></a>
+<ul class="index_read_block"> 
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=237" title="新米食生活提案 北海道東川町×花蓮縣玉里鎮">
+			<img src="http://img.udn.com/image/design/10310/2014102715031477352.png"  alt="新米食生活提案 北海道東川町×花蓮縣玉里鎮"/>
+			<p class="article_head article_headinline">新米食生活提案 北海道東川町×花蓮縣玉里鎮</p>
+			<p class="article_date">2014-11-01</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=236" title="設計，就是要自由">
+			<img src="http://img.udn.com/image/design/10310/2014102714510786938.JPG"  alt="設計，就是要自由"/>
+			<p class="article_head article_headinline">設計，就是要自由</p>
+			<p class="article_date">2014-10-31</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=235" title="源自雪豹的靈魂">
+			<img src="http://img.udn.com/image/design/10310/2014102714240855000.jpg"  alt="源自雪豹的靈魂"/>
+			<p class="article_head article_headinline">源自雪豹的靈魂</p>
+			<p class="article_date">2014-10-30</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=228" title="走一趟獨立書店 跟文化音符跳支舞">
+			<img src="http://img.udn.com/image/design/10310/2014102114281855721.jpg"  alt="走一趟獨立書店 跟文化音符跳支舞"/>
+			<p class="article_head article_headinline">走一趟獨立書店 跟文化音符跳支舞</p>
+			<p class="article_date">2014-10-29</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=233" title="2015米蘭世博會越南館 竹子建構荷花綠意">
+			<img src="http://img.udn.com/image/design/10310/2014102117245221965.png"  alt="2015米蘭世博會越南館 竹子建構荷花綠意"/>
+			<p class="article_head article_headinline">2015米蘭世博會越南館 竹子建構荷花綠意</p>
+			<p class="article_date">2014-10-28</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=232" title="風格符號之變與不變？精品品牌的設計再造">
+			<img src="http://img.udn.com/image/design/10310/2014102116550111480.png"  alt="風格符號之變與不變？精品品牌的設計再造"/>
+			<p class="article_head article_headinline">風格符號之變與不變？精品品牌的設計再造</p>
+			<p class="article_date">2014-10-27</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=231" title="【專訪林夕】創作就是表達 值得被看的東西">
+			<img src="http://img.udn.com/image/design/10310/2014102116422788238.jpg"  alt="【專訪林夕】創作就是表達 值得被看的東西"/>
+			<p class="article_head article_headinline">【專訪林夕】創作就是表達 值得被看的東西</p>
+			<p class="article_date">2014-10-26</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=230" title="不用等7天 3D印金屬假牙 半天搞定">
+			<img src="http://img.udn.com/image/design/10310/2014102116035098893.JPG"  alt="不用等7天 3D印金屬假牙 半天搞定"/>
+			<p class="article_head article_headinline">不用等7天 3D印金屬假牙 半天搞定</p>
+			<p class="article_date">2014-10-25</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=229" title="創意人范政揆 文創苦盼成長激素">
+			<img src="http://img.udn.com/image/design/10310/2014102115073025326.jpg"  alt="創意人范政揆 文創苦盼成長激素"/>
+			<p class="article_head article_headinline">創意人范政揆 文創苦盼成長激素</p>
+			<p class="article_date">2014-10-24</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=234" title="老文化新創意 茶籽精神永存">
+			<img src="http://img.udn.com/image/design/10310/2014102211305585036.jpg"  alt="老文化新創意 茶籽精神永存"/>
+			<p class="article_head article_headinline">老文化新創意 茶籽精神永存</p>
+			<p class="article_date">2014-10-23</p>
+		</a>
+	</li>
+	
+
+</ul>
+<div style="clear:both;"></div>
+<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do"><h3 class="index_head_avenue">設計大道</h3></a>
+<ul class="index_avenue_block"> 
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=19" title="只是">
+			<img src="http://img.udn.com/image/design/20140402095618_s72908.png" alt="只是"/>
+			<p class="designer_name">只是</p>
+			<p class="designer_skill">台灣 TAIWAN</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=29" title="Childlike">
+			<img src="http://img.udn.com/image/design/20140422114018_s7592.png" alt="Childlike"/>
+			<p class="designer_name">Childlike</p>
+			<p class="designer_skill">台灣 TAIWAN</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=15" title="plastudio">
+			<img src="http://img.udn.com/image/design/20140402095554_s39365.png" alt="plastudio"/>
+			<p class="designer_name">plastudio</p>
+			<p class="designer_skill">台灣 TAIWAN</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=62" title="hoomia">
+			<img src="http://img.udn.com/image/design/20140708142031_s30160.png" alt="hoomia"/>
+			<p class="designer_name">hoomia</p>
+			<p class="designer_skill">台灣 TAIWAN</p>
+		</a>
+	</li>
+	
+
+	<li>
+		<a href="http://shopping.udn.com/mall/cus/gbr/Cc1g02.do?dc_btn_0=Func_Brand&dc_brandxuid_0=75" title="Fresco">
+			<img src="http://img.udn.com/image/design/20140904114737_s95926.png" alt="Fresco"/>
+			<p class="designer_name">Fresco</p>
+			<p class="designer_skill">台灣 TAIWAN</p>
+		</a>
+	</li>
+	
+
+</ul>
+<div style="clear:both;"></div>
+<div class="community_block">
+	<div class="hot_article">
+		<h4>最熱文章</h4>
+			<ul>
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=219" title="簡約本味 丹麥四巨匠的家具設計精華">簡約本味 丹麥四巨匠的家具設計精華</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=210" title="逐海而居：啟動烏托邦的理想住所">逐海而居：啟動烏托邦的理想住所</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=221" title="3D列印好神 房子車子 統統變給你">3D列印好神 房子車子 統統變給你</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=223" title="工藝是生活的溫暖描繪─富錦樹Jay Wu VS. 種市曉">工藝是生活的溫暖描繪─富錦樹Jay Wu VS. 種市曉</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=216" title="設計，讓Bone走出不同的路">設計，讓Bone走出不同的路</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=214" title="台灣設計師周 uDesign力挺">台灣設計師周 uDesign力挺</a></p></li>
+				</ul>
+				
+			
+				<li><p class="hot_article_textline"><a href="http://shopping.udn.com/mall/cus/gbr/Cc1g03.do?dc_btn_0=Func_Read_Design_Article&dc_xuid_0=224" title="新米食生活提案">新米食生活提案</a></p></li>
+				</ul>
+				
+			
+	</div>
+	<div class="facebook_insert">
+		<fb:like-box href="https://www.facebook.com/udnshopping.udesign.com.tw" width="310" height="326" colorscheme="light" show_faces="true" header="true" stream="false" show_border="true"></fb:like-box>
+	</div>
+</div>
+<div style="clear:both;"></div>
+<h3 class="index_head_partner">合作夥伴</h3>
+<div class="partner_logo">
+<iframe src="http://img.udn.com/art/ud_partner/partnership_new.html" width="950" height="206" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> 
+</iframe>
+</div>
+
+
+
+
+
+
+
+<!-- include fb-->
+<script type="text/javascript">
+//FB include
+(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+
+	
+<div id="fb-root" ></div>
+			</div>
+		</div>
+		<!-----/次內容----->
+		
+		
+		
+
+
+
+
+
+
+<!-----/底部功能列＆版權宣告----->
+<div id="footer">
+	<div id="function_bottom">
+        <div class="bottom_wid950">
+        	<h1><a href="http://shopping.udn.com/mall">udn shopping</a></h1>
+            <ul class="menu_bottom">
+            	<li class="menu_bb"><a href="http://www.udngroup.com/2c/index-5.jsp" target="_blank">報系簡介</a></li>
+                <li class="menu_bb"><a href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&type=UD&url=http://img.udn.com/art/UDesign/about_us/about_us.html">關於我們</a></li>
+                <li class="menu_bb"><a href="http://www.udngroup.com/2c/private.jsp" target="_blank">隱私權聲明</a></li>
+                <li class="menu_bb"><a href="http://shopping.udn.com/mall/cus/inf/ShoppingGuide.do" target="_blank">客服中心</a></li>
+                
+                <li class="menu_bb"><a href="http://shopping.udn.com/mall/cus/inf/Partner.do" target="_blank">策略聯盟</a></li>
+                
+              	<li class="menu_bb"><a href="http://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=3860426b5a46402552683a1d1d1d1d5f24437323189j56" target="_blank">人才招募</a></li>            
+            </ul>
+        </div>
+    </div>
+    <div class="copy_outter_wid950">
+    	<p class="copyright_t">聯合報系 udn買東西購物中心｜聯絡地址：新北市汐止區大同路一段369號｜聯合報系 著作權所有｜© udngroup.com.  All Rights Reserved.
+        </p>
+    </div>
+</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/mall/js/jquery.cookie.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/jquery-validate.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/validations.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/jcarousellite_1.0.1.min.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/jquery.colorbox-min.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/jquery-ui-1.8.4.custom.min.js?t=20140804"></script>
+	<!-- autocomplete -->
+	<script type="text/javascript" src="/mall/js/gbr/autocompleteUDN.js?t=20140804"></script>
+	<script type="text/javascript" src="/mall/js/jquery.flexslider.js?t=20140804"></script>
+
+
+<!-- 購物車清單 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="shopping_cart_content" class="cart_bt" style="display: none;">
+	<h5 class="cart_title" onclick="javascript:openShoppingCartList();">購物清單</h5>
+    <div class="cart_close_btn" id="cartclose_btn"><a href="javascript:closeShoppingCartList();">close</a></div>
+    <div style="clear:both;"></div>
+    <div class="cart_content" id="newcart">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        	<tr id="tr_cart_supplier">
+            	<td style="text-align:left;"><a href="javascript:makeSupplierOrder()">・宅店配</a></td>
+                <td><span class="blue_t12"><a href="javascript:makeSupplierOrder()">0</a></span>件</td>
+                <td><span class="blue_t12"><a href="javascript:makeSupplierOrder()">$0</a></span>元</td>
+                <td><a href="javascript:makeSupplierOrder()">結帳</a></td>
+            </tr>
+            <tr id="tr_cart_24hr">
+                <td style="text-align:left;"><a href="javascript:make24Order()">・快速到貨</a></td>
+                <td><span class="blue_t12"><a href="javascript:make24Order()">0</a></span>件</td>
+                <td><span class="blue_t12"><a href="javascript:make24Order()">$0</a></span>元</td>
+                <td><a href="javascript:make24Order()">結帳</a></td>
+            </tr>
+		
+        </table>
+	</div>
+</div>
+
+<!--end of UDesign #shopping_cart_content -->
+
+
+
+<form id="cartListform" name="cartListform" method="post" action="https://shopping.udn.com/mall/cus/ord/Cc1o01.do">
+<input type="hidden" id="cartlistbtn" name="dc_btn_0" value="" />
+<input type="hidden" id="cartlistgroupid" name="dc_groupid_0" value="" />
+</form>
+<script>
+function closeShoppingCartList() {
+	$('#newcart').slideUp();
+	$('#cartclose_btn').hide();
+	$('#cartopen_btn').show();
+}
+function openShoppingCartList() {
+	$('#newcart').slideDown();
+	$('#cartclose_btn').show();
+	$('#cartopen_btn').hide();
+}
+function makeSupplierOrder() {
+	var current_amt_text = $('#tr_cart_supplier').find('td:eq(2) a').text();
+	if (current_amt_text == '$0') {
+		alert('宅店配購物車中無商品資料!');
+		return;
+	}
+	$('#cartlistbtn').val('Func_MakeSupplierOrder');
+	var formUrl = $('#cartListform').attr('action') + '?dc_btn_0=' + $('#cartlistbtn').val();
+	$('#cartListform').attr('action', formUrl);
+	$('#cartlistgroupid').val('');
+	
+	if($('#tr_cart_supplier td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_cart_supplier td a').attr('disabled', 'disabled');
+	
+	$('#cartListform').submit();
+}
+function make24Order() {
+	var current_amt_text = $('#tr_cart_24hr').find('td:eq(2) a').text();
+	if (current_amt_text == '$0') {
+		alert('快速到貨購物車中無商品資料!');
+		return;
+	}
+	$('#cartlistbtn').val('Func_Make24HROrder');
+	var formUrl = $('#cartListform').attr('action') + '?dc_btn_0=' + $('#cartlistbtn').val();
+	$('#cartListform').attr('action', formUrl);
+	$('#cartlistgroupid').val('');
+	
+	if($('#tr_cart_24hr td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_cart_24hr td a').attr('disabled', 'disabled');
+	
+	$('#cartListform').submit();
+}
+function makeGroupZoneOrder(groupid) {
+	var grouperror = $('#tr_cart_' + groupid).find('td:eq(3) span').text();
+	if ( grouperror != null && grouperror.length > 0 ) {
+		alert(grouperror);
+		var formUrl = $('#cartGroupform').attr('action') + '?dc_cateid_0=' + groupid;
+		$('#cartGroupform').attr('action', formUrl);
+		$('#cartGroupform').submit();
+		return;
+	}
+	$('#cartlistbtn').val('Func_MakeGroupOrder');
+	var formUrl = $('#cartListform').attr('action') + '?dc_btn_0=' + $('#cartlistbtn').val();
+	$('#cartListform').attr('action', formUrl);
+	$('#cartlistgroupid').val(groupid);
+	
+	if($('#tr_cart_' + groupid + ' td a').attr('disabled') == 'disabled'){
+		return;
+	}
+	$('#tr_cart_' + groupid + ' td a').attr('disabled', 'disabled');
+	
+	$('#cartListform').submit();
+}
+
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+	
+	function getInnerProdHtml(data,kdid,eturec) {
+		var strPopUrl = data.padLink +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<div class="thumbnail">'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcBig+'" alt="'+data.Dsr+'">'+'</a>'
+		+'<div class="caption">'
+		+'<h3><a href="'+strPopUrl+'" title="'+data.Dsr+'">'+data.Dsr+'</a></h3>'
+		+'<p>特價 <span class="price">'+data.Lowestpr+'</span></p>'
+		+'<a data-toggle="modal" href="'+strPopUrl.replace("Cc1c02", "QuickView") +'" class="glyphicon glyphicon-search quickview" data-target="#quickview">'
+		+'</a></div></div>';
+		return prodHtml;
+	}
+	
+	function getInnerRankHtml(data,kdid,eturec) {
+		var strPopUrl = data.padLink +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<li class="thumbnail">'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcSmall+'" alt="'+data.Dsr+'">'+'</a>'
+		+'<div class="caption">'
+		+'<h3><a href="'+strPopUrl+'" title="'+data.Dsr+'">'+data.Dsr+'</a></h3>'
+		+'<p class="text-right">特價 <span class="price">'+data.Lowestpr+'</span></p>'
+		+'<a data-toggle="modal" href="'+strPopUrl.replace("Cc1c02", "QuickView") +'" class="glyphicon glyphicon-search quickview" data-target="#quickview">'
+		+'</a></div></li>';
+		return prodHtml;
+	}
+	
+	function getDesignInnerRankHtml(data,kdid,eturec) {
+		var strPopUrl = data.Link +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<li>'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcBig+'" alt="'+data.Dsr+'">'
+		+'<div class="thumbnail_text150">'+data.Dsr+'</div>'
+		+'</a></li>';
+		return prodHtml;
+	}
+	
+	function getDesignTop10InnerRankHtml(data,kdid,eturec, index) {
+		var strPopUrl = data.Link +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<li>'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcSmall+'" alt="'+data.Dsr+'">'
+		+'<div class="top10_info">'
+		+'<h3><span class="y_bg">TOP '+ (index+1) +'</span></h3>'
+		+'<h4>'+data.Dsr+'</h4>'
+		+'<h5>NT$ '+ data.Lowestpr +'</h5></div>'
+		+'</a></li>';
+		return prodHtml;
+	}
+	
+	function getDesignSimpleHtml(data,kdid,eturec, index) {
+		var strPopUrl = data.Link +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<li>'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcBig+'" alt="'+data.Dsr+'">'
+		+'<div class="ad_products_text ad_products_textline">'
+		+ data.Dsr
+		+'</div>'
+		+'</a></li>';
+		return prodHtml;
+	}
+	
+	function getDesignTopInnerRankHtml(data,kdid,eturec, index) {
+		var strPopUrl = data.Link +'&kdid=' + kdid + '&eturec=' + eturec;
+		var prodHtml = '<li>'
+		+'<a href="'+strPopUrl+'" title="'+data.Dsr+'">'
+		+'<img src="'+data.SrcSmall+'" alt="'+data.Dsr+'">'
+		+'<div class="top10_info">'
+		+'<h4>'+data.Dsr+'</h4>'
+		+'<h5>NT$ '+ data.Lowestpr +'</h5></div>'
+		+'</a></li>';
+		return prodHtml;
+	}
+	
+	
+	function getRelateEtuProds(prods,recoType,relatedInnerHtmlId,htmlType,relkdid,eturec,etuPam,queryName,excludeQueryName){
+		
+		var relkdid = "";
+		if("etuD05ContentRel" == relatedInnerHtmlId){
+			relkdid = "pD05dEtu";
+		}
+			
+		getEtuProds(prods,recoType,relatedInnerHtmlId,htmlType,relkdid,eturec,etuPam,queryName,excludeQueryName,"","");
+		
+	}
+	
+	
+	function getEtuProds(prods,recoType,innerHtmlId,htmlType,kdid,eturec,etuPam,queryName,excludeQueryName,etuProdsCallBackFun,relatedInnerHtmlId){
+
+		
+		if(innerHtmlId.indexOf("Rel") < 0){
+				
+		   if(!document.getElementById(queryName+"_prodxuid")) {
+			
+			   var prodXuidDiv = document.createElement('div');		
+			   prodXuidDiv.setAttribute("id", queryName+"_prodxuid");
+			   var textNode = document.createTextNode(prods);
+			   prodXuidDiv.appendChild(textNode);
+  
+			   document.getElementById('recoProdXuidHtml').appendChild(prodXuidDiv);
+
+		   }else{
+			   document.getElementById(queryName+"_prodxuid").innerHTML += ","+prods;
+		   }
+
+		   if(excludeQueryName != null && excludeQueryName.length > 0 && excludeQueryName != 'undefined'){
+			   if(document.getElementById(excludeQueryName+"_prodxuid")) {
+				   var excludeProd = document.getElementById(excludeQueryName+"_prodxuid").innerHTML;
+				   for(var i=0; i<prods.length; i++){
+					   if(excludeProd.indexOf(prods[i])>=0){
+						   prods.splice(i, 1);
+						   i--;
+					   }
+				   }
+		 	   }
+		   }
+		}
+		$.ajax({
+			type: 'post',
+			url: '/mall/cus/cat/Cc1c04.do?dc_btn_0=Func_Etu_RecoProd',
+			data: 'dc_prods_0='+prods+'&type='+recoType+etuPam,
+			dataType: 'json',
+			success: function(data) {
+				var popHtml = '';
+				if(data!=null && data.length>0){
+					//組頁面
+					for(var i=0; i<data.length; i++){
+						if ( "A" == htmlType ) {
+							popHtml += getInnerProdHtml(data[i],kdid,eturec);
+						} else if ( "B" == htmlType ) {
+							popHtml += getInnerRankHtml(data[i],kdid,eturec);
+						} else if ( "C" == htmlType ) {
+							popHtml += getDesignInnerRankHtml(data[i],kdid,eturec);
+						} else if ( "D" == htmlType ) {
+							popHtml += getDesignTop10InnerRankHtml(data[i],kdid,eturec, i);
+						} else if ( "E" == htmlType ) {
+							popHtml += getDesignSimpleHtml(data[i],kdid,eturec, i);
+						} else if ( "F" == htmlType ) {
+							popHtml += getDesignTopInnerRankHtml(data[i],kdid,eturec, i);
+						}
+	    			}
+	                document.getElementById(innerHtmlId).innerHTML += popHtml;
+	                $(window).resize();
+	                
+	                if(document.getElementById(innerHtmlId+"Area")) {
+	                	document.getElementById(innerHtmlId+"Area").style.height = '100%';
+					    document.getElementById(innerHtmlId+"Area").style.visibility = 'visible';
+		            }
+	                
+				}
+				
+				if (typeof(eval(etuProdsCallBackFun))=='function') {
+                	eval(etuProdsCallBackFun)(data, queryName);
+                };
+                
+				return;
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				//alert("取得推薦商品失敗!!");
+			} 
+		});
+		
+		
+		if(relatedInnerHtmlId != null && relatedInnerHtmlId.length > 0 && relatedInnerHtmlId != 'undefined'){
+			getRelateEtuProds(prods,recoType,relatedInnerHtmlId,htmlType,kdid,eturec,etuPam,queryName,excludeQueryName);
+		}
+	}
+	
+	function doEtuQuery() {
+	    var er = document.createElement('script');
+	    er.type = 'text/javascript';
+	    er.async = true;
+	    er.src = erUrlPrefix+'er.js?'+(new Date().getDate());
+	    var currentJs=document.getElementById('etu-recommender');
+	    currentJs.parentNode.insertBefore(er,currentJs);
+	}
+
+</script>
+
+
+<script id="etu-recommender" type="text/javascript">
+	var erUrlPrefix='https://rec.udn.com/';
+
+	function etuRecQueryCallBack(queryParams,queryResult) {	
+		//alert(queryParams['name']+":"+ queryResult);
+		var queryName = queryParams['name'];
+		if (typeof(eval('etuParam_'+queryName))=='function') {
+			var etuParam = eval('etuParam_'+queryName)(queryResult);
+			if ( etuParam['queryResult'] != undefined ) {
+				queryResult = etuParam['queryResult'];
+			}
+			var eturec = queryParams['cid'];
+			if ( 'udn' == eturec ) {
+				eturec = '1';
+			}
+			getEtuProds(
+					queryResult,
+					etuParam['type'],
+					etuParam['innerHtmlId'],
+					etuParam['htmlType'],
+					etuParam['kdid'],
+					eturec,
+					etuParam['param'],
+					queryName,
+					etuParam['excludeQueryName'],
+					etuParam['etuProdsCallBackFun'],
+					etuParam['relatedInnerHtmlId']
+			);
+		}
+		_qqueryList = [];
+	}
+	
+	//執行
+	(function() {
+		doEtuQuery();
+	})();
+</script>
+
+<div id="recoProdXuidHtml" style="display: none;">abcde</div>
+
+ 
+
+<!-- Yahoo Email Alert-->
+
+
+
+
+
+
+  
+
+
+<script type="text/javascript">
+function infoAlert(){
+	$( "#yahooDialog" ).dialog();
+	PreviewYahooImage($(this).attr('href'));	
+}
+    PreviewYahooImage = function() {
+		 $('#yahooDialog').dialog({
+				position:['center','center'],
+				modal : false,
+				resizable : false,
+				draggable : false,
+				width : '450px',
+				buttons : {"確定" : 
+				    function() {
+					    $(this).dialog("close");
+				    }
+		        }
+		});
+	};
+</script>
+
+<!-- 彈跳dialog的內容 -->	
+<div id="yahooDialog" title="貼心提醒" style="display: none;">       
+<table "">
+   <tr>
+     <td style="padding-left: 2px; text-align:left; word-break: break-all;">
+親愛的會員 您好，<br>
+由於Yahoo於2013年8月15日釋出一年內未登入使用之電子郵件，如果您在udn相關服務網站所使用的註冊 email 為 Yahoo 電子郵件，
+可能因為一年內未登入使用而被 Yahoo 註銷您使用此電子郵件之權利，後續可能導致您無法收取udn相關通知信件，甚至電子郵件遭他人登入使用而影響您的權益。<br>
+為避免此類事件發生，強烈建議您儘速登入 Yahoo ，確認您的 Yahoo 電子郵件是否遭註銷。如有前開情事，請立即來信與 udn.com 客服中心聯繫
+（cs@udnmembers.com），由客服人員協助您變更註冊使用之電子郵件，感謝您的配合。<br>
+關於 Yahoo 釋出一年內未登入使用之電子郵件相關說明，請參閱以下網址：http://yahoo.tumblr.com/post/52805929240/yourname-yahoo-com-canbe-yours
+	</td>
+  </tr>
+</table>
+</div>
+
+<script>
+
+    var _yw_StartDay = new Date('10/14/2013 00:00:00');
+    var _yw_EndDay = new Date('1/15/2014 23:59:59');
+    var _yw_curDay = new Date();
+ 
+    if( _yw_curDay.getTime() > _yw_StartDay.getTime() && _yw_curDay.getTime() <= _yw_EndDay.getTime() ){
+        
+        var _yw_loginEmail = '' ;
+        if( _yw_loginEmail.toLocaleLowerCase().indexOf("@yahoo.com") != -1 ) {
+            var _yw_prefixCookieName = '__HADRYEW' ;
+            if( document.cookie.indexOf(_yw_prefixCookieName) == -1 ){            	
+                
+                
+                   document.cookie = "__HADRYEW=Y; expires=" + _yw_EndDay.toGMTString() + "; domain=udn.com; path=/" ;
+                
+                
+                infoAlert();
+            }
+        }        
+    }
+ 
+</script>
+
+<!-- google_analytics -->
+
+
+
+<!-- google analytics event -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19210365-13']);
+  
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- google analytics event -->
+<!-- google analytics UDN -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19660006-1']);
+  _gaq.push(['_setDomainName', '.udn.com']);
+  
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- google analytics UDN -->
+
+
+
+<!-- google analytics UDN -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34729421-1']);
+  
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- google analytics UDN -->
+
+
+
+<!-- google analytics for pad -->
+
+
+
+<script type="text/javascript">
+try {
+	var cur_protocol = location.protocol;
+	$.ajax({
+		type: 'get',
+		url: '/mall/Cc1pub01.ajax?dc_protocol_0=' + cur_protocol,
+		dataType: 'json',
+		success: function(data) {
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+		} 
+	});
+} catch (e) {
+}
+</script>
+
+<!-- Google Tag Manager Tag-->
+
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T4CVD2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4CVD2');</script>
+<!-- End Google Tag Manager -->
+
+<!-- comScore Tag -->
+<!-- Begin comScore Tag -->
+<script> 
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "7390954" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=7390954&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+
+<!-- Footer Track Code-->
+
+
+
+
+
+
+
+<!-- Marinsm track code -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN: Marin Software Tracking Script (Landing Page) -->
+<script type='text/javascript'>
+	var _mTrack = _mTrack || [];
+	_mTrack.push(['trackPage']);
+	(function() {
+	var mClientId = '1318gjf29407';
+	var mProto = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var mHost = 'tracker.marinsm.com';
+	
+	var mt = document.createElement('script'); mt.type = 'text/javascript'; mt.async = true; mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+	var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
+	})();
+</script>
+<noscript>
+	<img width="1" height="1" src="https://tracker.marinsm.com/tp?act=1&cid=1318gjf29407&script=no" />
+</noscript>
+<!-- END: Copyright Marin Software -->
+
+
+
+
+<!-- Alexa track code -->
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"aw0Di1a4ZP00aY", domain:"udn.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=aw0Di1a4ZP00aY" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+<!-- Vizury track code -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN: Vizury Tracking Script (Landing Page) -->
+
+
+
+<script type='text/javascript'>
+(function() {
+    try {
+        var viz = document.createElement("script");
+        viz.type = "text/javascript";
+        viz.async = true;
+        viz.src = ("https:" == document.location.protocol ?"https://ssl.vizury.com" : "http://serv3.vizury.com")+ "/analyze/pixel.php?account_id=VIZVRM1323";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(viz, s);
+        viz.onload = function() {
+            try {
+                pixel.parse();
+            } catch (i) {
+            }
+        };
+        viz.onreadystatechange = function() {
+            if (viz.readyState == "complete" || viz.readyState == "loaded") {
+                try {
+                    pixel.parse();
+                } catch (i) {
+                }
+            }
+        };
+    } catch (i) {
+    }
+})();
+</script>
+
+
+<!-- END: Vizury Tracking Script (Landing Page) -->
+
+
+
+
+		
+
+
+
+
+
+<!-- uDesign 文創首頁 -->
+<!-- yahoo track code -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Yahoo Track Code -->
+<script type="text/javascript" src="/mall/js/trackcode/udn_ywa_s.js?t=20141016"></script>
+
+
+
+<script type="text/javascript" >
+
+
+        doPageView('','Index','uDesign','','','','','');
+
+
+
+</script>
+
+
+
+	</body>
+</html>

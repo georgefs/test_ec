@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="no-js ie7" lang="zh-hant" xmlns:fb="http://ogp.me/ns/fb#" xmlns:html5="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="zh-hant" xmlns:fb="http://ogp.me/ns/fb#" xmlns:html5="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9" lang="zh-hant" xmlns:fb="http://ogp.me/ns/fb#"xmlns:html5="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="zh-hant" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->   
+    
+  <head>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgYDUFBAAAcDV1JT"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<link rel="canonical" href="http://www.reebonz.com.tw/item/RVSR20022001" />
+<meta name="p:domain_verify" content="b4b63d36a62486fc5d42bf7976bc56e4" />
+<link rel="shortcut icon" href="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/favicon.ico" type="image/vnd.microsoft.icon" />
+<link media="screen" href="http://www.reebonz.com.tw/sites/all/modules/custom/smart_banner/etc/jquery.smartbanner.css" rel="stylesheet" type="text/css" />
+<link rel="apple-touch-icon" href="http://www.reebonz.com.tw/sites/all/modules/custom/smart_banner/etc/logo_reebonz_app.png" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="android-touch-icon" href="http://www.reebonz.com.tw/sites/all/modules/custom/smart_banner/etc/logo_reebonz_app.png" />
+<link rel="apple-touch-icon-precomposed" href="http://www.reebonz.com.tw/sites/all/modules/custom/smart_banner/etc/logo_reebonz_app.png" />
+<meta name="google-play-app" content="app-id=com.reebonz.fashion" />
+<meta name="apple-itunes-app" content="app-id=377175827">
+
+  <title>Reebonz 國際精品網購第一品牌 | Coach GUCCI CHANEL 名牌包每日特賣 | 國際精品網購第一品牌</title> 
+
+  <!--[if IE]>
+  <link href="http://www.octopus2.local/sites/all/themes/custom/octopus2/css/reebonz-ie.css" rel="stylesheet">
+  <![endif]-->    
+  
+    
+  <script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/misc/drupal.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js?v=67fb34f6a866c40d0570"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+  function add_datalayer(type) {
+    dataLayer.push({"event": "ga_event", "ga_event_category": "user", "ga_event_action": "social_link_clicked", "ga_event_label": "\""+type.toString()+"\""});
+  }
+  
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+    // Reebonz
+     var Reebonz = Reebonz || { 'user': {}, 'order': {}, 'cart': {}, 'checkout' : {}, 'site' : {} };
+
+     Reebonz.user.id =0;
+     Reebonz.user.country ='';
+     Reebonz.user.language ='zh-hant' ;
+     Reebonz.user.countryName='Taiwan';
+     Reebonz.user.invitecode='';
+     Reebonz.user.membership='Anonymous';
+     //Reebonz.user.email_hash='0_d41d8cd98f00b204e9800998ecf8427e';
+     Reebonz.user.email_hash='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+     Reebonz.user.currency='NTD';
+     Reebonz.site.static_version='?nec7yq';
+     Reebonz.royale = 0;
+   
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/files/languages/zh-hant_Ew76Hd6IyHMPQolJr1iarxLBdd8yoyMk06iucXNQaVg.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/modules/contrib/panels/js/panels.js?nec7yq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+  (function($){    
+    $(function () { 
+      if($("#edit-attributeqty").find("option").html() <= 2){
+        $(".qty-left").html("只剩 " + $("#edit-attributeqty").find("option").html() + " 個!");
+      }
+      
+      $(".select-size").click(function(){
+        $(".qty-left").html("");
+        $sizeselected = $(".select-size").find(".selected").html();
+        $stocksizeselected = $("#edit-attributeqty").find("option[value='" + $sizeselected + "']").html();
+        if($stocksizeselected <= 2){
+          $(".qty-left").html("只剩 " + $stocksizeselected + " 個!");
+        }    
+      });
+    });
+    })(jQuery);
+  
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/tabcontent.js?nec7yq"></script>
+<script type="text/javascript" defer="defer" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/jquerytabs/jquery.tabs.min.js?nec7yq"></script>
+<script type="text/javascript" defer="defer" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/apps-eventdetail.js?nec7yq"></script>
+<script type="text/javascript" defer="defer" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/apps-itemdetail.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/jquery.reveal.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/jquery.easing.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/merge_header.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/modernizr.custom.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/slidesearch-classie.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/slidesearch-uisearch.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/bootstrap-hover-dropdown.min.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/modules/custom/smart_banner/etc/jquery.smartbanner.js?nec7yq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+            (function ($) {
+                $(function() {
+
+                    new SmartBanner({
+                        daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
+                        daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+                        appStoreLanguage: "us", // language code for the App Store (defaults to us)
+                        title: "Reebonz",
+                        author: "Reebonz",
+                        button: "Install",
+                        store: {
+                            ios: "On the App Store",
+                            android: "In Google Play"
+                        },
+                        price: {
+                            ios: "FREE",
+                            android: "FREE"
+                        }
+                        //, force: "ios" // Uncomment for platform emulation
+                    });
+
+                });
+            })(jQuery);
+        
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/fancybox/jquery.fancybox.js?nec7yq"></script>
+<script type="text/javascript" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/bootstrap.min.js?nec7yq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"octopus2","theme_token":"-m5KOpVDHgZPt2sX2HEtzajOHUcXjYUt5kax_jlDd2k","js":{"0":1,"1":1,"2":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"3":1,"4":1,"public:\/\/languages\/zh-hant_Ew76Hd6IyHMPQolJr1iarxLBdd8yoyMk06iucXNQaVg.js":1,"sites\/all\/modules\/contrib\/panels\/js\/panels.js":1,"5":1,"sites\/all\/themes\/custom\/octopus2\/js\/tabcontent.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/jquerytabs\/jquery.tabs.min.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/apps-eventdetail.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/apps-itemdetail.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/jquery.reveal.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/jquery.easing.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/merge_header.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/modernizr.custom.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/slidesearch-classie.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/slidesearch-uisearch.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/bootstrap-hover-dropdown.min.js":1,"http:\/\/www.reebonz.com.tw\/sites\/all\/modules\/custom\/smart_banner\/etc\/jquery.smartbanner.js":1,"6":1,"sites\/all\/themes\/custom\/octopus2\/js\/fancybox\/jquery.fancybox.js":1,"sites\/all\/themes\/custom\/octopus2\/js\/bootstrap.min.js":1},"css":{"sites\/all\/modules\/contrib\/find_content\/find_content.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/contrib\/panels\/plugins\/layouts\/onecol\/onecol.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/bootstrap.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-core.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-social-network.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-footerstamps.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-ipp.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reveal.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/slidesearch-component.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-mergeitemdetail.css":1,"sites\/all\/themes\/custom\/octopus2\/js\/fancybox\/jquery.fancybox.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-mergeheader.css":1,"sites\/all\/themes\/custom\/octopus2\/css\/reebonz-mergefooter.css":1}}});
+//--><!]]>
+</script>
+
+  <style type="text/css" media="all">@import url("http://www.reebonz.com.tw/sites/all/modules/contrib/panels/css/panels.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/modules/contrib/panels/plugins/layouts/onecol/onecol.css?nec7yq");</style>
+<style type="text/css" media="all">@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/bootstrap.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-core.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-social-network.css?nec7yq");</style>
+<style type="text/css" media="all">@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-footerstamps.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-ipp.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reveal.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/slidesearch-component.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-mergeitemdetail.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/js/fancybox/jquery.fancybox.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-mergeheader.css?nec7yq");
+@import url("http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/css/reebonz-mergefooter.css?nec7yq");</style>
+</head>
+<body class="zh-hant Taiwan"> 
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-C85GJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+  new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+  "//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,"script","dataLayer","GTM-C85GJ");</script>
+  <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        dataLayer.push({'product_id': 'RVSR20022001'});
+        dataLayer.push({'product_value': '55053.4228'});
+        dataLayer.push({'event': 'ga_event', 'ga_event_category': 'user', 'ga_event_action': 'item_viewed', 'ga_event_label': 'RVSR20022001-Pre-Owned Prada Nappa Gaufre Handbag'});
+        dataLayer.push({'product_category': 'BAGS'});
+        </script><script type="text/javascript">
+          dataLayer.push({
+            'ecommerce': {
+              'detail': {
+                'actionField':{},
+                'products': [
+                  { 'name': 'Pre-Owned Prada Nappa Gaufre Handbag', // Name or ID is required.
+                    'id': 'RVSR20022001',
+                    'price': '55053.4228',
+                    'brand': 'PRADA',
+                    'category': 'BAGS SHOULDER'}
+                ]
+              }
+            }
+          });
+        </script>  <div class="reebonz-full-wrap">
+<div id="rbz-header">
+    <div class="region region-header">
+    <div id="block-merge-header-merge-header" class="block block-merge-header">
+
+    
+  <div class="content">
+    
+<div class="merge-sticky-userbar">
+    <div class="merge-sticky-userbar-wrap">
+        <div class="row-fluid span12">
+            <div class="span6 merge-sticky-userbar-col1">
+                <a href="mailto:conciergetw@reebonz.com" style="color: #000">conciergetw@reebonz.com</a> | 0800-555-700            </div>
+                            <div class="span6 merge-sticky-userbar-col2">
+                    <div class="merge-account-name-wrap" style="position: absolute; right: 0;">
+                        <div class="merge-account-name">
+                            <a href="http://www.reebonz.com.tw/mainlanding">馬上登入</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.reebonz.com.tw/mainlanding/signup1">Register</a>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="merge-navbar">
+    <div class="merge-navbartabs-wrap">
+       <ul>
+                  <li class="showMenu" target="1"><a href="http://www.reebonz.com.tw/sell">精品寄賣<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="2"><a href="/category/preowned?bags&pc[]=slg&pc[]=accessories&pc[]=timepiece&pc[]=jewellery&pc[]=shoes">二手精品<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="3"><a href="/event_list/landing/bags">包款與配件<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="4"><a href="/event_list/landing/watches">高級名錶<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="5"><a href="/event_list/landing/jewellery">珠寶<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="6"><a href="/event_list">REEBONZ會員專區<span class="arrowgold"></span></a></li>
+                   <li class="showMenu" target="7"><a href="http://stylefiles.reebonz.com.tw">流行新鮮事<sup>new</sup></a></li>
+                </ul>
+        <!-- <div class="sell navbartabsarrow"></div> -->
+
+        <div id="arrow-black" class="navbartabsarrow"></div>
+        <div class="merge-searchwrap">
+                <div id="sb-search" class="sb-search">
+            <form method="GET" action="/search">
+                <input class="sb-search-input" placeholder="Search" type="text" value="" name="query" id="query">
+                <input class="sb-search-submit" type="submit" value="">
+                <span class="sb-icon-search"></span>
+            </form>
+        </div>
+            </div>
+</div>
+
+<!--SELL-->
+<div id="div1" target="1" class="targetDiv sell merge-dropdown">
+    <div class="merge-navbar-shadow"></div>
+    <div style="width: 1000px; margin: 0 auto; height: 230px; padding-top: 10px;">
+        <div class="row-fluid span12">
+            <div class="span2">
+                <h1>精品寄賣</h1>
+                <ul>
+                    <li><a href="http://www.reebonz.com.tw/sell">寄賣流程</a></li>
+                    <li><a href="http://www.reebonz.com.tw/sell/brands-we-accept">開放寄賣之品牌</a></li>
+                                                            <li><div onclick="location.href='/consign_item';"  class="mergeheader-viewall-btn">申請寄賣</div></li>
+                </ul>
+            </div>
+
+                    </div>
+    </div>
+</div>
+<!--END OF SELL ZONE-->
+
+
+<!--PREOWNED-->
+
+<div id="div2" target="2" class="targetDiv community merge-dropdown">
+    <div class="merge-navbar-shadow"></div>
+        <div style="width: 1000px; margin: 0 auto; position: relative; height: 200px; padding-top: 10px;">
+            <h1>二手精品</h1>
+                            <li class="merge-dropdown-categories">
+                    <a href="/category/bags?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/icon-bags.jpg" border="0"><br/>包款</a>
+                </li>
+                                        <li class="merge-dropdown-categories">
+                    <a href="/category/slg?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/icon-slg.jpg" border="0"><br/>小皮件</a>
+                </li>
+                                        <li class="merge-dropdown-categories">
+                    <a href="/category/accessories?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/icon-accessories.jpg" border="0"><br/>飾品</a>
+                </li>
+                                        <li class="merge-dropdown-categories">
+                    <a href="/category/timepiece?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/icon-timepieces.jpg" border="0"><br/>高級腕錶</a>
+                </li>
+                                        <li class="merge-dropdown-categories">
+                    <a href="/category/jewellery?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/men-jew.jpg" border="0"><br/>珠寶</a>
+                </li>
+                                        <li class="merge-dropdown-categories">
+                    <a href="/category/shoes?vin=preowned#?vint=Vintage"><img width="120px" src="/sites/all/themes/custom/octopus2/img/merge-header/icon-shoes.jpg" border="0"><br/>鞋款</a>
+                </li>
+                            </div>
+</div>
+
+<!--END OF PREOWNED ZONE-->
+
+<!--BAGS & ACCESSORIES-->
+
+<div id="div3" target="3" class="targetDiv">
+    <div class="merge-navbar-shadow"></div>
+    <div style="width: 1000px; margin: 0 auto; padding-top: 20px; height: 245px;">
+        <div class="row-fluid span12">
+            <div class="merge-dropdown">
+                <div class="merge-dropdown-catscol">
+                    <h1>依類別搜尋</h1>
+                    <ul>
+                       <li><a href="/category/bags">包包</a></li>
+                       <li><a href="/category/shoes">鞋款</a></li>
+                       <li><a href="/category/accessories">飾品配件</a></li>
+                       <li><a href="/category/slg">小皮件</a></li>
+                       <li><div onclick="location.href='/category/all';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                    </ul>
+                </div>
+                <div class="merge-dropdown-eventscol">
+                    <h1>Shop by events</h1>
+                    <ul>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t10881"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028115833_01.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t10881"><b>二手新品首波下殺</b></a><br/><span>二手商品</span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t10910"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141029185755_Top_10_Picks.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t10910"><b>Loewe</b></a><br/><span>二手商品</span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners last">
+                            <h1>MORE EVENTS</h1>
+                            <ul>
+                                                                    <li><a href="/event/t10908">Burberry</a></li>
+                                                                    <li><a href="/event/t10909">Balenciaga</a></li>
+                                                                    <li><a href="/event/t10901">經典收藏家</a></li>
+                                                                    <li><a href="/event/t10932">黯黑美學</a></li>
+                                                                <li><div onclick="location.href='/event_list/all';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+               <div class="merge-dropdown-catscol">
+                    <h1>二手精品服務</h1>
+                    <ul>
+                        <li><a href="/sell/atelier-leather-goods">REEBONZ鑑定工坊</a></li>
+                        <!--<li><a href="#">Reebonz Care</a></li>-->
+                                                                    </ul>
+                </div>
+                <div class="merge-dropdown-catscol">
+                                            <h1>精品寄賣</h1>
+                        <ul>
+                            <li><a href="/sell/consign/bags#howtoselltoreebonz">寄賣流程</a></li>
+                            <li><a href="/sell/consign/bags#commissionstructure">Payout Structure </a></li>
+                            <li><a href="/sell/consign/bags#whyselltous">為何REEBONZ 是您的寄賣首選?</a></li>
+                            <li><a href="/sell/consign/bags#brandsweaccept">開放寄賣之品牌</a></li>
+                        </ul>
+                                                       </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END OF BAGS & ACCESSORIES ZONE-->
+<!--WATCHES-->
+
+<div id="div4" target="4" class="targetDiv">
+    <div class="merge-navbar-shadow"></div>
+    <div style="width: 1000px; margin: 0 auto; padding-top: 20px; height: 245px;">
+        <div class="row-fluid span12">
+            <div class="merge-dropdown">
+                <div class="merge-dropdown-catscol">
+                    <h1>依品牌搜尋</h1>
+                    <ul>
+                                              <li><a href="/category/timepiece?br[]=Bertolucci">
+                               Bertolucci                           </a></li>
+                                              <li><a href="/category/timepiece?br[]=Blancpain">
+                               Blancpain                           </a></li>
+                                              <li><a href="/category/timepiece?br[]=Breguet">
+                               Breguet                           </a></li>
+                                              <li><a href="/category/timepiece?br[]=Breitling">
+                               Breitling                           </a></li>
+                                              <li><a href="/category/timepiece?br[]=Bucherer">
+                               Bucherer                           </a></li>
+                                              <li><div onclick="location.href='/category/timepiece';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                   </ul>
+                </div>
+                                <div class="merge-dropdown-eventscol">
+                    <h1>Shop by Events</h1>
+                    <ul>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t10818"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141027151056_NORMAL_2_copy_copy.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t10818"><b>新到腕錶</b></a><br/><span>新品上架 (二手商品)</span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t10822"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141027165245_Top_10_Picks.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t10822"><b>奢華腕錶</b></a><br/><span>二手商品</span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners last">
+                            <h1>MORE EVENTS</h1>
+                            <ul>
+                                                                    <li><a href="/event/t10914">完美錶情</a></li>
+                                                                    <li><a href="/event/t10905">Hermes 極致腕錶</a></li>
+                                                                    <li><a href="/event/t10906">腕錶精選</a></li>
+                                                                    <li><a href="/event/t10868">Rolex</a></li>
+                                                                <li><div onclick="location.href='/event_list/watches';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="merge-dropdown-catscol service">
+                    <h1>二手精品服務</h1>
+                    <ul>
+                        <li><a href="/sell/atelier-watch">REEBONZ鑑定工坊</a></li>
+                        <!--<li><a href="#">Reebonz Care</a></li>-->
+                        <li><a href="/sell/rv-team-experts/watches">名錶專業鑑定團隊</a></li>
+                        <!--<li><a href="/preorder/watches#/preorder/watches"></a></li>-->
+                        <li><span style="color: #fff;">&nbsp;</span></li>                        
+                    </ul>
+                </div>
+                <div class="merge-dropdown-catscol last">
+                                                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END OF WATCHES ZONE-->
+
+<!--JEWELLERY-->
+<div id="div5" target="5" class="targetDiv">
+    <div class="merge-navbar-shadow"></div>
+    <div style="width: 1000px; margin: 0 auto; padding-top: 20px; height: 245px;">
+        <div class="row-fluid span12">
+            <div class="merge-dropdown">
+                <div class="merge-dropdown-catscol">
+                    <h1>依品牌搜尋</h1>
+                    <ul>
+                                                    <li><a href="/category/jewellery?br[]=Balenciaga">Balenciaga</a></li>
+                                                    <li><a href="/category/jewellery?br[]=Boucheron">Boucheron</a></li>
+                                                    <li><a href="/category/jewellery?br[]=Bvlgari">Bvlgari</a></li>
+                                                    <li><a href="/category/jewellery?br[]=Cartier">Cartier</a></li>
+                                                    <li><a href="/category/jewellery?br[]=Celine">Celine</a></li>
+                                                <li><div onclick="location.href='/category/jewellery';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                    </ul>
+                </div>
+                                <div class="merge-dropdown-eventscol">
+                    <h1>Shop by Events</h1>
+                    <ul>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t9375"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/2014717144457_9375.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t9375"><b>Simply Elegant</b></a><br/><span></span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners">
+                            <a href ="/event/t9412"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/2014718225554_9319.jpg"></a>
+                            <div class="merge-dropdown-eventname"><a href ="/event/t9412"><b>Touch of Luxe</b></a><br/><span></span></div>
+                        </li>
+                                                <li class="merge-dropdown-eventbanners last">
+                            <h1>MORE EVENTS</h1>
+                            <ul>
+                                                                    <li><a href="/event/t10575">Sensational Sparkles</a></li>
+                                                                    <li><a href="/event/t10561">Dazzling Diamonds</a></li>
+                                                                    <li><a href="/event/t10968">璀璨鑽飾</a></li>
+                                                                <li><div onclick="location.href='/event_list/jewellery';"  class="mergeheader-viewall-btn">瀏覽全部</div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                                <div class="merge-dropdown-catscol service">
+                    <h1>二手精品服務</h1>
+                    <ul>
+                       <li><a href="/sell/atelier-jewellery">REEBONZ鑑定工坊</a></li>
+                       <!--<li><a href="#">Reebonz Care</a></li>-->
+                                               <!--<li><a href="/preorder/jewellery#/preorder/jewellery">Preorder Catalog</a></li>
+                                  -->
+                        <li><span style="color: #fff;">&nbsp;</span></li>                                           </ul>
+                </div>
+                <div class="merge-dropdown-catscol last">
+                                                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END OF JEWELLERY ZONE-->
+
+<!-- COMMUNITY -->
+<div id="div6" target="6" class="targetDiv community merge-dropdown">
+    <div class="merge-navbar-shadow"></div>
+    <div style="width: 1000px; margin: 0 auto; position: relative; height: 280px; padding-top: 10px;">
+        <div class="row-fluid span12">
+            <div class="span2">
+                <h1><a href="/rewards/membership">專屬會員資格</a></h1>
+                <ul>
+                    <li><a href="/rewards/membership/black">黑鑽會員</a></li>
+                    <li><a href="/rewards/membership/solitaire">晶鑽會員</a></li>
+                </ul>
+                                    <h1><a href="/rewards">兌換紅利點數</a></h1>
+                    <ul>
+                        <li><a href="/rewards/loyalty">會員酬賓</a></li>
+                        <li class="itl" style="color: #666666;">紅利點數加倍送！</li>
+                    </ul>
+                                <h1>邀請好友，現賺5%回饋金！</h1>
+                <ul>
+                    <li class="itl"><a href="/invite">立即邀請</a></li>
+                </ul>
+            </div>
+            <div class="span3">
+                <h1><a href="/spotlight">REEBONZ 快訊</a></h1>
+                <ul>
+                    <li><a href="/spotlight/gallery">活動花絮</a></li>
+                    <li><a href="http://editorial.reebonz.com/reebonztv/">REEBONZ TV</a></li>
+                    <li><a href="/reebonzmoments">REEBONZ 即時分享</a></li>
+                    <li><a href="/spotlight/media">REEBONZ 媒體報導</a></li>
+                </ul>
+            </div>
+            <div class="span6">
+                <h1>過往特賣會活動</h1>
+                <a class="link-itl" href="/editorial/editbites">立即瀏覽</a>
+                <ul>
+                    <li><a href="/editorial/editbites/15"><img src="/sites/all/themes/custom/octopus2/img/editbites/15.jpg"></a></li>
+                    <li><a href="/editorial/editbites/16"><img src="/sites/all/themes/custom/octopus2/img/editbites/16.jpg"></a></li>
+                    <li><a href="/editorial/editbites/17"><img src="/sites/all/themes/custom/octopus2/img/editbites/17.jpg"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END COMMUNITY ZONE-->
+
+</div>
+
+<div class="merge-header">
+    <div class="row-fluid span12">
+    <div class="span4 merge-header-col1">
+        <div class="merge-countrylang">
+
+         <div class="merge-country">
+         Taiwan&nbsp;&nbsp;|</div>
+            <div class="merge-langselect">繁體中文                              <div class="merge-lang-dropdown">
+                    <div class="merge-account-dropdown-buffer"></div>
+                    <ul class="links"><li class="zh-hant first active"><a href="/event/t10901/item/RVSR20022001" class="language-link  session-active active" lang="zh-hant">繁體中文</a></li>
+<li class="en last active"><a href="/event/t10901/item/RVSR20022001?language=en" class="language-link active" lang="en">English</a></li>
+</ul>                </div>
+              
+            </div>
+                        <div class="merge-account-name-dropdown-arrow"></div>
+                    </div>
+        <div class="clearfix"></div>
+       <div class="merge-promotext">
+           <!--<span>Download our app and<br/>shop on-the-go. <a class="link-itl" style="font-size: 12px;" href="http://www.reebonz.com.sg/ipadapp">Find out how.</a></span>-->
+           <span>歡迎下載REEBONZ行動APP <a href='/ipadapp'>立即下載</a></span>
+       </div>
+    </div>
+    <div class="span4 merge-header-col2">
+        <a href="/"><img src="/sites/all/themes/custom/octopus2/img/logo.png" border="0"></a>
+    </div>
+
+                    <div class="span4 merge-header-col3">
+
+                <div class="merge-account-name-wrap" style="position: absolute; right: 0;">
+        <div class="merge-account-name">
+             <a href="http://www.reebonz.com.tw/mainlanding">Sign in</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.reebonz.com.tw/mainlanding/signup1">Register</a>
+        </div></div>
+        <!--
+        <a href="http://www.reebonz.com.tw/cart"><div class="merge-cart-img"></div>
+        <div class="merge-cart-bubble">
+              <a href="/cart">44</a>        </div>-->
+    </div>
+
+           </div>
+    </div>
+</div>
+
+<div style="width: 100%; height: 1px; background: #d7d7d7;"></div>
+ <script>
+    new UISearch( document.getElementById( 'sb-search' ) );
+    </script>
+   </div>
+</div>
+  </div>
+</div>
+
+
+  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div class="panel-display panel-1col clearfix" >
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-block pane-reebonz-hydra-products-hydra-product-detail" >
+  
+      
+  
+  <div class="pane-content">
+    
+<link rel="stylesheet" href="/sites/all/themes/custom/octopus2/css/imagezoom.css" />
+<link rel="stylesheet" href="/sites/all/themes/custom/octopus2/css/es-cus.css" />
+<script type="text/javascript" src="/sites/all/themes/custom/octopus2/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    var jQ183 = jQuery.noConflict(true);
+</script>
+<script type="text/javascript" src="/sites/all/themes/custom/octopus2/js/jquery.imagezoom.min.js"></script>
+<script type="text/javascript" src="/sites/all/themes/custom/octopus2/js/modernizr.custom.17475.js"></script>
+<script type="text/javascript" src="/sites/all/themes/custom/octopus2/js/jquery.elastislide.js"></script>
+<script>
+    //use opensource elastislide for carousel
+    (function ($) {
+        $(function () {
+            var carsousel = $('#itemcarousel').elastislide({start: 0, minItems: 5, orientation: 'vertical',
+                onReady: function () {
+                    //init imagezoom plugin
+                    $('#item-img').ImageZoom({bigImageSrc: 'http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_1.jpg'});
+
+                    $('#itemcarousel li:eq(0)').addClass('active');
+
+                    $('#itemcarousel li').bind("click", function (event) {
+                        var el = $(this);
+                        el.siblings().removeClass("active");
+                        el.addClass("active");
+                        carsousel.setCurrent(el.index());
+                        event.preventDefault();
+
+                        // for imagezoom to change image
+                        var demo2obj = $('#item-img').data('imagezoom');
+                        demo2obj.changeImage(el.find('img').attr('src'), el.find('img').data('largeimg'));
+
+                    });
+                }
+            });
+        });
+    })(jQ183);
+    
+    (function($) {
+        $(document).on('mouseenter','.vicon', function() {
+            var popup = $('#merge-condition');
+            if (window.scrollY > 43 && window.scrollY < 174) {
+                //console.log($('.vicon'));
+                popup.css({
+                  "top": 25,
+                  "left":-100
+                });
+            }else {
+               popup.css({
+                  "top": -210,
+                  "left":-100
+                });   
+            }    
+            popup.fadeIn(300);
+          // console.log(x+'-'+y);
+        }).on('mouseleave','.vicon',function(){
+             var popup = $('#merge-condition');
+             popup.fadeOut(200);
+        });
+        
+        $(document).on('mousemove', '#rarity', function(e) {
+             var popup = $('#merge-condition');
+               if(e.offsetX==undefined){
+                  xpos = e.pageX-$('#rarity').offset().left;
+                  ypos = e.pageY-$('#rarity').offset().top;
+                }             
+                else{
+                  xpos = e.offsetX;
+                  ypos = e.offsetY;
+                }
+             $('#rarity').css({ "cursor": "help"});   
+             popup.css({
+                  "top": ($('#rarity').offset().top + ypos)- 220,
+                  "left" : xpos
+             }); 
+             //console.log(xpos + '-' + ypos);
+             if(Reebonz.user.country != 'TW'){
+                popup.show();
+             }
+        }).on('mouseleave','#rarity',function(){
+             var popup = $('#merge-condition');
+             popup.hide();
+        });
+
+    })(jQuery);
+    
+</script>
+
+<!-- Breadcrumbs & Event Ends -->
+<div class="breadcrumbs-eventends">
+    <div class="breadcrumbs-wrap">
+        <div class="pull-left">
+            <div class="breadcrumbs">
+                                          <li>
+                            <h9><a href="/event/t10901">經典收藏家</a></h9>
+                            &nbsp;/                          </li>
+                                                <li class="breadcrumbs-active">Pre-Owned Prada Nappa Gaufre' Handbag</li>
+            </div>
+        </div>
+        <div class="pull-right">
+            <!-- <p>Array </p>-->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- End Breadcrumbs & Event Ends -->
+
+<!-- Item Detail Start -->
+<div class="merge-wrap" itemscope itemtype="http://schema.org/Product">
+    <!-- Item Left -->
+    <div class="span6 reebonz-item-img" style="position: relative; margin-left: 0; height: 800px;">
+        <div class="rbz_product-view">
+            <ul id="itemcarousel" class="elastislide-list">
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_1.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_1.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_2.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_2.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_3.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_3.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_4.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_4.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_5.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_5.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_6.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_6.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_7.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_7.jpg"/></a></li>
+                                    <li><a href="#"><img src="http://cdn3.reebonz.com/sites/all/files/imagecache/300/20141028133130_RVSR20022001_8.jpg" data-largeimg="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_8.jpg"/></a></li>
+                            </ul>
+
+            <span class="itemwrap">
+                
+                            <img style="width: 350px;" id="item-img" src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_1.jpg"/>
+            </span>
+        </div>
+
+        <div class="view-full-image">
+            <a href="#" onclick data-reveal-id="full-image" data-animation="fadeAndPop">檢視全圖</a> &nbsp;&nbsp;<img src="/sites/all/themes/custom/octopus2/img/merge-itemdetail/icon-magnifying.png">
+        </div>
+        <br/>
+        <hr>
+
+        <div class="reebonz-guarantees">
+            <h1>REEBONZ顧客承諾</h1>
+            REEBONZ致力於提供最佳品牌與最高品質的的國際精品，所有商品均享有100%正品保證。            <br/>
+                            <div class="reebonz-auth-tw">
+                    <br/>
+                    <h1 class="auth">商品鑑定證書</h1>
+                    <a href="/sell/atelier">來自REEBONZ鑑定工坊</a>                </div>
+                    </div>
+    </div>
+
+    <div id="full-image" class="reveal-modal-fullimage">
+        <div class="close-x close-reveal-modal">&#215;</div>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                                    <div class="item active">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_1.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_2.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_3.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_4.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_5.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_6.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_7.jpg">
+                    </div>
+                                    <div class="item ">
+                                <img src="http://cdn3.reebonz.com/sites/all/files/20141028133130_RVSR20022001_8.jpg">
+                    </div>
+                            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"></a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"></a>
+        </div>
+    </div>
+    <!-- End Item Left -->
+
+    <!-- Item Right -->
+    <div class="span6" style="margin-left: 50px;">
+        <!-- Item Name & Code -->
+        <div class="item-detail-title">
+                 
+             
+             <div class="vicon" ng-show="item.VintageGradeTitle">
+                二手精品: &nbsp;<span>九五成新</span>
+            </div>
+            <div class="clearfix"></div>
+              <div id="merge-condition" class="merge-condition">
+                <h2>商品狀態</h2>
+
+                <ul>
+                    <li><div class="vbadge unused">未使用</div>
+                        未使用                     </li>
+                   
+
+                    <li> <div class="vbadge pristine">9.5成新</div>
+                        少部分使用痕跡(包身及肩背帶上些微不明顯痕跡)                    </li>
+                    
+                    <li> <div class="vbadge mint">9成新</div>
+                        少部分明顯使用痕跡(些許污漬及刮痕)</li>
+                    
+                    <li><div class="vbadge mint">8.5成新</div>
+                        明顯使用痕跡(皮革少許褪色)</li>
+                </ul>
+
+
+            </div>
+             
+                        <h1 itemprop="brand">PRADA</h1>
+            <h2 itemprop="name">Pre-Owned Prada Nappa Gaufre' Handbag</h2>
+            <div class="item-code item-code-grey" itemprop="sku">貨品編號 #:
+                4114153-RVSR20022001            </div>
+            <br/>
+            <hr style="background: #E9E9E9;">
+        </div>
+        <!-- End Item Name & Code -->
+        <!-- Item Price & Add to Cart -->
+                    <div class="item-price">
+                <div class="itemPrice pull-left">
+                    <span itemprop="price">
+                        <h1>NTD 55,054</h1>
+                                                                        <span>
+                                                                                                                <div title="紅利點數"  onclick="Javascript:window.open('/rewards');" class="youcanearn" style="font-size:13px;">Earn Up to 23100 <img style="width:17px;" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/loyalty-points-icon.png" alt="loyalty"></div>                        </span>
+                                            </span>
+                    <br/>
+                    <span>
+                                        </span>
+                    <!-- <div class="est-delivery pull-left">
+                    <br/>
+                    <b>Estimated delivery dates:</b><br/>
+                    Your purchase will reach you within 3 business days.                    </div>-->
+                </div>
+                                <div class="clearfix"></div>
+                <br/><hr>
+                <div class="add-to-cart">
+                    <br/>
+                                        <div id="login" style="display: none">
+                        <form action="/event/t10901/item/RVSR20022001" method="post" id="user-login" accept-charset="UTF-8"><div><label>電子郵件 :</label>
+<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required" /><label>設定密碼 :</label>
+<input type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required" /><input type="hidden" name="form_id" value="user_login" />
+<input type="hidden" name="form_build_id" value="form-G-NdfXpVTzk1bzEM9MZKSZk_mR0vjjZcubB5TpsV_Wo" />
+<input class="btn-rbz1 form-submit" type="submit" id="edit-submit--2" name="op" value="馬上登入" /></div></form>                        <a id="regx" href="javascript:void(0)">Register</a>
+                    </div>
+                    <div id="register" style="display: none">
+                        <a id="xx2" href="javascript:void(0)">x</a>
+                        <form action="/event/t10901/item/RVSR20022001" method="post" id="reebonz-signup-phase-one-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-homepage-email">
+  <label for="edit-homepage-email"><p class="home2">請輸入你的 Email:</p> </label>
+ <input class="input f-textfield form-text" placeholder="Enter your email address" type="text" id="edit-homepage-email" name="homepage_email" value="" size="15" maxlength="128" />
+</div>
+<input class="bt-submit-login form-submit" type="submit" id="edit-homepage-email-button" name="submit" value="送出" /><input type="hidden" name="form_build_id" value="form-iNc-NxEMANSYUdcLs62ityVQzD7-xU2fz2K2uoUv5uk" />
+<input type="hidden" name="form_id" value="reebonz_signup_phase_one_form" />
+</div></form>                        <a id="loginx" href="javascript:void(0)">Login</a>
+                    </div>
+                    <input type="button" class="btn" id="login2" value="馬上登入" />
+                </div>
+                                <div class="clearfix"></div>
+                <br/><hr>
+            </div>
+                        <!-- End Item Price & Add to Cart -->
+
+            
+            <!-- Item Details - Tabs  -->
+            <br/>
+            <div class="item-info">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <div class="item-info-tab">商品描述</div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body item-info-content">
+                                <p>Whether for work or play, this bag will serve you well stylistically and pragmatically.</p>
+<p>Exterior<br />
+- Nappa gaufre leather body<br />
+- Gold tone hardware<br />
+- Double top handles<br />
+- Snap tab closure<br />
+- Raised designer lettering<br />
+- 1 detachable clear ID hang tag<br />
+- 4 protective metal feet<br />
+- Side snap tabs<br />
+- Raised designer lettering</p>
+<p>Interior<br />
+- Fabric lining<br />
+- 1 zipper compartment, 1 zipper pocket, 2 slip pockets<br />
+- Debossed designer label </p>
+<p>Condition<br />
+- Slight creasing of leather, especially at base<br />
+- Very slight scuffing of corners<br />
+- Hairline scratches on hardware<br />
+- Visible scratches at rear<br />
+- Visible scuffing and scratches on handles</p>
+<p>Additional Information<br />
+- Comes with original dust bag</p>
+                                <p>
+                                    <br />Gender: Female<br />Color: Robin's Egg Blue<br />Material: Nappa Leather<br />Measurement: Length 32cm; Height 22.5cm; Width 14.5cm; Handle Drop 12.5cm                                </p>
+                                <div class="descp-append">
+                                    * There may be a slight difference in the tone of colors depending on the resolution of your monitor.<br />
+* Do note that there may be a 1-2cm difference in measurements depending on how the item is measured and workmanship.                                </div>
+                            </div>
+                        </div>
+                                                <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                                                    <div class="item-info-tab">商品狀態</div> 
+                                                                            </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div id="rarity" class="panel-body item-info-content">
+                                九五成新 : 無明顯使用痕跡<br>
+                                                                 </div>
+                            </div>
+                        </div>
+
+                                                
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseShipping">
+                                        <div class="item-info-tab">商品運送與退貨</div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseShipping" class="panel-collapse collapse">
+                                <div class="panel-body item-info-content">
+                                    <p><b>運費</b><br>本公司商品一律採用 FEDEX運送，運費由本公司為您負擔，您不需額外負擔運費。</p>
+<p><b>商品運送天數</b><br>我們將於帳款確認後立即處理您的訂單，您將於 7 個工作日內 (不含國定例假日) 收到訂購之商品。</p> 
+<p><b>商品運送須知</b></p> <ol> <li>寄送時間 : 週一至週五 9:30 - 18:30 。</li> <li>因商品需簽收，請勿填寫郵政信箱地址。</li> <li>為確保顧客權益，當您收到您的商品時，請務必在簽收單上簽名。</li> <li>貨品出貨後將無法更改訂單收貨地點，所以請確保在您指定的收貨地點有人為您簽收貨品。</li> </ol> <br />
+<p><b>關於關稅</b><br>當您購買本公司商品時，您所支付的金額即已含進口稅和關稅，故無須支付額外費用 (詳細的相關資訊請參閱您的訂購發票)。</p> 
+                                                                        
+                                    <br><p><b>REEBONZ是否有退換貨品政策？</b>
+<br>REEBONZ以售出的優質貨品為榮。對於錯誤或有瑕疵的貨品，我們設有14天退換貨品政策，請您於收到訂單之日起計7天內提出申請。
+<br>因每台電腦螢幕皆有色差，所以請會員考慮實品顏色與圖片會有些許差異，再做出最後選購。 
+<br>Reebonz每件貨品都附有詳細的尺寸說明以及圖片，請會員留意尺寸大小是否符合您的期待與需要，若有任何對於貨品的規格問題，可詢問各地Reebonz客服中心，我們期待與您一起創造愉快的消費體驗。
+<br>
+</p> 
+
+<ul> 
+<li>貨品必須以出售原狀包裝退回，包括所有貨品原裝包裝盒、證明文件、 廠商保證書、說明書及全部配件。請保證所有包裝在完好無損的狀態下寄回。</li> 
+<li>請將所有附有標簽的貨品連同標簽一併完好無損地寄回。</li> 
+<li>若為套裝的貨品須保留所有套件一併寄回，才可進行退換。</li> 
+<li>基於衛生原因，所有貼身衣物、內衣及美容產品不設退換。</li> 
+<li>此退換條款不適用於所有已在「貨品介紹」中明確寫明「不設退換」及「不設退款」的貨品。</li> 
+</ul> 
+
+<p>REEBONZ將對所有退回的貨品進行檢查，我們保留使用以下方法進行補救的權利：</p> 
+<ul> 
+<li>更換一件同款設計或同個型號的全新貨品</li> 
+<li>以REEBONZ積分形式全額退款</li> 
+<li>將扣除運費及行政費後的餘額以現金退款</li>
+</ul> 
+
+<br><p><b>我要如何退貨？</b>
+<br> <br> 第一步: 於「我的帳戶」中點選「我的訂單」 <br> <br> 第二步: 於「退貨申請」欄中點選「送出退貨申請」 <br><br><img src='http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/static/faq-order-history.jpg' alt='order history'/><br><br> 第三步: 於表格內選擇退貨理由、取貨日期及時間。我們將免費安排快遞到指定地址取回退貨商品。 <br><br><img src='http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/static/faq-return_form.jpg' alt='return form'/><br><br><b>備註: </b>
+<br><br> *收到退貨商品後，我們將會寄發電子郵件通知，並於7天內完成退款手續；手機App下單者於30天完成退款手續。
+<br><br>**商品上的白色吊牌與防偽環須保持完整且不得拆剪。您也可發送電郵至 <a href='mailto:conciergetw@reebonz.com'>conciergetw@reebonz.com</a> 或聯絡客服中心，我們的客戶服務員將協助您辦理退換程序。<br> </p>                                </div>
+                            </div>
+                        </div>
+
+                                            </div>
+                </div>
+                <!-- End Item Details - Tabs  -->
+
+                <!-- Start for Watch shop with confince -->
+                                    <!-- End for Watch shop with confince -->
+
+
+                <!-- Start View More-->
+                
+                <div class="view-more-from">
+                    <span>瀏覽更多商品</span>
+                    <ul style="margin: 0">
+                        <li><a href="/brand/prada">Prada</a><div class="view-more-from-arrow"></div></li>
+                        <li><a href="/category/bags">Bags</a><div class="view-more-from-arrow"></div></li>
+                    </ul>
+                </div>
+                <hr>
+                <!-- End View More-->
+
+                <!-- Reebonz Insider Tips  -->
+                <div class="clearfix"></div><br><br>
+                <!--<div class="rbz-promises">
+                
+                <h2>Here are a few insider tips when shopping at Reebonz :</h2>
+                    
+                
+                <div class="rbz-auth-promise">
+                    <b> 100% AUTHENTICITY GUARANTEE</b>
+
+<p>All items that we carry are authentic. Please verify with the respective brand's boutique if you
+are in doubt. We'd be happy to provide you with an exchange or refund should you produce 
+an official letter from the brand disapproving the authenticity of the item bought from Reebonz.</p>
+                    </div>
+                
+                
+                
+                
+<div class="rbz-promises-stamps">
+    
+    <div class="rbz-stamps-wrap">
+	<ul>
+		<li><a href="" id=""><img class="rbzstamps" onMouseOver="div.show('swcAE')" onMouseOut="div.hide('swcAE')" src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/promises/shop-with-confidence.png"></a></li>
+		<li><a href="" id=""><img class="rbzstamps" onMouseOver="div.show('bpgAE')" onMouseOut="div.hide('bpgAE')"  src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/promises/best-price-guaranteed.png"></a></li>
+		
+	</ul>
+    </div>
+    <div class="clearfix"></div>
+
+<div class="stampsitem" id="swcAE">
+<span style="font-weight:bold; font-style:italic;">Shop With Confidence!</span> We guarantee that all the items we carry are <span style="font-weight:bold; font-style:italic;">100% Authentic</span>. If in doubt, please send your purchase to the respective brand's boutique in your country for verification.
+</div>    
+
+
+
+
+<div  class="stampsitem" id="bpgAE">
+You are <span style="font-weight:bold; font-style:italic;">Guaranteed</span> the best price when you shop at Reebonz. If you find any of our bags cheaper in authorised boutiques, resellers or Singapore-based online retailers within 7 days of purchase, we will gladly match their price and offer a <span style="font-weight:bold; font-style:italic;">20% Rebate</span> based on the price difference.
+</div>
+
+
+
+
+                
+                <p class="hover pull-right">Hover over the stamps for more information!</p>
+                
+                </div>
+                </div>
+                -->                <!-- End Reebonz Insider Tips  -->
+
+            </div>       
+     
+      
+      <hr>
+           
+      <!-- Start Reebonz Care -->
+ 
+      <!-- End Reebonz Care -->
+          
+      <!-- Reebonz Insider Tips  -->    
+      <div class="clearfix"></div><br><br>
+            <!-- End Reebonz Insider Tips  -->    
+           
+        </div>
+
+    </div>
+</div>
+
+<div id="brandpromises2" class="reveal-modal-brandpromises">
+    <div class="close-x close-reveal-modal">×</div>
+        <img src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/stampsFEB14/Specimen-Watch-Certificate.jpg" alt="Free Shipping"/>
+    <hr>
+</div>
+
+<div id="brandpromises" class="reveal-modal-brandpromises">
+    <div class="close-x close-reveal-modal">×</div>
+        <div class="popup_title">購物保證</div>
+    <hr>
+
+    <div class="col-1">
+        <img src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/stampsFEB14/authenticity.png" alt="Delivery">
+    </div>
+    <div class="col-2">
+        <h3><b>專業鑑定及維修</b></h3>
+        <br>
+        我們保證所有商品皆為正貨，並由專家以 <a target="_blank" href="/sell/atelier-watch#authenticity">7點檢查</a> 修復到最佳狀態。 <a target="_blank" href="/sites/all/themes/custom/octopus2/img/stampsFEB14/Specimen-Watch-Certificate.jpg">REEBONZ也會製作</a>一份完整的商品評估證書並附上保證卡給消費者。    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix"></div>
+    <br>
+    </br>
+    <hr>
+    <div class="col-1">
+        <img src="http://www.reebonz.com.tw/sites/all/themes/custom/octopus2/img/stampsFEB14/12month.png" alt="Free Shipping"/>
+        <br>
+        <br>
+    </div>
+    <div class="col-2">
+        <h3><b>12個月保固服務</b></h3>
+        <br>
+        我們提供12個月的保固服務。    </div>
+    <div class="clearfix"></div>
+        <div class="clearfix"></div>
+    <br>
+    <br>
+</div>
+
+<script type="text/javascript">
+    div = {
+        show: function (elem) {
+            document.getElementById(elem).style.visibility = 'visible';
+        },
+        hide: function (elem) {
+            document.getElementById(elem).style.visibility = 'hidden';
+        }
+    }
+</script>
+<div id="sizechart" class="reveal-modal-ipp sizechart">
+    <div class="close-x close-reveal-modal">&#215;</div>
+    <style>
+.sizechart{
+  width:780px;
+  left: 42%;
+}
+.sizecharts table {
+  margin-top: 10px;
+}
+.sizecharts th {
+  background: none repeat scroll 0 0 #CCCCCC;
+}
+.sizecharts h4 {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+.sizecharts td, .sizecharts th {
+  border-bottom: 1px solid #ECECEC;
+  border-right: 1px solid #ECECEC;
+  text-align: center;
+  vertical-align: middle;
+}
+.sizecharts table {
+  border: 1px solid #ECECEC;
+  border-collapse: collapse;
+}
+.sizecharts .brasize {
+  background: url("http://www.reebonz.com/sites/all/themes/custom/reebonz/img/female.jpg") no-repeat scroll right top transparent;
+  height: auto !important;
+  min-height: 500px;
+}
+.sizecharts .mensize {
+  background: url("http://www.reebonz.com/sites/all/themes/custom/reebonz/img/male.jpg") no-repeat scroll right top transparent;
+  height: auto !important;
+  min-height: 500px;
+}
+ .sizecharts th h5 {
+  background: none repeat scroll 0 0 #000000;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+  padding: 5px;
+}
+</style>
+<div class="tabbable">
+	<ul id="sizeTab" class="nav nav-tabs clearfix">
+		<li class="active"><a href="#tab1" data-toggle="tab">WOMENS' SIZE</a></li>
+		<li><a href="#tab2" data-toggle="tab">MENS' SIZE</a></li>
+		<li><a href="#tab3" data-toggle="tab">BAG</a></li>
+	</ul>
+	<div id="sizeTabContent" class="tab-content">
+    <div class="tab-pane active" id="tab1">
+		  <div class="sizecharts">
+  <h4>All REEBONZ sizing are in US sizing, unless otherwise stated. Please refer to size conversion for more sizes.<br>• The female mannequin's height is 177cm / 5'10" and she is wearing a US size 36.</h4>
+  <div>
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+    <thead>
+      <tr>
+        <th colspan="9" class="nopad"><h5>Womens' Clothing Size Conversion Chart</h5></th>                                        
+      </tr>
+      <tr>
+          <th></th>
+          <th width="69">XXS</th>
+          <th width="69">XS</th>
+          <th width="69">S</th>
+          <th width="69">M</th>
+          <th width="69">L</th>
+          <th width="69">XL</th>
+          <th width="69">XXL</th>
+          <th width="69">XXXL</th>
+    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td><strong>US</strong></td>
+                        <td width="69">2</td>
+                      <td width="69">4</td>
+                      <td width="69">6</td>
+                      <td width="69">8</td>
+                      <td width="69">10</td>
+                      <td width="69">12</td>
+                      <td width="69">14</td>
+                      <td width="69">16</td>
+                  </tr>
+                    <tr>
+                      <td><strong>ITALY</strong></td>
+                        <td width="69">38</td>
+                      <td width="69">40</td>
+                      <td width="69">42</td>
+                      <td width="69">44</td>
+                      <td width="69">46</td>
+                      <td width="69">48</td>
+                      <td width="69">50</td>
+                      <td width="69">52</td>
+                  </tr>
+                    <tr>
+                      <td><strong>UK</strong></td>
+                        <td width="69">6</td>
+                      <td width="69">8</td>
+                      <td width="69">10</td>
+                      <td width="69">12</td>
+                      <td width="69">14</td>
+                      <td width="69">16</td>
+                      <td width="69">18</td>
+                      <td width="69">20</td>
+                  </tr>
+  <tr>
+                      <td><strong>FRANCE</strong></td>
+                        <td width="69">34</td>
+                      <td width="69">36</td>
+                      <td width="69">38</td>
+                      <td width="69">40</td>
+                      <td width="69">42</td>
+                      <td width="69">44</td>
+                      <td width="69">46</td>
+                      <td width="69">48</td>
+  </tr>                                        
+  <tr>
+                      <td><strong>JAPAN</strong></td>
+                        <td width="69">5</td>
+                      <td width="69">7</td>
+                      <td width="69">9</td>
+                      <td width="69">11</td>
+                      <td width="69">13</td>
+                      <td width="69">15</td>
+                      <td width="69">17</td>
+                      <td width="69">19</td>
+                  </tr>
+  <tr>
+                      <td><strong>DENMARK</strong></td>
+                        <td width="69">32</td>
+                      <td width="69">34</td>
+                      <td width="69">36</td>
+                      <td width="69">38</td>
+                      <td width="69">40</td>
+                      <td width="69">42</td>
+                      <td width="69">44</td>
+                      <td width="69">46</td>
+                  </tr>
+  <tr>
+                      <td><strong>AUSTRALIA</strong></td>
+                        <td width="69">6</td>
+                      <td width="69">8</td>
+                      <td width="69">10</td>
+                      <td width="69">12</td>
+                      <td width="69">14</td>
+                      <td width="69">16</td>
+                      <td width="69">18</td>
+                      <td width="69">20</td>
+  </tr>                                      
+                </tbody>
+            </table></div>
+            <div><table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <thead>
+                  <tr>
+                      <th colspan="16" class="nopad"><h5>Womens' Shoe Size Chart</h5></th>                                        
+                    </tr>                                    
+                </thead>
+                <tbody>
+                  <tr>
+                      <td width="100"><strong>US</strong></td>
+                        <td width="40">5</td>
+                        <td width="40">5.5</td>
+                        <td width="40">6</td>
+                        <td width="40">6.5</td>
+                        <td width="40">7</td>
+                        <td width="40">7.5</td>
+                        <td width="40">8</td>
+                        <td width="40">8.5</td>
+                        <td width="40">9</td>
+                        <td width="40">9.5</td>
+                        <td width="40">10</td>
+                        <td width="40">10.5</td>
+                        <td width="40">11</td>
+                        <td width="40">11.5</td>
+                        <td width="40">12</td>
+                  </tr>
+                  <tr>
+                      <td><strong>ITALY</strong></td>
+                        <td width="40">35</td>
+                        <td width="40">35.5</td>
+                        <td width="40">36</td>
+                        <td width="40">36.5</td>
+                        <td width="40">37</td>
+                        <td width="40">37.5</td>
+                        <td width="40">38</td>
+                        <td width="40">38.5</td>
+                      <td width="40">39</td>
+                      <td width="40">39.5</td>
+                      <td width="40">40</td>
+                      <td width="40">40.5</td>
+                      <td width="40">41</td>
+                      <td width="40">41.5</td>
+                      <td width="40">42</td>
+                  </tr>
+                    <tr>
+                      <td><strong>UK</strong></td>
+                        <td width="40">2</td>
+                        <td width="40">2.5</td>
+                        <td width="40">3</td>
+                        <td width="40">3.5</td>
+                        <td width="40">4</td>
+                        <td width="40">4.5</td>
+                        <td width="40">5</td>
+                        <td width="40">5.5</td>
+                      <td width="40">6</td>
+                      <td width="40">6.5</td>
+                      <td width="40">7</td>
+                      <td width="40">7.5</td>
+                      <td width="40">8</td>
+                      <td width="40">8.5</td>
+                      <td width="40">9</td>
+                    </tr>
+                    <tr>
+                      <td><strong>FRANCE</strong></td>
+                        <td width="40">36</td>
+                        <td width="40">36.5</td>
+                        <td width="40">37</td>
+                        <td width="40">37.5</td>
+                        <td width="40">38</td>
+                        <td width="40">38.5</td>
+                        <td width="40">39</td>
+                        <td width="40">39.5</td>
+                        <td width="40">40</td>
+                        <td width="40">40.5</td>
+                        <td width="40">41</td>
+                        <td width="40">41.5</td>
+                        <td width="40">42</td>
+                        <td width="40">42.5</td>
+                        <td width="40">43</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EURO</strong></td>
+                        <td width="40">35</td>
+                        <td width="40">35.5</td>
+                        <td width="40">36</td>
+                        <td width="40">37</td>
+                        <td width="40">37.5</td>
+                        <td width="40">38</td>
+                        <td width="40">38.5</td>
+                        <td width="40">39</td>
+                        <td width="40">40</td>
+                        <td width="40">41</td>
+                        <td width="40">42</td>
+                        <td width="40">43</td>
+                        <td width="40">44</td>
+                        <td width="40">45</td>
+                        <td width="40">46.5</td>
+                    </tr>
+                </tbody>
+              </table>
+            
+            </div>
+            <div>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <thead>
+                      <tr>
+                          <th class="nopad" colspan="16"><h5>Ring Size</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td><strong>US</strong></td>
+                            <td>4.75</td>
+                            <td>5</td>
+                            <td>5.25</td>
+                            <td>5.5</td>
+                            <td>5.75</td>
+                            <td>6</td>
+                            <td>6.25</td>
+                            <td>6.5</td>
+                            <td>6.75</td>
+                            <td>7</td>
+                            <td>7.25</td>
+                            <td>7.5</td>
+                            <td>7.75</td>
+                            <td>8</td>
+                            <td>8.25</td>
+    </tr>
+                        <tr>                                            
+      <td><strong>UK</strong></td>
+                            <td>J</td>
+                            <td>J1/2</td>
+                            <td>K</td>
+                            <td>K1/2</td>
+                            <td>L</td>
+                            <td>L1/2</td>
+                            <td>M</td>
+                            <td>M1/2</td>
+                            <td>N</td>
+                            <td>N1/2</td>
+                            <td>O</td>
+                            <td>O1/2</td>
+                            <td>P</td>
+                            <td>P1/2</td>
+                            <td>Q</td>
+    </tr>
+    <tr>
+                          <td><strong>EURO</strong></td>
+                            <td>10</td>
+                            <td>10/11</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>12/13</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>14/15</td>
+                            <td>15</td>
+                            <td>15/16</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>17/18</td>
+                            <td>18</td>
+                            <td>18/19</td>
+    </tr>                                            
+    <tr>
+                          <td><strong>mm*</strong></td>
+                            <td>48.7</td>
+                            <td>49.3</td>
+                            <td>50.0</td>
+                            <td>50.6</td>
+                            <td>51.2</td>
+                            <td>51.9</td>
+                            <td>52.5</td>
+                            <td>53.1</td>
+                            <td>53.8</td>
+                            <td>54.4</td>
+                            <td>55.1</td>
+                            <td>55.7</td>
+                            <td>56.3</td>
+                            <td>57.0</td>
+                            <td>57.6</td>
+    </tr>
+                    </tbody>
+                </table>
+                <p>*Circumference</p>
+            </div>
+            <div>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <thead>
+                      <tr>
+                        <th colspan="5" class="nopad"><h5>Womens' Glove Size Chart</h5></th>
+                        </tr>
+                        <tr>
+                          <th>XS</th>
+                            <th>S</th>
+                            <th>M</th>
+                            <th>L</th>
+                            <th>XL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td>66</td>
+                            <td>6.5</td>
+                            <td>7 - 7.5</td>
+                            <td>8</td>
+                            <td>8.5 - 9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info">
+              <h3>3 EASY STEPS TO FINDING THE RIGHT FITTING BRA</h3>
+                <ol>
+  <li>Step
+1: Measure your back size - measuring around your rib cage, just under
+your bust line, keep it horizontal. This will be your band size.</li>
+  <li>Step 2: Then measure around the fullest part of your bust, keep measuring tape it horizontal. This will be your cup size.</li>
+  <li>Step 3: Use the following chart to identify your UK/US bra size.</li>
+</ol>
+<p>Remember to check on item description for more specific information on the fit of this item.<br>Simply email <a href="mailto:concierge@reebonz.com">concierge@reebonz.com</a> for help on any questions with regards to sizing and fits.</p>
+            </div>
+            <div class="brasize">
+              <table width="450" cellspacing="0" cellpadding="0" border="0">
+                  <thead>
+                      <tr>
+                        <th class="nopad" colspan="4"><h5>BRA SIZE CHART</h5></th>
+                        </tr>
+                        <tr>
+                          <th>UK/US</th>
+                            <th>FRANCE</th>
+                            <th>EUROPE</th>
+                            <th>ITALY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td>30A</td>
+                            <td>80A</td>
+                            <td>65A</td>
+                            <td>0A</td>
+    </tr>
+                        <tr>
+                          <td>32A</td>
+                            <td>85A</td>
+                            <td>70A</td>
+                            <td>1A</td>
+                        </tr>
+                        <tr>
+                          <td>34A</td>
+                            <td>90A</td>
+                            <td>75A</td>
+                            <td>1A</td>
+                        </tr>
+                        <tr>
+                          <td>36A</td>
+                            <td>95A</td>
+                            <td>80A</td>
+                            <td>1A</td>
+                        </tr>
+                        <tr>
+                          <td>30B</td>
+                            <td>80B</td>
+                            <td>65B</td>
+                            <td>0B</td>
+                        </tr>
+                        <tr>
+                          <td>32B</td>
+                            <td>85B</td>
+                            <td>70B</td>
+                            <td>1B</td>
+                        </tr>
+                        <tr>
+                          <td>34B</td>
+                            <td>90B</td>
+                            <td>75B</td>
+                            <td>2B</td>
+                        </tr>
+                        <tr>
+                          <td>36B</td>
+                            <td>95B</td>
+                            <td>80B</td>
+                            <td>3B</td>
+                        </tr>
+                        <tr>
+                          <td>30C</td>
+                            <td>80C</td>
+                            <td>65C</td>
+                            <td>0C</td>
+                        </tr>
+                        <tr>
+                          <td>32C</td>
+                            <td>85C</td>
+                            <td>70C</td>
+                            <td>1C</td>
+                        </tr>
+                        <tr>
+                          <td>34C</td>
+                            <td>90C</td>
+                            <td>75C</td>
+                            <td>2C</td>
+                        </tr>
+                        <tr>
+                          <td>36C</td>
+                            <td>95C</td>
+                            <td>80C</td>
+                            <td>3C</td>
+                        </tr>
+                        <tr>
+                          <td>30D</td>
+                            <td>80D</td>
+                            <td>65D</td>
+                            <td>0D</td>
+                        </tr>
+                        <tr>
+                          <td>32D</td>
+                            <td>85D</td>
+                            <td>70D</td>
+                            <td>1D</td>
+                        </tr>
+                        <tr>
+                          <td>34D</td>
+                            <td>90D</td>
+                            <td>75D</td>
+                            <td>2D</td>
+                        </tr>
+                        <tr>
+                          <td>36D</td>
+                            <td>95D</td>
+                            <td>80D</td>
+                            <td>3D</td>
+                        </tr>
+                        <tr>
+                          <td>30DD</td>
+                            <td>80E</td>
+                            <td>65E</td>
+                            <td>0DD</td>
+                        </tr>
+                        <tr>
+                          <td>32DD</td>
+                            <td>85E</td>
+                            <td>70E</td>
+                            <td>1DD</td>
+                        </tr>
+                        <tr>
+                          <td>34DD</td>
+                            <td>90E</td>
+                            <td>75E</td>
+                            <td>2DD</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>*Note</strong>: Bra sizes on REEBONZ.COM are in US sizes unless otherwise stated.</p>
+            </div>
+            <div class="two-cols">
+              <div class="left">
+                  <table width="375" cellspacing="0" cellpadding="0" border="0">
+                      <thead>
+                          <tr>
+                              <th class="nopad" colspan="7"><h5>Brief &amp; Swimwear Size Chart</h5></th>
+                            </tr>
+                            <tr>
+                              <th></th>
+                              <th>XXS</th>
+                                <th>XS</th>
+                                <th>S</th>
+                                <th>M</th>
+                                <th>L</th>
+                                <th>XL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td><strong>ITALY</strong></td>
+                                <td>38</td>
+                                <td>40</td>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                                <td>48</td>
+      </tr>
+                            <tr>
+                              <td><strong>UK</strong></td>
+                                <td>6</td>
+                                <td>8</td>
+                                <td>10</td>
+                                <td>12</td>
+                                <td>14</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                              <td><strong>US</strong></td>
+                                <td>2</td>
+                                <td>4</td>
+                                <td>6</td>
+                                <td>8</td>
+                                <td>10</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                              <td><strong>FRANCE</strong></td>
+                                <td>34</td>
+                                <td>36</td>
+                                <td>38</td>
+                                <td>40</td>
+                                <td>42</td>
+                                <td>44</td>
+                            </tr>
+                            <tr>
+                              <td><strong>JAPAN</strong></td>
+                                <td>5</td>
+                                <td>7</td>
+                                <td>9</td>
+                                <td>11</td>
+                                <td>13</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                              <td><strong>DENMARK</strong></td>
+                                <td>32</td>
+                                <td>34</td>
+                                <td>36</td>
+                                <td>38</td>
+                                <td>40</td>
+                                <td>42</td>
+      </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right">
+                  <table width="375" cellspacing="0" cellpadding="0" border="0">
+                      <thead>
+                          <tr>
+                              <th class="nopad" colspan="8"><h5>Imperial &amp; Metric Conversions</h5></th>
+                            </tr>                                            
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td><strong>Inches</strong></td>
+                                <td>30</td>
+                                <td>31</td>
+                                <td>32</td>
+                                <td>33</td>
+                                <td>34</td>
+                                <td>35</td>
+                                <td>36</td>
+      </tr>
+                            <tr>
+                              <td><strong>Centimetres</strong></td>
+                                <td>76</td>
+                                <td>79</td>
+                                <td>81</td>
+                                <td>84</td>
+                                <td>86</td>
+                                <td>89</td>
+                                <td>91</td>
+                            </tr>                                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clr"></div>
+                <p>* These sizes are guide to fit only. The actual size may vary according to the style and brands.</p>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <div class="sizecharts">
+                          <h4>All REEBONZ sizing are in US sizing, unless otherwise stated. Please refer to size conversion for more sizes.<br>• The male mannequin's height is 179cm / 5'11" and she is wearing a US size 36.</h4>
+                            <div>
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <thead>
+                                      <tr>
+                                          <th class="nopad" colspan="9"><h5>Mens' Top Size Chart <em>Jackets, Casual Shirts, Hoodies and Zips ups, Cardigans, Jumpers, Tees and Vests, Long sleeve tees and Dressing gowns</em></h5>
+                                        </th></tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                          <td><strong>UK</strong></td>
+                                            <td>
+                                            </td><td>XXS</td>
+                                            <td>XS</td>
+                                            <td>S</td>
+                                            <td>M</td>
+                                            <td>L</td>
+                                            <td>XL</td>
+                                            <td>XXL</td>
+                    </tr> 
+                                        <tr>                                           
+                                          <td><strong>EUROPEAN</strong></td>
+                                            <td>cm</td>
+                                            <td>81-86</td>
+                                            <td>86-91</td>
+                                            <td>91-96</td>
+                                            <td>96-101</td>
+                                            <td>101-106</td>
+                                            <td>106-111</td>
+                                            <td>111-116</td>
+                                        </tr>
+                                        <tr>
+                                          <td><strong>US</strong></td>
+                                            <td></td>
+                                            <td>XXS</td>
+                                            <td>XS</td>
+                                            <td>S</td>
+                                            <td>M</td>
+                                            <td>L</td>
+                                            <td>XL</td>
+                                            <td>XXL</td>
+                    </tr>
+                                        <tr>
+                                          <td><strong>To Fit Chest</strong></td>
+                                            <td>inches</td>
+                                            <td>32-34</td>
+                                            <td>34-36</td>
+                                            <td>36-38</td>
+                                            <td>38-40</td>
+                                            <td>40-42</td>
+                                            <td>42-44</td>
+                                            <td>44-46</td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                            <td>cm</td>
+                                            <td>81-86</td>
+                                            <td>86-91</td>
+                                            <td>91-96</td>
+                                            <td>96-101</td>
+                                            <td>101-106</td>
+                                            <td>106-111</td>
+                                            <td>111-116</td>
+                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <thead>
+                                      <tr>
+                                          <th class="nopad" colspan="9"><h5>Mens' Smart Shirts Size Chart</h5></th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                            <td><strong>UK</strong></td>
+                                            <td>&nbsp;</td>
+                                            <td>XXS</td>            
+                                            <td>XS</td>
+                                            <td>S</td>
+                                            <td>M</td>
+                                            <td>L</td>
+                                            <td>XL</td>
+                                            <td>XXL</td>        
+                                        </tr>
+                                        <tr>
+                                            <td><strong>EUROPEAN</strong></td>
+                                            <td>cm</td>
+                                            <td>81-86</td>
+                                            <td>86-91</td>
+                                            <td>91-96</td>        
+                                            <td>96-101</td>
+                                            <td>101-106</td>
+                                            <td>106-111</td>
+                                            <td>111-116</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>US</strong></td>        
+                                            <td>&nbsp;</td>
+                                            <td>XXS</td>
+                                            <td>XS</td>
+                                            <td>S</td>
+                                            <td>M</td>
+                                            <td>L</td>        
+                                            <td>XL</td>
+                                            <td>XXL</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>To Fit Chest</strong></td>
+                                            <td>inches</td>
+                                            <td>32-34</td>        
+                                            <td>34-36</td>
+                                            <td>36-38</td>
+                                            <td>38-40</td>
+                                            <td>40-42</td>
+                                            <td>42-44</td>
+                                            <td>44-46</td>
+                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>cm</td>
+                                            <td>81-86</td>
+                                            <td>86-91</td>
+                                            <td>91-96</td>        
+                                            <td>96-101</td>
+                                            <td>101-106</td>
+                                            <td>106-111</td>
+                                            <td>111-116</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>To Fit Collar</strong></td>        
+                                            <td>inches</td>
+                                            <td>14</td>
+                                            <td>14 1/2</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>17</td>        
+                                            <td>17 1/2</td>
+                                            <td>18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>cm</td>
+                                            <td>35.5</td>        
+                                            <td>37</td>
+                                            <td>38</td>
+                                            <td>41</td>
+                                            <td>43</td>
+                                            <td>44</td>
+                                            <td>46</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <thead>
+                                      <tr>
+                                          <th class="nopad" colspan="10"><h5>Mens' Bottoms Size Chart <em>Jeans, Trousers, Shorts and Crops</em></h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                            <td><strong>UK</strong></td>
+                                            <td>&nbsp;</td>            
+                                            <td>26</td>
+                                            <td>28</td>
+                                            <td>30</td>
+                                            <td>32</td>
+                                            <td>34</td>
+                                            <td>36</td>            
+                                            <td>38</td>
+                                            <td>40</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>EUROPEAN</strong></td>
+                                            <td>cm</td>
+                                            <td>66</td>            
+                                            <td>71</td>
+                                            <td>76</td>
+                                            <td>81</td>
+                                            <td>86</td>
+                                            <td>91</td>
+                                            <td>96</td>            
+                                            <td>101</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>US</strong></td>
+                                            <td>&nbsp;</td>
+                                            <td>26</td>
+                                            <td>28</td>            
+                                            <td>30</td>
+                                            <td>32</td>
+                                            <td>34</td>
+                                            <td>36</td>
+                                            <td>38</td>
+                                            <td>40</td>            
+                                          </tr>
+                                          <tr>
+                                            <td><strong>To Fit Chest</strong></td>
+                                            <td>inches</td>
+                                            <td>26</td>
+                                            <td>28</td>
+                                            <td>30</td>            
+                                            <td>32</td>
+                                            <td>34</td>
+                                            <td>36</td>
+                                            <td>38</td>
+                                            <td>40</td>
+                                          </tr>            
+                                          <tr>
+                                            <td>&nbsp;</td>
+                                            <td>cm</td>
+                                            <td>66-86</td>
+                                            <td>71</td>
+                                            <td>76</td>
+                                            <td>81</td>            
+                                            <td>86</td>
+                                            <td>91</td>
+                                            <td>96</td>
+                                            <td>101</td>
+                                          </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <thead>
+                                      <tr>
+                                        <th class="nopad" colspan="9"><h5>Mens' Suit Jackets, Blazers and Waistcoats Size Chart</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                            <td><strong>UK</strong></td>
+                                            <td>inches</td>
+                                            <td>34</td>            
+                                            <td>36</td>
+                                            <td>38</td>
+                                            <td>40</td>
+                                            <td>42</td>
+                                            <td>44</td>
+                                            <td>46</td>            
+                                          </tr>
+                                          <tr>
+                                            <td><strong>EUROPEAN</strong></td>
+                                            <td>cm</td>
+                                            <td>86</td>
+                                            <td>91</td>
+                                            <td>96</td>            
+                                            <td>101</td>
+                                            <td>106</td>
+                                            <td>111</td>
+                                            <td>116</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>US</strong></td>            
+                                            <td>inches</td>
+                                            <td>34</td>
+                                            <td>36</td>
+                                            <td>38</td>
+                                            <td>40</td>
+                                            <td>42</td>            
+                                            <td>44</td>
+                                            <td>46</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>To Fit Chest</strong></td>
+                                            <td>inches</td>
+                                            <td>34</td>            
+                                            <td>36</td>
+                                            <td>38</td>
+                                            <td>40</td>
+                                            <td>42</td>
+                                            <td>44</td>
+                                            <td>46</td>
+            
+                                          </tr>
+                                          <tr>
+                                            <td>&nbsp;</td>
+                                            <td>cm</td>
+                                            <td>86</td>
+                                            <td>91</td>
+                                            <td>96</td>            
+                                            <td>101</td>
+                                            <td>106</td>
+                                            <td>111</td>
+                                            <td>116</td>
+                                          </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                  <thead>
+                                      <tr>
+                                          <th class="nopad" colspan="16"><h5>Ring Size</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                          <td><strong>US</strong></td>
+                                          <td>4.75</td>
+                                          <td>5</td>    
+                                          <td>5.25</td>
+                                          <td>5.5</td>
+                                          <td>5.75</td>
+                                          <td>6</td>
+                                          <td>6.25</td>
+                                          <td>6.5</td>    
+                                          <td>6.75</td>
+                                          <td>7</td>
+                                          <td>7.25</td>
+                                          <td>7.5</td>
+                                          <td>7.75</td>
+                                          <td>8</td>    
+                                          <td>8.25</td>
+                                        </tr>
+                                        <tr>
+                                          <td><strong>UK</strong></td>
+                                          <td>J</td>
+                                          <td>J1/2</td>
+                                          <td>K</td>    
+                                          <td>K1/2</td>
+                                          <td>L</td>
+                                          <td>L1/2</td>
+                                          <td>M</td>
+                                          <td>M1/2</td>
+                                          <td>N</td>    
+                                          <td>N1/2</td>
+                                          <td>O</td>
+                                          <td>O1/2</td>
+                                          <td>P</td>
+                                          <td>P1/2</td>
+                                          <td>Q</td>    
+                                        </tr>
+                                        <tr>
+                                          <td><strong>EURO</strong></td>
+                                          <td>10</td>
+                                          <td>10/11</td>
+                                          <td>11</td>
+                                          <td>12</td>   
+                                          <td>12/13</td>
+                                          <td>13</td>
+                                          <td>14</td>
+                                          <td>14/15</td>
+                                          <td>15</td>
+                                          <td>15/16</td>   
+                                          <td>16</td>
+                                          <td>17</td>
+                                          <td>17/18</td>
+                                          <td>18</td>
+                                          <td>18/19</td>
+                                        </tr>    
+                                        <tr>
+                                          <td><strong>mm*</strong></td>
+                                          <td>48.7</td>
+                                          <td>49.3</td>
+                                          <td>50.0</td>
+                                          <td>50.6</td>    
+                                          <td>51.2</td>
+                                          <td>51.9</td>
+                                          <td>52.5</td>
+                                          <td>53.1</td>
+                                          <td>53.8</td>
+                                          <td>54.4</td>    
+                                          <td>55.1</td>
+                                          <td>55.7</td>
+                                          <td>56.3</td>
+                                          <td>57.0</td>
+                                          <td>57.6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>*Circumference</p>
+                            </div>
+                            <div class="mensize">
+                              <div>
+                                  <table width="490" cellspacing="0" cellpadding="0" border="0">
+                                      <thead>
+                                          <tr>
+                                              <th class="nopad" colspan="9"><h5>Mens' Brief &amp; Swimwear Size Chart</h5></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td><strong>UK</strong></td>
+                                              <td>&nbsp;</td>
+                                              <td>XXS</td>
+                                              <td>XS</td>
+                                              <td>S</td>
+                                              <td>M</td>
+                                              <td>L</td>
+                                              <td>XL</td>
+                                              <td>XXL</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>EURO</strong></td>
+                                              <td>cm</td>
+                                              <td>66-71</td>
+                                              <td>71-76</td>
+                                              <td>76-81</td>
+                                              <td>81-86</td>
+                                              <td>86-91</td>
+                                              <td>91-96</td>
+                                              <td>96-101</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>US</strong></td>
+                                              <td>&nbsp;</td>
+                                              <td>XXS</td>
+                                              <td>XS</td>
+                                              <td>S</td>
+                                              <td>M</td>
+                                              <td>L</td>
+                                              <td>XL</td>
+                                              <td>XXL</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>To Fit Waist</strong></td>
+                                              <td>inches</td>
+                                              <td>26-28</td>
+                                              <td>28-30</td>
+                                              <td>30-32</td>
+                                              <td>32-34</td>
+                                              <td>34-36</td>
+                                              <td>36-38</td>
+                                              <td>38-40</td>
+                                            </tr>
+                                            <tr>
+                                              <td>&nbsp;</td>
+                                              <td>cm</td>
+                                              <td>66-71</td>
+                                              <td>71-76</td>
+                                              <td>76-81</td>
+                                              <td>81-86</td>
+                                              <td>86-91</td>
+                                              <td>91-96</td>
+                                              <td>96-101</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                  <table width="490" cellspacing="0" cellpadding="0" border="0">
+                                      <thead>
+                                          <tr>
+                                              <th class="nopad" colspan="8"><h5>Mens' Shoe Size Chart</h5></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td><strong>US</strong></td>
+                                              <td>7</td>
+                                              <td>8</td>
+                                              <td>9</td>
+                                              <td>10</td>
+                                              <td>11</td>
+                                              <td>12</td>
+                                              <td>13</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>EUROPEAN</strong></td>
+                                              <td>40</td>
+                                              <td>41</td>
+                                              <td>42</td>
+                                              <td>43</td>
+                                              <td>44</td>
+                                              <td>45</td>
+                                              <td>46</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>UK</strong></td>
+                                              <td>6</td>
+                                              <td>7</td>
+                                              <td>8</td>
+                                              <td>9</td>
+                                              <td>10</td>
+                                              <td>11</td>
+                                              <td>12</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                   
+                                </div>
+                                <div>
+                                  <table width="490" cellspacing="0" cellpadding="0" border="0">
+                                      <thead>
+                                          <tr>
+                                              <th class="nopad" colspan="4"><h5>Mens' Glove Size Chart</h5></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td><strong>UK</strong></td>
+                                              <td>&nbsp;</td>
+                                              <td>S/M</td>
+                                              <td>M/L</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>EUROPEAN</strong></td>
+                                              <td>cm</td>
+                                              <td>7/8</td>
+                                              <td>8/9</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>US</strong></td>
+                                              <td>&nbsp;</td>
+                                              <td>S/M</td>
+                                              <td>M/L</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                  <table width="490" cellspacing="0" cellpadding="0" border="0">
+                                      <thead>
+                                          <tr>
+                                              <th class="nopad" colspan="6"><h5>Mens' Belts Size Chart</h5></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td><strong>UK</strong></td>
+                                              <td>XXS-XS</td>
+                                              <td>S</td>
+                                              <td>M</td>
+                                              <td>L</td>
+                                              <td>XL/XXL</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>EUROPEAN</strong></td>
+                                              <td>66-76</td>
+                                              <td>81</td>
+                                              <td>86</td>
+                                              <td>91</td>
+                                              <td>96-101</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>US</strong></td>
+                                              <td>XXS-XS</td>
+                                              <td>S</td>
+                                              <td>M</td>
+                                              <td>L</td>
+                                              <td>XL/XXL</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p><br>* These sizes are guide to fit only. The actual size may vary according to the style and brands.</p>
+                            </div>
+                        </div>
+    </div>
+    <div class="tab-pane" id="tab3">
+      <img width="736" height="387" border="0" title="Reebonz's Bag Measurement" src="http://www.reebonz.com/sites/all/themes/custom/reebonz/img/bags-chart.jpg">
+    </div>
+  </div>
+</div></div>
+<div id="ipp_terms" class="reveal-modal-ipp">
+    <div class="close-x close-reveal-modal">&#215;</div>
+    <div class="popup-container" style="background: #ffffff; font-style: arial; line-height: 20px; font-size: 14px;">
+<div>
+<h2>信用卡付款須知</h2>
+</div>
+<ol style="margin-left: 20px; padding: 0 20px; text-align: justify;" type="1"><li style="margin-bottom: 10px;"><span style="font-size: 14px;">折扣後總金額消費達NT$ 3,000以上，始享有配合銀行之3期分期優惠。</span></li>
+<li style="margin-bottom: 10px;">折扣後總金額消費達NT$ 5,000以上，始享有配合銀行之6期(含以上)分期優惠。</li>
+<li style="margin-bottom: 10px;"><span style="font-size: 14px;">若您選擇「傳真刷卡付款」，請您暫選網頁上所提供之相關欄位，以利系統先行成立訂單。(例如，發卡銀行請直接選擇「台新銀行<br />
+，即使您沒有台新銀行信用卡亦無妨，信用卡類別和期數亦請任選；此舉將不影響您的線上訂單資料，實際需求將以傳真刷卡單為主。)訂單成立後，REEBONZ台灣客服專員將盡速聯絡您，並提供您「信用卡傳真刷卡授權書」<br />
+，待您填寫完畢後為您進行人工授權。如遇國定假日或非客服營業時間，我們將在下一個工作天聯絡您進行後續付款手續。如您不便接聽電話，或須變更聯絡資訊，煩請您將相關資訊告知REEBONZ客服中心(0800-555-700)。</span></li>
+<li style="margin-bottom: 10px;">您的訂單將於您付款完成後始進行出貨流程。若REEBONZ在兩個工作天內未收到您回傳相關資訊，將取消您以「信用卡傳真刷卡付款」之訂單。</li>
+<li style="margin-bottom: 10px;">REEBONZ不會將您的個人資料洩漏給第三方。所有的個人資料皆經由安全的網路環境中操作並取得。</li>
+<li style="margin-bottom: 10px;">REEBONZ保留取消與修改訂單之權利。</li>
+</ol></div>
+</div>  
+  </div>
+
+  
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<div id="block-popup-signin-popup-signin" class="block block-popup-signin">
+
+    
+  <div class="content">
+    <style>
+.mailcheck.form-text{
+	float:none !important;
+}
+</style>
+
+<!-- Include template for popup sign in/sign up here-->
+<div id="signin_popup_page" class="class_signin_popup_page" style="display:none;">
+  <div class="message-popup"></div>  <h3 class="popup_signin_title_top">以 Facebook 帳號登入</h3>
+  <a href='javascript:void(0);' id='close-popup' class='close-popup'>X</a>  <a href="https://www.facebook.com/dialog/oauth?client_id=139436066207032&redirect_uri=http%3A%2F%2Fwww.reebonz.com.tw%2Ffb%2Fconnect%3Fgo%3D%2Fevent%2Ft10901%2Fitem%2FRVSR20022001&state=b004fe97d1f8ea2bd1549d0c5bb85138&scope=email%2Cuser_location&target=_top" class="fb-btn login-btn"><div class="fb-logo-wrap"><span class="facebook-logo"></span></div><span>以 Facebook 帳號登入</span></a>
+    <div id="popup_signin_title">會員登入</div>
+  <form action="/event/t10901/item/RVSR20022001" method="post" id="user-login--2" accept-charset="UTF-8"><div><label>電子郵件 :</label>
+<input placeholder="電子郵件" type="text" id="edit-name--2" name="name" value="" size="60" maxlength="60" class="form-text required" /><label>設定密碼 :</label>
+<input placeholder="設定密碼" type="password" id="edit-pass--2" name="pass" size="60" maxlength="128" class="form-text required" /><input type="hidden" name="form_id" value="user_login" />
+<input type="hidden" name="form_build_id" value="form-bXbX9uX7OQ8Fw5q1xBhlEgZni1EX2Zn6lx-jP3Tm2Lk" />
+<input class="btn-rbz1 form-submit" type="submit" id="edit-submit--3" name="op" value="馬上登入" /></div></form>  <div class="clearfix popup_signin_bottom" style="margin-top: 10px;">
+      
+      <div class="forgot-signin">
+    <div class="forgot-content">
+      <a id="forgot_password_popup" href="http://www.reebonz.com.tw/mainlanding?forgot_password">忘記密碼？</a>
+    </div>
+    <div class="not-member">
+            <a href="javascript:void(0);" id="show-signup">馬上加入會員</a>
+    </div>
+  </div>
+  </div>
+  </div>
+
+<div id="signup_popup_page" class="class_signup_popup_page" style="display:none;">
+        <h3 class="popup_signin_title_top">馬上加入會員</h3>
+    <a href='javascript:void(0);' id='close-popup-signup' class='close-popup'>X</a>
+                <a href="https://www.facebook.com/dialog/oauth?client_id=139436066207032&redirect_uri=http%3A%2F%2Fwww.reebonz.com.tw%2Ffb%2Fconnect%3Fgo%3D&state=b004fe97d1f8ea2bd1549d0c5bb85138&target=_top" class="fb-btn login-btn">
+                    <div class="fb-logo-wrap"><span class="facebook-logo"></span></div>
+                    <span>以 Facebook 帳號登入</span>
+                </a>&nbsp;<div id='popup_signup_or'>或用 email 加入為 REEBONZ 會員 </div><form action="/event/t10901/item/RVSR20022001" method="post" id="reebonz-signup-phase-one-form--2" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-homepage-email">
+  <label for="edit-homepage-email--2"><p class="home2">請輸入你的 Email:</p> </label>
+ <input class="input f-textfield form-text" placeholder="Enter your email address" type="text" id="edit-homepage-email--2" name="homepage_email" value="" size="15" maxlength="128" />
+</div>
+<input class="bt-submit-login form-submit" type="submit" id="edit-homepage-email-button--2" name="submit" value="送出" /><input type="hidden" name="form_build_id" value="form-CrDulbooRDwZ8Alm6g1ABCR-GXioddQjfW1Sv20JR9A" />
+<input type="hidden" name="form_id" value="reebonz_signup_phase_one_form" />
+</div></form><br/><br/>Already a member?     <a href="javascript:void(0);" id="show-signin">馬上登入</a>
+        
+</div>
+<!-- End of template-->
+<div id="fade_overlay" class="black_overlay"></div>
+  </div>
+</div>
+<div id="block-block-3" class="block block-block">
+
+    
+  <div class="content">
+    <!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+$.src='//v2.zopim.com/?22v2EQ6psIw61dcHz2Oad28khZl3oV3f';z.t=+new Date;$.
+type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+</script>
+<!--End of Zopim Live Chat Script-->  </div>
+</div>
+  </div>
+    <div class="push"></div>
+</div>
+<div class="reebonz-full-footer">
+  <div class="region region-footer">
+    <div id="block-merge-footer-merge-footer" class="block block-merge-footer">
+
+    
+  <div class="content">
+    
+
+
+
+<a href="#top"><div class="scroll-to-top">
+        <div class="scroll-arrow-up"></div>
+    </div></a>
+
+<div class="merge-footer">
+    <div class="merge-footerwrap">
+        <div class="row-fluid">
+            <div class="span3 companyinfo">
+                <h1>關於REEBONZ</h1>
+                <ul>
+                    <li><a href="/about-us" target="_blank">關於我們</a></li><li><a href="/career" target="_blank">人才招募</a></li>                </ul>
+            </div>
+            <div class="span3 help">
+                <h1>顧客服務</h1>
+                <ul>
+                    <li><a href="/faq" target="_blank">寄賣須知</a></li><li><a href="/terms-use" target="_blank">使用條款</a></li><li><a href="/privacy-policy" target="_blank">隱私權政策</a></li><li><a href="/service/contactreebonz" target="_blank">聯絡我們</a></li>                </ul>
+            </div>
+            <div class="span3 social">
+                <h1>追蹤REEBONZ</h1>
+                <ul>
+                    <li class='merge-social'><a href="https://play.google.com/store/apps/details?id=com.reebonz.fashion" target="_blank" onclick="javascript:add_datalayer(&quot;Android&quot;)"><img src='http://cdn.reebonz.com.tw/static/mobile.png' alt='icon'/><span class='social-text'>Android</span></a></li><li class='merge-social'><a href="http://itunes.apple.com/sg/app/reebonz-for-ipad/id378789171" target="_blank" onclick="javascript:add_datalayer(&quot;iPad&quot;)"><img src='http://cdn.reebonz.com.tw/static/mobile.png' alt='icon'/><span class='social-text'>iPad</span></a></li><li class='merge-social'><a href="https://itunes.apple.com/sg/app/reebonz-for-iphone/id377175827?mt=8" target="_blank" onclick="javascript:add_datalayer(&quot;iPhone&quot;)"><img src='http://cdn.reebonz.com.tw/static/mobile.png' alt='icon'/><span class='social-text'>iPhone</span></a></li><li class='merge-social'><a href="http://www.facebook.com/reebonztw" target="_blank" onclick="javascript:add_datalayer(&quot;Facebook&quot;)"><img src='http://cdn.reebonz.com.tw/static/facebook.png' alt='icon'/><span class='social-text'>Facebook</span></a></li><li class='merge-social'><a href="http://www.Twitter.com/Reebonz" target="_blank" onclick="javascript:add_datalayer(&quot;Twitter&quot;)"><img src='http://cdn.reebonz.com.tw/static/twitter.png' alt='icon'/><span class='social-text'>Twitter</span></a></li><li class='merge-social'><a href="http://instagram.com/reebonztw" target="_blank" onclick="javascript:add_datalayer(&quot;Instagram&quot;)"><img src='http://cdn.reebonz.com.tw/static/instagram.png' alt='icon'/><span class='social-text'>Instagram</span></a></li>                    <!--
+                    <li class="merge-social"><a href="">Facebook</a></li>
+                    <li class="merge-social pinterest"><a href="">Pinterest</a></li>
+                    <li class="merge-social twitter"><a href="">Twitter</a></li>
+                    <li class="merge-social wardrobe"><a href="">Wardrobe</a></li>
+                    <li class="merge-social instagram"><a href="">Instagram</a></li>
+                    -->
+                </ul>
+            </div>
+            <div class="span3 alt">
+                <h1>訂閱REEBONZ</h1>
+                <ul>
+                    <li>輸入您的Email信箱，立即訂閱REEBONZ的最新優惠資訊！</li>
+                </ul>
+                <div class="input-group">
+<form action="/event/t10901/item/RVSR20022001" method="post" id="reebonz-signup-phase-one-form--3" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-homepage-email">
+ <input class="input f-textfield form-text" type="text" id="edit-homepage-email--3" name="homepage_email" value="" size="15" maxlength="128" />
+</div>
+<input class="bt-submit-login form-submit" type="submit" id="edit-homepage-email-button--3" name="submit" value="送出" /><input type="hidden" name="form_build_id" value="form-F8efv_5384pVYqaniABxQ8dXbWcKbl6piHohlKB2zcs" />
+<input type="hidden" name="form_id" value="reebonz_signup_phase_one_form" />
+</div></form>                </div>
+            </div>
+        </div>
+        <div class="merge-businesspartners">
+                        &copy;2014 Reebonz Pte Ltd. All Rights Reserved.        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+// hide #back-top first
+            $(".scroll-to-top").hide();
+// fade in #back-top
+            $(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('.scroll-to-top').fadeIn();
+                    } else {
+                        $('.scroll-to-top').fadeOut();
+                    }
+                });
+// scroll body to 0px on click
+                $('.scroll-to-top').click(function() {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+            //remove open in new tab
+            var footer = $('.merge-footer');
+            var companyinfo = $('.companyinfo',footer);
+            var help = $('.help',footer);
+            $('a',companyinfo).removeAttr('target');
+            $('a',help).removeAttr('target');
+        });
+    })(jQuery)</script>
+  </div>
+</div>
+  </div>
+</div>  <script type="text/javascript" defer="defer">
+<!--//--><![CDATA[//><!--
+(function($) {
+$(".various").fancybox({autoDimensions: false,width: "660",autoSize: true,closeClick: false, openEffect: "none",closeEffect: "none"})
+ })(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript" defer="defer">
+<!--//--><![CDATA[//><!--
+(function($) {
+                    $url_event = $(".breadcrumbs > li").find("a").attr("href");
+                    if($url_event != "" && $url_event != null && $url_event != undefined){
+                        $(".breadcrumbs > li").find("a").attr("href",$url_event + window.location.hash);
+                    }
+                })(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+             (function($){    
+                   $(function () {
+                     var l= window.location.pathname;
+                     var cpv=jQuery.cookie("popup_visited");
+                     var cpn=jQuery.cookie("popup_new");
+                     var cps=jQuery.cookie("popup_sess");
+                     var cpsn=jQuery.cookie("popup_sess_new");
+                     
+                    if (cpv==null ) {
+                       jQuery.cookie("popup_visited", "1", {expires:30, path:"/"});
+                    }  
+                   
+                   if (Reebonz.user.id == 0 && cpn!=null && cpv!=null) {
+                        if (cpsn==null) {
+                        $("#fade_overlay").fadeIn();
+
+                        $("#signin_popup_page").fadeIn();
+                        $(".ie7 #rbz_header").css('position','relative');
+                        $("html.ie7").css('overflow','hidden');
+                        }
+                   }
+                   
+                   if (Reebonz.user.id == 0 && cpn==null && cpv!=null) {
+                        if (cps!=null) {
+                            $("#fade_overlay").fadeIn();
+                              
+                            $("#signin_popup_page").fadeIn();
+                            $(".ie7 #rbz_header").css('position','relative');
+                            $("html.ie7").css('overflow','hidden');
+                            $("#close-popup").css("display", "none");
+                            $("#close-popup-signup").css("display", "none");
+                        }
+                        if (cps==null) { 
+                           jQuery.cookie("popup_sess", "1",{path:"/"}); 
+                        }
+                        
+                   }
+                        $("#close-popup").click(function(event) {
+                          jQuery.cookie("popup_sess_new", "1",{expires:1, path:"/"}); 
+                          $("#fade_overlay").fadeOut();
+                          $("#signin_popup_page").fadeOut();
+                        });
+
+                        $("#close-popup-signup").click(function(event) {
+                          jQuery.cookie("popup_sess_new", "1",{expires:1, path:"/"}); 
+                          $("#fade_overlay").fadeOut();
+                          $("#signup_popup_page").fadeOut();
+                        });
+
+                        $("#show-signup").click(function(event) {
+                          $("#signin_popup_page").hide();
+                          $("#signup_popup_page").show();
+                        });
+
+                        $("#show-signin").click(function(event) {
+                          $("#signin_popup_page").show();
+                          $("#signup_popup_page").hide();
+                        });
+                    
+                    
+                    if (cpn==null && cpv==null) {  
+                       jQuery.cookie("popup_new", "1", {expires:1, path:"/"});
+                    }
+                    
+                   }); 
+                   })(jQuery);
+              
+//--><!]]>
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","licenseKey":"d127df4607","applicationID":"843331","transactionName":"bwAGYEIFWEBWVRFbDlZKJVdEDVldGEYEVQRnCAVaUQNTQWhGBFUEZwAcUVMRQlY=","queueTime":0,"applicationTime":2924,"atts":"Q0cFFgofS04=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body> 
+</html>

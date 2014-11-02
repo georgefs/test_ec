@@ -1,0 +1,1473 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+		小三美日平價美妝-商品明細查詢</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery-ui-1.8.19.custom.min.js"></script>
+<link href="css/custom-theme/jquery-ui-1.8.19.custom.css" rel="stylesheet" type="text/css" />
+<script src="js/S3_ywa.js?v=7" type="text/javascript"></script>
+<script src="js/stickysidebar.jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+	$(document).ready(function() {
+		/*
+		// IE zIndex problem
+		var zIndexNumber = 1000;
+		$('div').each(function() {
+		$(this).css('zIndex', zIndexNumber);
+		zIndexNumber -= 10;
+		});
+		//$('div table').removeAttr("align");
+		//$('div table').prop("align", null);
+		$("#content table:eq(0)").css("margin","0px auto");
+		*/
+
+		$("#right").mousemove(function() {
+			$(".subItem").hide();
+		});
+
+		//$("img").each(function() {
+		//	AutoResizeImage($(this).width(),$(this).height(),$(this)[0])
+		//});
+	});
+
+	$(function() {
+		function imageLoaded() {
+			// function to invoke for loaded image
+			// decrement the counter
+			counter--;
+			if (counter === 0) {
+				// counter is 0 which means the last
+				//    one loaded, so do something else
+				//console.debug(counter);
+				$("#leftExpand").css("min-height", "500px");
+				//if ($("#PDRank").length > 0)
+				//	$("#leftExpand").prepend($("#PDRank").html());
+
+				if ($("#content #left").height() > $("#content #right").height()) {
+					//console.debug("left");
+					$("#content").height($("#content #left").height());
+					//$("#leftExpand").height($("#content").height() - $("#leftTop").height() - 200);
+				} else {
+					//console.debug("right");
+					$("#content").height($("#content #right").height());
+					$("#leftExpand").height($("#content").height() - $("#leftTop").height() - 200);
+				}
+				
+
+				$(".stickybox").stickySidebar({
+					speed: 500
+						, padding: 100
+						, easing: "linear"
+						, constrain: true
+				});
+			}
+		}
+		var images = $('img');
+		var counter = images.length;  // initialize the counter
+
+		images.each(function() {
+			if (this.complete) {
+				imageLoaded.call(this);
+			} else {
+				$(this).one('load', imageLoaded);
+			}
+		});
+	});
+	
+	function AddFavorite() {
+		title = '小三美日平價美妝';
+		url = 'https://www.s3.com.tw/';
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, "");
+		} else if (document.all) {
+			window.external.AddFavorite(url, title);
+		} else if (window.opera && window.print) {
+			alert('請用 Ctrl + D，或手動加入我的最愛');
+		} else if (window.chrome) {
+			alert('請用 Ctrl + D，或手動加入我的最愛');
+		}
+	}
+	function swap_img(objThis, isHover) {
+		if (isHover)
+			objThis.src = objThis.src.replace('.jpg', '-h.jpg');
+		else {
+			objThis.src = objThis.src.replace('-h.jpg', '.jpg');
+		}
+	}
+
+	function addCart(qty, val) {
+		var arrVal = val.split("::");
+		var colorname = "";
+		$.ajax({
+			url: "ajax/ajax_getColorName.asp?color=" + arrVal[3],
+			context: document.body,
+			async: false,
+			success: function(data) {
+				colorname = data;
+			}
+		});
+		$("#mask").click();
+		$("#sum").prev().append("<br/>" + arrVal[2] + "<br/>" + colorname + "-" + arrVal[4] + " / " + qty + " / " + arrVal[9] + "<br/><br/>");
+		$("#cart_item").html(parseInt($("#cart_item").html()) + parseInt(qty));
+	}
+
+	function setIFHeight(h) {
+		$("iframe").height(h);
+	}
+
+	// No Number
+	function photoTab(me, duration) {
+		this.obj = $(me);
+		this.tabLength = 0;
+		this.currentTab = 0;
+		this.duration = duration;
+		this.tmOut = null;
+
+		var x = this;
+		this.tabLength = $(x.obj).find(".images").children().length;
+		$(x.obj).find(".images").children().each(function() {
+			if ($(this).attr("href") != undefined)
+				$(x.obj).find(".tabDs").append("<div class='tabD'><a style='color:black;' href='" + $(this).attr("href") + "'>" + $(this).attr("title") + "</a></div>");
+			else
+				$(x.obj).find(".tabDs").append("<div class='tabD'>" + $(this).attr("title") + "</div>");
+		});
+		$(x.obj).find(".tabD").mouseover(function() {
+			$(x.obj).find(".on").removeClass("on");
+			$(this).addClass("on");
+			$(x.obj).find(".tabImgBig").html($(x.obj).find(".images").children().eq($(this).index()).clone());
+			x.currentTab = $(this).index();
+			$(x.obj).find(".tabImgBig").mouseover();
+		});
+		$(x.obj).find(".tabImgBig").mouseover(function() {
+			clearTimeout(x.tmOut);
+		}).mouseout(function() {
+			x.currentTab--;
+			x.auto();
+		});
+	}
+	photoTab.prototype.auto = function() {
+		var x = this;
+		this.currentTab++;
+		if (this.currentTab > this.tabLength) {
+			clearTimeout(this.timeout);
+			this.currentTab = 0;
+		}
+		this.show(this.currentTab);
+		this.tmOut = setTimeout(function() { x.auto() }, this.duration);
+	}
+	photoTab.prototype.show = function(index) {
+		var x = this;
+		$(x.obj).find(".tabD:eq(" + index + ")").mouseover();
+	}
+//-->
+
+	function dialogInitCus(w, h) {
+		$("body").append(
+		'		<div id="Cusboxes">' +
+		'		<div id="Cusdialog" class="Cuswindow">' +
+		'			<div id="Cusdialog_content">' +
+		'				<div id="Cusdialog_title"></div>' +
+		'				<div id="Cusdialog_body"></div>' +
+		'			</div>' +
+		'			<a href="javascript://" class="Cusclose">X</a>' +
+		'		</div>' +
+		'		<div id="Cusmask">' +
+		'		</div>' +
+		'	</div>'
+		);
+		if (w && h)
+			$("#Cusdialog").width(w).height(h);
+	}
+
+	function showDialogCus(title, body, page, w, h) {
+		if (w && h)
+			dialogInitCus(w, h);
+		else
+			dialogInitCus();
+
+		$("#Cusdialog_title").html(title);
+		$("#Cusdialog_body").html(body);
+
+		var id = "#Cusdialog";
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+		$('#Cusmask').css({ 'width': maskWidth, 'height': maskHeight });
+		$('#Cusmask').fadeIn(1000);
+		$('#Cusmask').fadeTo("slow", 0.8);
+		$('#Cusmask').css("z-index", "9000");
+		var winH = $(window).height();
+		var winW = $(window).width();
+		$(id).css("z-index", "9999");
+		$(id).css('top', winH / 2 - $(id).height() / 2);
+		$(id).css('left', winW / 2 - $(id).width() / 2);
+		$(id).fadeIn(1000);
+		if ($(window).height() > $(id).height())
+			$(id).css('position', "fixed");
+		else {
+			$(id).css('top', 0);
+			$(id).css('position', "absolute");
+		}
+
+
+		$('.Cusclose, #Cusmask').click(function (e) {
+			e.preventDefault();
+			$('#Cusmask, .Cuswindow').remove();
+			if (page) {
+				if (page == "-1")
+					history.go(-1);
+				else
+					window.location.href = page;
+			}
+		});
+	}
+
+function AutoResizeImage(maxWidth,maxHeight,objImg){ 
+var img = new Image(); 
+img.src = objImg.src; 
+var hRatio; 
+var wRatio; 
+var Ratio = 1; 
+var w = img.width; 
+var h = img.height; 
+wRatio = maxWidth / w; 
+hRatio = maxHeight / h; 
+if (maxWidth ==0 && maxHeight==0){ 
+Ratio = 1; 
+}else if (maxWidth==0){// 
+if (hRatio<1) Ratio = hRatio; 
+}else if (maxHeight==0){ 
+if (wRatio<1) Ratio = wRatio; 
+}else if (wRatio<1 || hRatio<1){ 
+Ratio = (wRatio<=hRatio?wRatio:hRatio); 
+} 
+if (Ratio<1){ 
+w = w * Ratio; 
+h = h * Ratio; 
+} 
+objImg.height = h; 
+objImg.width = w; 
+} 
+</script> 
+
+
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-38718223-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+</script><!-- 2014/04/19 Alexa ALL -->
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+	_atrk_opts = { atrk_acct:"gQjkj1aEsk000S", domain:"s3.com.tw",dynamic: true};
+	(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=gQjkj1aEsk000S" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  
+
+	<!--2014/09/30 FB - ALL -->
+	<script>(function() {
+		var _fbq = window._fbq || (window._fbq = []);
+		if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+		}
+		_fbq.push(['addPixelId', '476656385813267']);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+	<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=476656385813267&amp;ev=PixelInitialized" /></noscript>
+
+</head>
+<body>
+	<!-- 20131230 cacaFly 聖洋科技股份有限公司 -->
+<!-- 20140312 MOVED FROM HEAD -->
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-46730626-1', 's3.com.tw');
+	ga('send', 'pageview');
+</script>
+
+<div id="header" style="width:100%; background:url(images/v2r6_head/06_bg.png) repeat-x  0px 172px;">
+	<div style="width:1000px; margin:0px auto;">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+		 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="1004">
+			<tr>
+			 <td>
+				<a href="Default.asp">
+					<img src="images/v2r6_head/01.jpg" />
+				</a>
+			 </td>
+			 <!--<td><img name="index2" src="images/index/index2.jpg" width="309" height="172" border="0" id="index2" alt="" /></td>-->
+			 <td><!--<img name="index3" src="images/index/index3.jpg" width="177" height="172" border="0" id="index3" alt="" />-->
+				<div style="width:486px; height:172px;">
+					<a href="http://www.s3.com.tw/S3_NoFraud.asp" target="_blank" title=""><img border="0" src="/banner/images/20141031170328.jpg" ></a><a href="http://www.s3.com.tw/S3_NoFraud.asp" target="_blank" title=""><img border="0" src="/banner/images/20141024174417.gif" ></a>
+				</div>
+			 </td>
+			<td>
+				<div style="width:284px; height:172px; position:relative;">
+					<img src="images/v2r6_head/04.jpg" style="position:absolute; top:0px; left:0px;" />
+					<a href="S3_Brand.asp" title="品牌故事">
+						<img src="images/spacer.gif" style="position:absolute; top:44px; left:14px; width:211px; height:31px;" />
+					</a>
+					<a href="http://tw.user.bid.yahoo.com/tw/edit/letter_subscribe?action=sub&seller=Y3058375805&.crumb=giqDvWFLiub" target="_blank" title="電子報">
+						<img src="images/spacer.gif" style="position:absolute; top:85px; left:13px; width:213px; height:31px;" />
+					</a>
+					<a href="https://www.facebook.com/s3beauty" target="_blank" title="FB" />
+						<img src="images/spacer.gif" style="position:absolute; top:126px; left:12px; width:215px; height:33px;" />
+					</a>
+					<a href="javascript:AddFavorite();" title="我的最愛">
+						<img src="images/spacer.gif" style="position:absolute; top:1px; left:246px; width:33px; height:54px;" />
+					</a>
+				</div>
+			</td>
+			</tr>
+		</table></td>
+		</tr>
+		<tr>
+		 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="1004">
+			<tr>
+			<td>
+				<div style=" position:relative; width:234px; height:89px;">
+					<!--<img name="index5" src="images/index/index5.jpg" width="234" height="89" />-->
+					<img src="images/v2r6_head/05.jpg" style="position: absolute; top:0px; left:0px;" />
+					<form action="PDList2.asp" method="get">
+					<div style="position:absolute; left:78px; width: 147px; height: 25px; top: 56px;">
+						<input type="text" name="keyword" style="border-style: none; border-color: inherit; border-width: 0px; width:101px; height:13px; -webkit-appearance: none;" />
+						<input type="image" src="images/spacer.gif" style="width:29px; height:16px;" />
+					</div>
+
+					</form>
+				</div>
+			</td>
+			 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="770">
+				<tr>
+				 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="770">
+					<tr>
+					 <td><a href="Default.asp"><img src="images/v2r6_head/06_1.png" /></a></td>
+					 <td><a href="Modify.asp"><img src="images/v2r6_head/06_2.png" /></a></td>
+					 <td><a href="OrderList.asp"><img src="images/v2r6_head/06_3.png" /></a></td>
+					 <td><a href="S3_VIP.asp"><img src="images/v2r6_head/06_4.png" /></a></td>
+					 <td><a href="S3_QAA.asp"><img src="images/v2r6_head/06_5.png" /></a></td>
+					 <td><a href="S3_Location.asp"><img src="images/v2r6_head/06_6.png" /></a></td>
+						<td><a href="S3_OB.asp"><img src="images/v2r6_head/06_7.png" /></a></td>
+					</tr>
+				</table></td>
+				</tr>
+				<tr>
+				 <td><img name="index12" src="images/index/index12.jpg" width="770" height="15" border="0" id="index12" alt="" /></td>
+				</tr>
+				<tr>
+				 <td>
+				 <!--<img name="index13" src="images/index/index13.jpg" width="770" height="30" border="0" id="index13" alt="" />-->
+				 <div style="width:770px; height:30px; overflow:hidden;">
+					<span style="color:#5A9902">熱門搜尋:&nbsp;&nbsp;</span><span style='padding-right:5px;'><a href='PDList2.asp?keyword=%E4%BF%9D%E6%BF%95&x=13&y=5' target='_self'>滋潤保濕</a></span><span style='padding-right:5px;'><a href='http://www.s3.com.tw/pdlist2.asp?item1=15' target='_self'>保暖絲襪</a></span><span style='padding-right:5px;'><a href='PDList2.asp?keyword=%E7%B2%89%E5%88%BA&x=12&y=6' target='_self'>粉刺清光光</a></span><span style='padding-right:5px;'><a href='PDList2.asp?keyword=OPI&x=6&y=15' target='_self'>OPI指甲油</a></span><span style='padding-right:5px;'><a href='http://www.s3.com.tw/PDList2.asp?keyword=%E7%9C%BC%E7%B7%9A%E7%AD%86&x=5&y=4' target='_self'>防水眼線筆</a></span><span style='padding-right:5px;'><a href='http://www.s3.com.tw/PDList2.asp?keyword=%E7%9C%BC%E7%BD%A9&x=15&y=9' target='_self'>眼罩</a></span>
+				 </div>
+				 </td>
+				</tr>
+			</table></td>
+			</tr>
+		</table></td>
+		</tr>
+</table>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+	<div id="main">
+		<div id="content">
+			<div id="left">
+<!----未登入----------------------------------------------------------------------------------------->
+
+<script language="javascript">
+
+function cmdlogin(){
+	var userid;
+	var password;
+	userid = document.formlogin.userid.value;
+	password = document.formlogin.password.value;
+	if ((userid == "") || (password == "")){
+		alert('請輸入會員帳號及密碼！');
+		return false;
+	}
+	else{
+		document.formlogin.submit();	
+	}
+}
+</script>
+<form id="formlogin" name="formlogin" method="post" action="/PDContent.asp?yano=d82076690&item1=25&item2=&keyword=" onSubmit="return cmdlogin();">
+<input type="hidden" name="btnlogin" value="login">
+<input type="hidden" name="fromURL" value="">
+
+<div style="position:relative; width:234px; height:170px;">
+	<img src="images/v2r6_head/07.jpg" style="position:absolute; top:0px; left:0px;" />
+	<input type="text" name="userid" style="border:0px; height:18px; width:113px; position:absolute; top:85px; left:78px;">
+	<input type="password" name="password" style="border:0px; height:18px; width:113px; position:absolute; top:110px; left:78px;">
+
+	<a href="Join.asp"><img src="images/spacer.gif" style=" position:absolute; top:135px; left:36px; height: 20px; width: 46px;" /></a>
+	<a href="Forget.asp"><img src="images/spacer.gif" style=" position:absolute; top:135px; left:91px; height: 20px; width: 51px;" /></a>
+	<a href="javascript://" onclick="document.formlogin.submit();"><img src="images/spacer.gif" style=" position:absolute; top:136px; left:158px; height: 20px; width: 29px;" /></a>
+
+</div>
+</form>
+<!-- 會員上線人數：33 人
+參觀人氣：0-->
+<!----未登入----------------------------------------------------------------------------------------->
+		
+<!----已登入----------------------------------------------------------------------------------------->
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="234">
+	<tr>
+	 <td>
+	 <div id="leftTop">
+		<!--<img name="index19" src="images/index/index19.jpg" width="234" height="13" border="0" id="index19" alt="" />-->
+		<img src="images/spacer.gif" height="13" />
+		<img src="images/v2r6_head/08.jpg" />
+		<div style="width:200px; line-height:20px; padding:5px; margin:5px auto; ">
+			<div><a href="PDList2.asp?keyword=new2w" class="item1"><img src="images/index/bullet.png" />新品搶先曝光</a></div>
+			<!--<div><a href="PDList2.asp?keyword=new4w" class="item1"><img src="images/index/bullet.png" />本月新品</a></div>-->
+			<div><a href="PDList2.asp?item1=&item2=" class="item1"><img src="images/index/bullet.png" />全部商品</a></div>
+		</div>
+		
+		
+				<div style="background:url(images/v2r6_head/09_1.jpg); width: 152px; height: 35px; line-height: 25px; padding-left: 70px; color:white; font-size:12px; letter-spacing:2px;">粉絲團</div>
+			
+			<div style="width:200px; line-height:20px; padding:5px; margin:5px auto; ">
+			
+					<div><img src="images/index/bullet.png" />
+						<a href="PDContent.asp?yano=f62162488&item1=&item2=&keyword=海賊王護手霜" class="item1">海賊王護手霜↘99</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDContent.asp?yano=f36222110&item1=&item2=&keyword=OPI" class="item1">★買3送1★O.P.I~指甲油</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDContent.asp?yano=c69935514&item1=&item2=&keyword=D101013" class="item1">買5送1 ↘小樹香氛片</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDList2.asp?keyword=D704701%2CD850217&x=27&y=10" class="item1">『最新韓國 DERMAL』↘13up</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDContent.asp?yano=b74148699&item1=&item2=&keyword=D087017" class="item1">Summers eve潔膚露~189元</a>
+					</div>
+					
+			</div>
+			
+				<div style="background:url(images/v2r6_head/09_1.jpg); width: 152px; height: 35px; line-height: 25px; padding-left: 70px; color:white; font-size:12px; letter-spacing:2px;">強打活動</div>
+			
+			<div style="width:200px; line-height:20px; padding:5px; margin:5px auto; ">
+			
+					<div><img src="images/index/bullet.png" />
+						<a href="PDList2.asp?keyword=pim:1212060001" class="item1">女人我最大介紹</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDList2.asp?keyword=pim:1212060002" class="item1">｜超值優惠下殺｜</a>
+					</div>
+					
+					<div><img src="images/index/bullet.png" />
+						<a href="PDList2.asp?keyword=pim:1212060003" class="item1">｜即期｜過季｜N G 特賣｜</a>
+					</div>
+					
+			</div>
+			
+
+		<script language="javascript">
+			var t;
+		</script>
+		<div style="position:relative;">
+		<div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem25').show();" ><a class="item1" href="pdlist2.asp?item1=25"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> <font style="color: #FF0000; font-weight: bold">★3CE品牌旗艦館★</font></a></div><div class='subItem subItem25' style='display:none; position:absolute; top:0px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=25&item2=01">★3CE品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem27').show();" ><a class="item1" href="pdlist2.asp?item1=27"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★Dr.Douxi品牌旗艦館★</a></div><div class='subItem subItem27' style='display:none; position:absolute; top:37px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=27&item2=01">★Dr.Douxi品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem30').show();" ><a class="item1" href="pdlist2.asp?item1=30"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★Amida蜜拉護髮旗艦館★</a></div><div class='subItem subItem30' style='display:none; position:absolute; top:74px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=30&item2=01">★Amida蜜拉護髮旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem32').show();" ><a class="item1" href="pdlist2.asp?item1=32"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★beVness碧維納斯旗艦館★</a></div><div class='subItem subItem32' style='display:none; position:absolute; top:111px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=32&item2=01">★beVness碧維納斯旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem34').show();" ><a class="item1" href="pdlist2.asp?item1=34"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★Mollifix瑪莉菲絲旗艦館★</a></div><div class='subItem subItem34' style='display:none; position:absolute; top:148px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=34&item2=01">★Mollifix瑪莉菲絲旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem26').show();" ><a class="item1" href="pdlist2.asp?item1=26"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★BEVY C.品牌旗艦館★</a></div><div class='subItem subItem26' style='display:none; position:absolute; top:185px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=26&item2=01">★BEVY C.品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem33').show();" ><a class="item1" href="pdlist2.asp?item1=33"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★Angel Key 小惡魔 旗艦館★</a></div><div class='subItem subItem33' style='display:none; position:absolute; top:222px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=33&item2=01">★Angel Key 品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem29').show();" ><a class="item1" href="pdlist2.asp?item1=29"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★SUKI品牌旗艦館★</a></div><div class='subItem subItem29' style='display:none; position:absolute; top:259px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=29&item2=01">★SUKI品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem31').show();" ><a class="item1" href="pdlist2.asp?item1=31"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★廣源良品牌旗艦館★</a></div><div class='subItem subItem31' style='display:none; position:absolute; top:296px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=31&item2=1">★廣源良品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem35').show();" ><a class="item1" href="pdlist2.asp?item1=35"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★STARSUKI品牌旗艦館★</a></div><div class='subItem subItem35' style='display:none; position:absolute; top:333px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=35&item2=1">★STARSUKI品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem38').show();" ><a class="item1" href="pdlist2.asp?item1=38"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★1028品牌旗艦館★</a></div><div class='subItem subItem38' style='display:none; position:absolute; top:370px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=38&item2=38">★1028品牌旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem39').show();" ><a class="item1" href="pdlist2.asp?item1=39"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★E．Heart 伊心 旗艦館★</a></div><div class='subItem subItem39' style='display:none; position:absolute; top:407px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=39&item2=39">E．Heart 伊心 旗艦館</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem36').show();" ><a class="item1" href="pdlist2.asp?item1=36"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★Footpure品牌館旗艦館★</a></div><div class='subItem subItem36' style='display:none; position:absolute; top:444px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=36&item2=1">★Footpure品牌館旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem37').show();" ><a class="item1" href="pdlist2.asp?item1=37"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> ★婕洛妮絲 旗艦館★</a></div><div class='subItem subItem37' style='display:none; position:absolute; top:481px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=37&item2=37">★婕洛妮絲 旗艦館★</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem19').show();" ><a class="item1" href="pdlist2.asp?item1=19"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 時尚彩妝品牌區</a></div><div class='subItem subItem19' style='display:none; position:absolute; top:518px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=01">Anna sui 安娜蘇</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=08">CEZANNE</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=15">CLIO珂莉奧</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=03">ETUDE</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=11">Holika</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=05">Jealousness 婕洛妮絲</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=10">Kido</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=13">KOJI</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=19">MJ戀愛魔鏡</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=07">Peripera</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=02">Solone</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=09">SUKI</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=06">TONYMOLY</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=12">YET</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=17">1028</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=14">3CE</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=04">too cool for school</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=16">BEAUTY PEOPLE</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=18">NYX 美國時尚彩妝</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=20">VDL</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=21">E-glips</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=22">Forencos</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=23">innisfree</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=24">banila co</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=25">the saem</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=19&item2=26">STARSUKI</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem15').show();" ><a class="item1" href="pdlist2.asp?item1=15"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 絲褲襪│ 機能衣褲│保暖</a></div><div class='subItem subItem15' style='display:none; position:absolute; top:555px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=15&item2=01">絲褲襪</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=15&item2=02">機能衣褲</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=15&item2=03">保暖</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem21').show();" ><a class="item1" href="pdlist2.asp?item1=21"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 韓國飾品館</a></div><div class='subItem subItem21' style='display:none; position:absolute; top:592px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=21&item2=1">∣ 飾品 配件∣</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem06').show();" ><a class="item1" href="pdlist2.asp?item1=06"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 臉部保養館</a></div><div class='subItem subItem06' style='display:none; position:absolute; top:629px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=01">潔顏｜卸妝｜按摩霜</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=02">化妝水｜收斂水｜噴霧</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=06">精華液｜凝膠｜凝露</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=03">去角質｜去粉刺｜除痘</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=05">面膜｜眼膜</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=04">面霜｜乳液</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=07">眼霜｜眼膠</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=08">護唇膏｜唇部保養</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=09">防曬｜隔離</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=10">牙齒美白</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=06&item2=11">超值組合｜旅行組</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem07').show();" ><a class="item1" href="pdlist2.asp?item1=07"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 身體保養館</a></div><div class='subItem subItem07' style='display:none; position:absolute; top:666px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=01">沐浴｜泡澡｜洗手乳</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=02">去角質｜除毛</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=03">身體乳｜霜｜噴霧｜按摩油</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=04">護手霜｜護足｜肘膝修護</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=05">私密保養｜爽身商品</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=06">身體防曬｜蘆薈膠</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=07">曲線緊緻｜除紋</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=08">防蚊｜舒緩軟膏</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=07&item2=09">超值組合｜旅行組</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem09').show();" ><a class="item1" href="pdlist2.asp?item1=09"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 美髮造型館</a></div><div class='subItem subItem09' style='display:none; position:absolute; top:703px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=01">洗｜潤髮</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=02">護髮｜頭皮保養</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=03">染髮｜造型品</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=04">美髮梳｜鏡子</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=05">電棒捲｜美髮器材</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=09&item2=06">全頂假髮∣假髮片</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem04').show();" ><a class="item1" href="pdlist2.asp?item1=04"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 美甲彩繪館</a></div><div class='subItem subItem04' style='display:none; position:absolute; top:740px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=04&item2=01">指甲油</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=04&item2=02">指甲油周邊品</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=04&item2=03">指甲迷你│保養組</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem05').show();" ><a class="item1" href="pdlist2.asp?item1=05"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 時尚彩妝館</a></div><div class='subItem subItem05' style='display:none; position:absolute; top:777px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=01">粉餅｜粉底液｜遮瑕</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=04">眉筆｜眉粉</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=05">睫毛膏｜夾｜假睫毛</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=03">眼影｜眼線｜眼線液</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=02">唇彩｜唇蜜｜脣膏</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=07">腮紅｜修容餅</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=08">彩妝優質組</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=05&item2=06">刷具｜化妝包</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem08').show();" ><a class="item1" href="pdlist2.asp?item1=08"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 迷人香水館</a></div><div class='subItem subItem08' style='display:none; position:absolute; top:814px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=08&item2=01">男用香水</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=08&item2=02">女用香水</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=08&item2=03">小香</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=08&item2=04">香氛｜精油｜線香</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem11').show();" ><a class="item1" href="pdlist2.asp?item1=11"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 專櫃品牌區</a></div><div class='subItem subItem11' style='display:none; position:absolute; top:851px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=22">ALBION艾倫比亞</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=01">Arden 雅頓</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=02">Borghese 貝佳斯</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=03">Biotherm 碧兒泉</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=04">Clinique 倩碧｜嬌蘭</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=05">Clarins 克蘭詩</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=06">COSME DECORTE 黛珂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=07">Dermalogica 德卡</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=08">Dr.Brandt 柏瑞特醫生</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=09">DARPHIN 朵法</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=11">Kose 高絲</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=12">Kanebo 佳麗寶</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=13">Kiss Me 奇士美</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=14">Kiehl s 契爾氏</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=15">LANCOME 蘭寇</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=23">LG Sooryehan 秀麗韓</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=16">LANEIGE蘭芝｜雅詩蘭黛</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=17">ORIGINS 品木宣言</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=19">PHYTO-C  歐瑪左旋C</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=20">Shiseido 資生堂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=11&item2=21">Shu Uemura 植村秀</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem12').show();" ><a class="item1" href="pdlist2.asp?item1=12"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 各國保養開架品牌區</a></div><div class='subItem subItem12' style='display:none; position:absolute; top:888px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=28">Baviphat</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=03">BEBECO</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=02">B&C</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=04">COSMOS｜COSMO</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=05">DHC</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=27">DARIYA 塔莉雅</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=07">Dr.Douxi</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=23">ETUDE</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=08">FANCL 芳珂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=10">GATSBY</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=12">Hadariky 魔女紫根</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=31">Hello Kitty</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=25">Isderma 愛斯德瑪</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=13">JUJU</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=14">MOMUS</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=24">MIZON</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=17">OXY</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=26">POLA｜ PDC</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=11">ROHTO 肌研</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=18">ROLAND 馬油</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=19">SANA</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=20">Sexylook</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=33">THE FACE SHOP</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=29">UNT</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=30">ZA</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=21">黑龍堂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=09">石澤研究所</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=12&item2=22">寶藝</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem10').show();" ><a class="item1" href="pdlist2.asp?item1=10"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 醫美藥妝品牌區</a></div><div class='subItem subItem10' style='display:none; position:absolute; top:925px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=01">Avene 雅漾</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=02">A-Derma 艾芙美</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=03">Bioderma 貝德瑪</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=04">Cetaphil 舒特膚</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=05">CAUDALIE 泰奧菲</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=19">Dr.Wu</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=06">Ducray 護蕾</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=07">Dr.Hau schka 德國世家</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=09">GLY DERM 果蕾</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=10">Janson Beckett 傑生貝克</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=11">La Posay 理膚寶水</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=12">Neostrata 妮傲絲翠</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=13">Nuxe 黎可詩</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=14">Riage 優麗雅</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=15">SkinCeuticals 杜克</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=16">Vichy 薇姿</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=17">Stiefel 史帝富潔美</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=10&item2=18">NOV 娜芙</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem14').show();" ><a class="item1" href="pdlist2.asp?item1=14"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 美髮造型品牌區</a></div><div class='subItem subItem14' style='display:none; position:absolute; top:962px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=01">Abba</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=35">Amida</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=19">Alterna 歐娜</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=03">EKS 韻特</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=04">FORD</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=05">GOLDWELL 歌薇</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=34">ISCREEN</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=07">KIN 哈比</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=22">KLORANE 蔻蘿蘭</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=08">LA CODERS 蕾舒法克</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=33">LANDOLL 蘭朵</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=09">MATRIX 美傑仕</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=10">Medavita 媚黛維達</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=26">MOROCCANOIL 摩洛哥油</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=11">NEXXUS 耐克斯</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=12">O'right 歐萊德</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=30">PAUL MITCHELL</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=36">Ryoe呂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=32">SOMANG</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=06">TIGI 寶貝蛋</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=31">TSUBAKI 思波綺</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=14">萊雅</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=15">萊肯</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=16">奇拉</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=17">澳寶</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=18">威娜</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=20">萊法耶</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=21">哥德式</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=24">施華寇</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=25">澤妮官</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=28">沙宣</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=27">莎貝之聖</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=29">其他造型護髮</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=14&item2=38">舒妃</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem13').show();" ><a class="item1" href="pdlist2.asp?item1=13"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 香氛美體品牌區</a></div><div class='subItem subItem13' style='display:none; position:absolute; top:999px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=01">Aveeno 燕麥</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=02">ACNES 曼秀雷敦</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=03">Burt's bees 小蜜蜂</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=04">Badger 美洲獾</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=05">Canus 肯拿士</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=06">Carmex 小蜜媞</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=07">Crabtree瑰柏翠</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=08">Durance 朵昂思</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=09">Fruit of the Earth 美國蘆薈膠</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=10">Galenic 婕若琳</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=11">Herbacin 德國小甘菊</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=12">JERGENS 珍柔</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=13">Jurlique 茱莉蔻兒</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=15">Lierac 黎瑞</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=16">LOCCITANE 歐舒丹</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=17">MUSTELA 慕之恬廊</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=18">OMI 近江兄弟</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=19">Palmer s 帕瑪氏</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=20">Savex 莎薇</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=21">Sebamed 施巴</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=22">Saugella 賽吉兒</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=23">Summers eve 舒摩兒</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=24">Smith's Rosebud 花蕾膏</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=25">Vaseline 凡士林</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=26">YuskinA 新悠斯晶</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=27">花王</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=13&item2=28">維多利亞的秘密</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem16').show();" ><a class="item1" href="pdlist2.asp?item1=16"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 媽咪寶貝區</a></div><div class='subItem subItem16' style='display:none; position:absolute; top:1036px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=16&item2=01">媽咪寶貝區</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem22').show();" ><a class="item1" href="pdlist2.asp?item1=22"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 休閒零食</a></div><div class='subItem subItem22' style='display:none; position:absolute; top:1073px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=22&item2=1">韓國</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=22&item2=2">日本</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=22&item2=3">台灣</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem20').show();" ><a class="item1" href="pdlist2.asp?item1=20"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 保健</a></div><div class='subItem subItem20' style='display:none; position:absolute; top:1110px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=20&item2=1">保健</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem17').show();" ><a class="item1" href="pdlist2.asp?item1=17"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 文具｜3C小物│功能小包</a></div><div class='subItem subItem17' style='display:none; position:absolute; top:1147px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=17&item2=01">文具</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=17&item2=02">3C小物</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=17&item2=03">功能小包</a><br></div></div><div style="width:200px; height:20px; padding:5px; margin:5px auto; border-top:1px solid silver; border-bottom:1px solid silver; " onmouseover="$('.subItem').hide();$('.subItem18').show();" ><a class="item1" href="pdlist2.asp?item1=18"><img src="images/index/arrow.png" width="19" height="19" border="0" align="middle"> 美材｜創意生活｜家事收納</a></div><div class='subItem subItem18' style='display:none; position:absolute; top:1184px; left:125px; width:200px; background-color:white; border:4px solid #DC00A6; padding:5px 3px 5px 3px; z-index:50;' onmouseover="$(this).show();" onmouseout="$(this).hide();"><div style='border:1px solid #FFAFEE; padding:7px;'><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=18&item2=01">美材</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=18&item2=02">創意生活</a><br><img src='images/index/bullet.png'/><a class="item2" href="pdlist2.asp?item1=18&item2=03">家事收納</a><br></div></div>
+		</div>
+		
+		</div>
+			<div id="leftExpand" style="width:220px; margin:0px auto;">
+				<div style="width:182px; margin:20px auto;">
+					<div id="fb-root"></div>
+					<script>
+						(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1";
+							fjs.parentNode.insertBefore(js, fjs);
+						} (document, 'script', 'facebook-jssdk'));
+					</script>
+					<div class="fb-like-box" data-href="http://www.facebook.com/s3beauty" data-width="182" data-height="340" data-show-faces="true" data-stream="false" data-header="false"></div>
+				</div>
+				
+			</div>
+			<style>
+				.fb-comments, .fb-comments iframe[style] {width: 100% !important;}
+				.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+						width: 100% !important;
+				}
+			</style>
+		</td>
+	</tr>
+	<tr>
+	 <td><img name="index63" src="images/index/index63.jpg" width="234" height="63" border="0" id="Img1" alt="" /></td>
+	</tr>
+</table>
+
+
+</div>
+			<div id="right">
+				
+<head>
+<meta http-equiv="Content-Language" content="zh-tw">
+</head>
+
+
+
+<meta name="title" content="小三美日平價美妝商品推薦" />
+<meta name="description" content="韓國3CE(3CONCEPT EYES)蘋果光飾底乳15ml【D113234】"/>
+<link rel="image_src" href="/photo/pdimg/04210019/04210019-01.jpg"/>
+
+	<table border="0" width="820" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		
+<!-----商品明細------------------------------------------------>
+<div style="margin:10px 0px 10px 0px;">
+	<a href="Default.asp"><img src="images/meminfo/meminfo1.jpg" style=" vertical-align: bottom" /></a>
+	<span style=" line-height:23px; ">
+		> <a href='PDList2.asp?item1=19'>時尚彩妝品牌區</a> > <a href='PDList2.asp?item1=19&item2=14'>3CE</a>
+	</span>
+</div>
+
+<div style="margin:0px auto;">
+
+<form method="POST" action="MyList.asp" name="formPDList">
+	<input type="hidden" name="buyer" value="Y">
+	<input type="hidden" name="yano" value="d82076690">
+	<input type="hidden" name="pdno" value="04210019">
+	<input type="hidden" id="pdsel" name="selectpd" value="d82076690::04210019::韓國3CE(3CONCEPT EYES)蘋果光飾底乳15ml【D113234】::FFF::F::19::14::1::10::499" />
+</form>
+
+<form method="POST" action="MyCar2.asp" name="formPD">
+		<input type="hidden" name="buyer" value="Y">
+		<input type="hidden" name="chk_choice" value="1">
+		<input type="hidden" name="yano" value="d82076690">
+		<input type="hidden" name="pdno" value="04210019">
+		<input type="hidden" name="amount" value="499">
+		<input type="hidden" name="YA98" value="Y">
+		<input type="hidden" name="YA99" value="1">
+		<input type="hidden" name="isFIX" value="">
+		<input type="hidden" name="uncombine" value="">
+		<input type="hidden" name="YA02" value="N">
+		<input type="hidden" name="choice_od00" value="">
+		<input type="hidden" name="YAQTY" value="0">
+		
+	 <table border="0" cellpadding="0" cellspacing="0" width="723">
+		<tr valign="top">
+		 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="401">
+			<tr>
+			 <td>
+				<img name="pdcontent1" src="/photo/pdimg/04210019/04210019-01.jpg" width="400" height="300" id="pdImg" onerror="this.src='images/noimage.gif'" />
+<!--				<div style="width:400px; overflow:hidden;">
+					<div style="width:500px;">
+						<img src='/photo/pdimg/04210019/04210019-01.jpg'  style='width:80px; height:60px; border:1px solid #F3D8E7; padding:2px; margin:20px 18px 0px 0px; cursor:pointer;' onerror="$(this).remove();"  onmouseover="var x = this; $('#pdImg').attr('src', x.src);"  /><img src='/photo/pdimg/04210019/04210019-02.jpg'  style='width:80px; height:60px; border:1px solid #F3D8E7; padding:2px; margin:20px 18px 0px 0px; cursor:pointer;' onerror="$(this).remove();"  onmouseover="var x = this; $('#pdImg').attr('src', x.src);"  /><img src='/photo/pdimg/04210019/04210019-03.jpg'  style='width:80px; height:60px; border:1px solid #F3D8E7; padding:2px; margin:20px 18px 0px 0px; cursor:pointer;' onerror="$(this).remove();"  onmouseover="var x = this; $('#pdImg').attr('src', x.src);"  /><img src='/photo/pdimg/04210019/04210019-04.jpg'  style='width:80px; height:60px; border:1px solid #F3D8E7; padding:2px; margin:20px 18px 0px 0px; cursor:pointer;' onerror="$(this).remove();"  onmouseover="var x = this; $('#pdImg').attr('src', x.src);"  />
+					</div>
+				</div>-->
+				</td>
+			</tr>
+			<tr>
+			 <td><img name="pdcontent8" src="images/pdcontent/pdcontent8.jpg" width="401" height="22" border="0" id="pdcontent8" alt="" /></td>
+			</tr>
+		</table></td>
+		 <td><img name="pdcontent2" src="images/pdcontent/pdcontent2.jpg" width="10" height="323" border="0" id="pdcontent2" alt="" /></td>
+		 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="312">
+			<tr>
+			 <td>
+				<!--<img name="pdcontent3" src="images/pdcontent/pdcontent3.jpg" width="312" height="279" border="0" id="pdcontent3" alt="" />-->
+				<table border="0" width="100%" cellpadding="0" style="font-size: 14px; line-height: 30px;">
+								<!--<tr>
+									<td align="right" nowrap height="46">
+										<font color="#333333">商品貨號：</font>
+									</td>
+									<td width="100%" height="46">
+										<font color="#333333"></font>
+									</td>
+								</tr>-->
+					<tr>
+					 <td><span style="font-weight:bold; font-size:20px;">韓國3CE(3CONCEPT EYES)蘋果光飾底乳15ml【D113234】</span><span style="color:white;">04210019</span></td>
+					</tr>
+					<tr>
+					 <td><span style="font-weight:bold; font-size:14px;"></span></td>
+					</tr>
+					<tr>
+						<td>
+							<span style="color:#333333; ">建議售價：</span><span style=" text-decoration:line-through">1078元</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td bgcolor="#ffffcc" style="color:#cc0000; font-weight:bold;">
+							<span>網路折扣價：</span>
+							<span>499</span>
+							<span>元</span>
+						</td>
+					</tr>
+					
+							<tr>
+								<td bgcolor="#FFFFCC">此為任選組合商品，可任選 <font color="#DD0000"><b>1</b></font> 件</td>
+							</tr>
+					
+					<tr>
+						<td height="50">
+							<div style="height:20px; overflow:hidden;">
+									<div id="fb-root"></div>
+									<script>										(function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0];
+											if (d.getElementById(id)) return;
+											js = d.createElement(s); js.id = id;
+											js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1";
+											fjs.parentNode.insertBefore(js, fjs);
+										} (document, 'script', 'facebook-jssdk'));</script>
+										<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+								</div>
+						</td>
+					</tr>
+				</table>
+			 </td>
+			</tr>
+			<tr>
+			 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="312">
+				<tr>
+				 <td>
+						
+						<img src="images/pdcontent/pdcontent4.jpg" style=" cursor:pointer;" choice="1" onclick="cmdcheck();" />
+				 </td>
+				 <td><img name="pdcontent5" src="images/pdcontent/pdcontent5.jpg" width="6" height="44" border="0" id="pdcontent5" alt="" /></td>
+				 <td><img name="pdcontent6" src="images/pdcontent/pdcontent6.jpg" onclick="doTracking('N', '04210019');cmdaddList();" style="cursor:pointer;" /><!--YWA--></td>
+				 <td><img name="pdcontent7" src="images/pdcontent/pdcontent7.jpg" width="77" height="44" border="0" id="pdcontent7" alt="" /></td>
+				</tr>
+			</table></td>
+			</tr>
+		</table></td>
+		</tr>
+	</table>
+
+<!--<img name="pdcontent10" src="images/pdcontent/pdcontent10.jpg" width="723" height="51" border="0" id="pdcontent10" alt="" />-->
+<!--<img name="pdcontent11" src="images/pdcontent/pdcontent11.jpg" width="723" height="242" border="0" id="pdcontent11" alt="" />-->
+
+<div style="width:100%; overflow:auto;">
+<a name="ScrollBtm" id="ScrollBtm"></a>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<td>
+
+<!----------任選組合商品(限定購買數量)- chk_choice = "1" -開始--------------------------------------------------->
+
+		<hr size="1">
+		<div style="margin:0px auto;">
+			任選組合商品：<font color="#DD0000"><b>499</b></font> 元，任選 <font color="#DD0000"><b>1</b></font> 件商品的方式購買：
+		</div>
+		<div style="margin:0px auto; overflow:auto;">
+
+			<div style="width:185px; margin:10px 0px 0px 0px; float:left; overflow:auto;" title="04210018">
+				<span style="display:none;" id="selpdno1">04210018</span>
+				<span style="display:none;" id="selpdname1">3CE~蘋果光飾底乳(粉嫩肌monaco)</span>
+				
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="#" onclick="showSubImg(this);" target="_blank">
+		<img src="/photo/pdimg/04210018/04210018-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="#" onclick="showSubImg(this);" target="_blank">3CE~蘋果光飾底乳(粉嫩肌monaco)</a>
+	</div>
+	<div style="text-align:center;">
+			
+				數量: <select size="1" id="selnum1" name="sel::04210018">
+<option value="0" selected>0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+</select>
+
+	</div>
+</div>
+
+			</div>
+
+			<div style="width:185px; margin:10px 0px 0px 0px; float:left; overflow:auto;" title="04210019">
+				<span style="display:none;" id="selpdno2">04210019</span>
+				<span style="display:none;" id="selpdname2">3CE~蘋果光飾底乳(古銅肌bondi-beach)</span>
+				
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="#" onclick="showSubImg(this);" target="_blank">
+		<img src="/photo/pdimg/04210019/04210019-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="#" onclick="showSubImg(this);" target="_blank">3CE~蘋果光飾底乳(古銅肌bondi-beach)</a>
+	</div>
+	<div style="text-align:center;">
+			
+				數量: <select size="1" id="selnum2" name="sel::04210019">
+<option value="0" selected>0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+</select>
+
+	</div>
+</div>
+
+			</div>
+
+			<div style="width:185px; margin:10px 0px 0px 0px; float:left; overflow:auto;" title="04210020">
+				<span style="display:none;" id="selpdno3">04210020</span>
+				<span style="display:none;" id="selpdname3">3CE~蘋果光飾底乳(打亮潤色santorini)</span>
+				
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="#" onclick="showSubImg(this);" target="_blank">
+		<img src="/photo/pdimg/04210020/04210020-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="#" onclick="showSubImg(this);" target="_blank">3CE~蘋果光飾底乳(打亮潤色santorini)</a>
+	</div>
+	<div style="text-align:center;">
+			
+				數量: <select size="1" id="selnum3" name="sel::04210020">
+<option value="0" selected>0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+</select>
+
+	</div>
+</div>
+
+			</div>
+
+		</div>
+
+<div style="clear:both; margin:20px auto;">&nbsp;
+<!--<table border="0" width="90%">
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="center"><input type="button" class="btn" value="確定選擇" name="B2" onclick="javacript:cmdcheck();return false;"></td>
+	</tr>
+</table>-->
+</div>
+<!----------任選組合商品(限定購買數量)- chk_choice = "1" -結束--------------------------------------------------->
+
+									</td>
+								</tr>
+							</table>
+</div>
+
+					</div>
+
+<!-----商品明細------------------------------------------------>
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="312">
+	<tr>
+	 <td>
+			
+			<!--1-->
+			<img src="images/pdcontent/pdcontent4.jpg" style=" cursor:pointer;" choice="1" onclick="cmdcheck();" />
+	 </td>
+	 <td><img name="pdcontent5" src="images/pdcontent/pdcontent5.jpg" width="6" height="44" border="0" id="Img1" alt="" /></td>
+	 <td><img name="pdcontent6" src="images/pdcontent/pdcontent6.jpg"  onclick="cmdaddList();" style="cursor:pointer;" /></td>
+	 <td><img name="pdcontent7" src="images/pdcontent/pdcontent7.jpg" width="77" height="44" border="0" id="Img3" alt="" /></td>
+	</tr>
+</table>
+
+<a href="S3_VIP.asp" target="_blank" title=""><img border="0" src="/banner/images/20140417142343.jpg"  width="725" ></a>
+<img name="pdcontent12" src="images/pdcontent/pdcontent12.jpg" width="723" height="48" border="0" id="pdcontent12" alt="" />
+<div>&nbsp;&nbsp; <img class="decoded" alt="http://www.s3.com.tw/photo/pdimg/04210019/04210019-01.jpg" src="http://www.s3.com.tw/photo/pdimg/04210019/04210019-01.jpg" /><center><img class="decoded overflowing" alt="http://www.s3.com.tw/photo/s3/bodycare/3CE/D113227.jpg" src="http://www.s3.com.tw/photo/s3/bodycare/3CE/D113227.jpg" /></center>
+<table border="0" cellpadding="4" cellspacing="4" height="539" width="755"> <tbody>
+  <tr>
+    <td align="center" bgcolor="#ff6699" height="24" width="102"><font color="#ffffff"><strong>品 牌</strong></font> </td>
+    <td bgcolor="#f0f0f0" height="24" width="496"><font color="#c00000" size="3"><font size="4"><font color="#c00000" size="5"><strong>☆韓國3CE (3CONCEPT EYES)☆
+    <br /></strong></font></font><font size="5"><strong></strong></font><font color="#000000"> </font></font> </td>
+    <td bgcolor="#ff6699" height="24">
+    <p align="center"><font color="#ffffff"><strong>★快 速 連 結★</strong> </font>
+    </p> </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699" width="102"><font color="#ffffff"><strong>商品名稱</strong></font> </td>
+    <td bgcolor="#f0f0f0" width="496"><font color="#00007f"> </font>
+    <p><font color="#00007f"><font color="#00007f"><strong>3CE~蘋果光飾底乳 (15ml) </strong><font color="#c00000"><strong>~~~3款可選
+      <br />
+      <br /></strong></font><font color="#0000bf">MONACO
+      <br />BONDI BEACH
+      <br />SANTORINI
+      <br /></font>
+      <br />商品編號【D113234】</font></font><strong><font color="#c00000"></font></strong>
+    </p> </td>
+    <td bgcolor="#ffffcc">
+    <p align="left"><font color="#808080" size="2"><a target="new" href="http://tw.user.bid.yahoo.com/tw/edit/letter_subscribe?action=sub&amp;%u205Eseller=savager0215&amp;.crumb=k562K8iqDgz"><font color="#808080"><strong><font color="#990033">訂 閱 電 子 報</font></strong></font></a></font>
+    </p> </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699" height="23" width="102"><font color="#ffffff"><strong>容 量</strong></font> </td>
+    <td bgcolor="#f0f0f0" height="23" width="496"><strong>15ml/瓶</strong> </td>
+    <td rowspan="2" bgcolor="#ffffcc">
+    <br /></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699"><font color="#ffffff"><strong>產品說明</strong></font> </td>
+    <td bgcolor="#f0f0f0">
+    <p><strong><font color="#ff007f"><font color="#ff007f" size="4">韓國時尚品牌STYLENANDA旗下的子牌
+      <br /></font><font color="#ff007f">BIGBANG、SHINee、泫雅...眾多偶像韓星推薦的品</font>牌
+      <br /><font color="#ff007f">愛仿韓妞妝的女孩們怎能錯過!!
+      <br /></font></font><font size="4"><font size="5"><font color="#c00000"></font></font></font></strong><font color="#c00000"> </font>
+    </p> </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699" width="102"><font color="#ffffff"><strong>保存期限</strong></font> </td>
+    <td bgcolor="#f0f0f0" width="496">即日起一年以上，開封後建議6~12個月內用完 </td>
+    <td rowspan="2" bgcolor="#ffffcc">
+    <br /></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699" width="102"><font color="#ffffff"><strong>匯款帳號</strong></font> </td>
+    <td bgcolor="#f0f0f0" width="496">訂單系統自動產生專屬虛擬帳號 </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#ff6699" width="102"><font color="#ffffff"><strong>備 註</strong></font> </td>
+    <td bgcolor="#f0f0f0" width="496">全新商品 </td>
+    <td bgcolor="#ff6699">
+    <br /></td>
+  </tr> </tbody>
+</table></div>
+
+<img name="pdcontent18" src="images/pdcontent/pdcontent18.jpg" width="723" height="66" border="0" id="pdcontent18" alt="" />
+<div style="width:720px; height:200px; border:1px solid silver; float:left;">
+	<a href="javascript://" style="float:left;" onclick="var x=$(this).next(); $(x).animate( {scrollLeft: $(x).scrollLeft()-169},500);">
+		<img name="pdcontent19" src="images/pdcontent/pdcontent19.jpg" />
+	</a>
+	<div style=" width:674px; height:200px; float:left; overflow:hidden;">
+		<div style="width:1350px;">
+		<div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=b91314037           " target="_self">
+		<img src="/photo/pdimg/04110032/04110032-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=b91314037           " target="_self">韓國too cool for s</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$290</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=d92823020           " target="_self">
+		<img src="/photo/pdimg/04370087/04370087-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=d92823020           " target="_self">韓國 VDL~ 水感果凍清透唇膏</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$299</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=f48025266           " target="_self">
+		<img src="/photo/pdimg/04060247/04060247-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=f48025266           " target="_self">ETUDE HOUSE~珍藏之吻</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$450</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=e85282305           " target="_self">
+		<img src="/photo/pdimg/04060596/04060596-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=e85282305           " target="_self">Etude House~ 凡爾賽</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$599</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=b89633139           " target="_self">
+		<img src="/photo/pdimg/04100184/04100184-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=b89633139           " target="_self">Peripera~性感女孩唇彩馬</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$199</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=b102791225          " target="_self">
+		<img src="/photo/pdimg/04210428/04210428-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=b102791225          " target="_self">韓國3CE(3CONCEPT E</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$420</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=e83919405           " target="_self">
+		<img src="/photo/pdimg/04040053/04040053-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=e83919405           " target="_self">TONYMOLY~ 親親香吻旋轉</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$229</font>
+			
+	</div>
+</div>
+</div><div style='float:left; margin:10px 8px 0px 0px;'>
+<div style="margin:0px auto; width:160px; height:200px;">
+	<div style="text-align:center;">
+		<a href="PDContent.asp?yano=b75182684           " target="_self">
+		<img src="/photo/pdimg/03140005/03140005-01.jpg" border="1" width="160" height="120" onerror="src='images/noimage.gif'" style="border: 1px solid #C0C0C0" />
+		</a>
+	</div>
+	<div style="text-align:center;text-decoration: none;">
+			<a style="text-decoration: none; color:#666666;" href="PDContent.asp?yano=b75182684           " target="_self">KOJI ~自然兩用雙眼皮黏著劑</a>
+	</div>
+	<div style="text-align:center;">
+			
+				<font color="#E60089">$360</font>
+			
+	</div>
+</div>
+</div>
+		</div>
+	</div>
+	<a href="javascript://" style="float:left;" onclick="var x=$(this).prev(); $(x).animate( {scrollLeft: $(x).scrollLeft()+169},500);">
+		<img name="pdcontent21" src="images/pdcontent/pdcontent21.jpg" />
+	</a>
+</div>
+
+</table>
+	
+　</td>
+	</tr>
+	</table>
+	
+	
+<div id="PDRank" style="display:none;">
+<img src="images/pdcontent/hotrank.png" />
+
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">01</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=1244047745" >
+						<img src="/photo/pdimg/04210029/04210029-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							韓國3CE(3CONCEPT EYES)超顯色唇膏3.5g【D444460】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">02</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=c86365210" >
+						<img src="/photo/pdimg/04210063/04210063-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							韓國3CE(3CONCEPT EYES)高飽合度超顯色指甲油15ml【D966112】(離島禁送)
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">03</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=e75731785" >
+						<img src="/photo/pdimg/04210024/04210024-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							韓國3CE(3CONCEPT EYES)超水感粉底液40g【D110288】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">04</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=d73643231" >
+						<img src="/photo/pdimg/04100118/04100118-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							韓國Peripera~水晶女孩透潤變色唇膏【D976275】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">05</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=b76502857" >
+						<img src="/photo/pdimg/04120018/04120018-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							Holika Holika魔法公主~神奇遮瑕筆(2色)CNBLUE樂團代言【D336493】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">06</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=d68413736" >
+						<img src="/photo/pdimg/04120009/04120009-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							Holika Holika魔法公主~鑽石光防水眼線筆【D337001】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">07</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=b80178383" >
+						<img src="/photo/pdimg/04100113/04100113-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							韓國Peripera TINT WATER唇露5款限量版【D976244】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+				<div style="width:180px; border-bottom:1px dotted silver; margin:20px auto;">
+					<div style="width:40px; float:left; text-align:center; font-size:16px; color:#FF0A81; padding-top:40px;">08</div>
+					<div style="width:120px; float:left;">
+						<a href="PDContent.asp?yano=1228652706" >
+						<img src="/photo/pdimg/04060223/04060223-01.jpg" onerror="this.src='images/noimage.gif'" width="120" height="90" />
+						</a>
+						<div>
+							ETUDE HOUSE~貼身情人BB霜 清透/自然/健康/古銅【D605831】
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			
+</div>
+
+<script language="javascript">
+
+$(document).ready(function(){
+	$("#leftExpand").append($("#PDRank").html());
+});
+
+
+function cmdaddList() {
+//	if (document.formPD.selectpd.value == "") {
+//		alert('請選擇您的加購規格!');
+//	}
+//	else {
+//		document.formPDList.selectpd.value = document.formPD.selectpd.value;
+		document.formPDList.submit();
+//	}
+}
+
+
+// 任選組合商品 - 限數量 檢查程式
+function cmdcheck()
+{
+window.location.href='Login.asp'; return false;
+	var allnum = 3;	//組合商品內的商品項目數
+	var chknum = 1;	//組合商品應該選擇的件數
+	var allnum2 = 0;	//單一商品內的商品項目數(以原價購買時)
+
+	var choicenum = 0;	//會員選擇的組合件數
+	var choicenum2 = 0;	//會員選擇的單品件數 
+	var str1a = "";		//組合商品選擇資訊
+	var str1b = "";
+	var str2a = "";		//單一商品選擇資訊
+	var str2b = "";
+	var strmsg1 = "";
+	var strmsg2 = "";
+	
+	//組合商品選擇資料
+	for (i=1;i<=allnum;i++)
+	{
+		var x1 = eval("document.getElementById('selnum"+i+"')");
+		if (x1.value != 0)
+		{
+			//alert(x1.value);
+			choicenum = choicenum + parseInt(x1.value,10);
+			sel1a = eval("document.getElementById('selpdno"+i+"').innerHTML");
+			sel1b = eval("document.getElementById('selpdname"+i+"').innerHTML");
+			strmsg1 += sel1a + " - " + sel1b + "，共 " + parseInt(x1.value,10) + " 件\n";
+		}
+	}
+
+	//單一商品選擇資料
+	if (allnum2 > 0)
+	{
+		for (i=1;i<=allnum2;i++)
+		{
+			var x2 = eval("document.getElementById('selnum2"+i+"')");
+			if (x2.value != 0)
+			{
+				//alert(x2.value);
+				choicenum2 = choicenum2 + parseInt(x2.value,10);
+				sel2a = eval("document.getElementById('selpdno2"+i+"').innerHTML");
+				sel2b = eval("document.getElementById('selpdname2"+i+"').innerHTML");
+				strmsg2 += sel2a + " - " + sel2b + "，共 " + parseInt(x2.value,10) + " 件\n";
+			}
+		}
+	}
+
+	//alert(choicenum);
+	if (parseInt(choicenum,10) < parseInt(chknum,10))
+	{
+		//alert("組合商品區請至少選擇 " + chknum + " 件！");
+		alert("請往下先選擇您要的味道/顏色/數量 再按立即購買");
+		location.hash = "#ScrollBtm";
+		return false;
+	}
+	else if ((parseInt(choicenum,10)%parseInt(chknum,10)) != 0 )	// 選擇的件數,  不是組合商品必選的件數倍數
+	{
+		//var choice_no = (parseInt(choicenum,10) \ parseInt(chknum,10));
+		alert("此項目為任選 "+ chknum +" 件組合商品, 需選擇 "+ chknum +" 件的倍數才能結帳");
+		location.hash = "#ScrollBtm";
+		return false;
+	}
+	else
+	{
+		if (parseInt(choicenum2,10) != 0)	//有選擇單一商品時, 要判斷數量不得大於 chknum
+		{
+			if (parseInt(choicenum2,10) >= parseInt(chknum,10))
+			{
+				alert("加購商品數量不得超過 "+ chknum +" 件, "+ chknum +"件以上請於上方組合商品區選購！");
+				location.hash = "#ScrollBtm";
+				return false;
+			}
+		}
+	}
+	
+//	strmsg = "共選擇組合商品如下：\n\n" + strmsg1 + "\n"
+//	if (strmsg2 != "")
+//	{
+//		strmsg += "\n另加購單一商品如下：\n\n" + strmsg2 + "\n"
+//	}
+//	strmsg += "\n請問是否確定送出？"
+//	
+//	y2 = confirm(strmsg);
+//	if (y2 == true)
+//	{
+		doAddToCart('N', '04210019'); //YWA
+		document.formPD.submit();
+//	}
+}
+
+
+
+function showSubImg(objThis){
+	$(objThis).removeAttr("href").removeAttr("target").css("cursor","pointer");
+	var img = $(objThis).find("img:eq(0)");
+	//window.open(img);
+	$("#dialog").hide();
+	
+	var imgX = new Image();
+	var w = 400, h=300;
+	imgX.onload = function() {
+		
+		w = this.width + 50;
+		h = this.height + 50;
+		
+		var dlgImg = $("<img id='dlgImg' src='" + img.attr("src") + "'/>");
+		$("#dialog").html(dlgImg);
+		//alert(w+"x"+h);
+		$("#dialog").dialog({ modal: true, width: w, height: h, title:$(img).attr("title") });
+	}
+	imgX.src = img.attr("src");
+	
+	return false;
+}
+</script>
+<div id="dialog"></div>
+
+
+			</div>
+			<div class="stickybox" style="position:absolute; width:58px; height:332px; top:0px; right:-100px;">
+	<table border="0" cellpadding="0" cellspacing="0" width="58">
+		<tr>
+		 <td><img name="sticky1" src="images/sticky/sticky1.jpg" width="58" height="60" border="0" id="sticky1" alt="" /></td>
+		</tr>
+		<tr>
+		 <td>
+	 			<a href="javascript://" onclick="$(this).next().animate({scrollTop: $(this).next().scrollTop() - 47}, 500);">
+					<img name="sticky2" src="images/sticky/sticky2.jpg" width="58" height="20" border="0" id="sticky2" alt="" />
+				</a>
+				<div id="" style="width:60px; height:139px; overflow:hidden;">
+					<div>
+					<div style="margin:0px; width:60px; height:45px; float:left;"><a target='_parent' href='PDContent.asp?yano=d82076690'><img style='z-index:11;' src='/photo/pdimg/04210019/04210019-01.jpg' onerror='this.src="images/noimage.gif"' width='100%' height='100%' /></a></div>
+					</div>
+				</div>
+				<a href="javascript://" onclick="$(this).prev().animate({ scrollTop: $(this).prev().scrollTop() + 47 },500);">
+					<img name="sticky4" src="images/sticky/sticky4.jpg" width="58" height="18" border="0" id="sticky4" alt="" />
+				</a>
+		 </td>
+		</tr>
+		<tr>
+		 <td><img name="sticky5" src="images/sticky/sticky5.jpg" width="58" height="16" border="0" id="sticky5" alt="" /></td>
+		</tr>
+		<tr>
+		 <td><a href="MyList.asp"><img name="sticky6" src="images/sticky/sticky6.jpg" width="58" height="64" border="0" id="Img2" alt="" /></a></td>
+		</tr>
+		<tr>
+		 <td><a href="#"><img name="sticky7" src="images/sticky/sticky7.jpg" width="58" height="20" border="0" id="sticky7" alt="" /></a></td>
+		</tr>
+	</table>
+
+
+</div>
+		</div>
+	</div>
+	<div id="footer" style=" width:100%; margin:0px; background-image:url(images/bg/bg_btm.png)">
+	<div style="width:1004px; height:143px; position:relative; margin:0px auto;">
+		<img name="index69" src="images/index/index69.jpg?v=7" width="1004" height="143" border="0" id="index69" usemap="#m_index69" />
+		<map name="m_index69" id="m_index69">
+		<area shape="rect" coords="762,100,869,127" href="S3_Privacy.asp" title="個人隱私保密" />
+		<area shape="rect" coords="682,100,763,127" href="S3_Partner.asp" title="合作專區" />
+		<area shape="rect" coords="589,100,681,127" href="S3_Location.asp" title="實體店鋪" />
+		<!--<area shape="rect" coords="495,100,589,127" href="S3_QAA.asp" title="常見問題" />-->
+		<area shape="rect" coords="495,100,589,127" href="S3_QAA.asp" title="購物說明" />
+		<area shape="rect" coords="384,100,495,127" href="S3_VIP.asp" title="會員專屬優惠" />
+		<area shape="rect" coords="297,100,384,127" href="OrderList.asp" title="訂單查詢" />
+		<area shape="rect" coords="189,100,297,127" href="Modify.asp" title="會員中心" />
+		<area shape="rect" coords="151,100,190,127" href="Default.asp" title="首頁" />
+		</map>
+		
+		<div style="position:absolute; bottom:0px; right:100px; width:280px; height:12px; background-color:White; border:0px solid black;">
+			線上人數:&nbsp;<span>71591</span>&nbsp;人
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			參觀人數:&nbsp;<span>47746986</span>&nbsp;人
+		</div>
+	</div>
+</div>
+	<span style="font-size: 9pt; color:Silver;">康德科技　系統設計</span>
+
+	<!-- GOOGLE 2014/06/05 - ALL -->
+	<!-- GOOGLE 2013/06/26 - DEFAULT -->
+	<!-- Google Code for &#20877;&#34892;&#37559;&#27161;&#35352; -->
+	<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 1002148426;
+		var google_conversion_label = "wqBnCMaN9gQQyqTu3QM";
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+	</script>
+	<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1002148426/?value=0&amp;label=wqBnCMaN9gQQyqTu3QM&amp;guid=ON&amp;script=0"/>
+	</div>
+	</noscript>
+<!-- FB 2013/06/26 -->
+<script type="text/javascript">
+	adroll_adv_id = "BX7DGNV3XZGE5ALTHIDDL6";
+	adroll_pix_id = "DQGTICUILBDNVFQIFQ5247";
+	(function() {
+		var oldonload = window.onload;
+		window.onload = function() {
+			__adroll_loaded = true;
+			var scr = document.createElement("script");
+			var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+			scr.setAttribute('async', 'true');
+			scr.type = "text/javascript";
+			scr.src = host + "/j/roundtrip.js";
+			((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+			if (oldonload) { oldonload() } 
+		};
+	} ());
+</script>
+
+
+	<!-- 2014/04/29 DR PIXEL ALL -->
+	<!-- Advertiser '豐晨貿易有限公司',  Include user in segment 'TW_savager Site Retargeting' - DO NOT MODIFY THIS PIXEL IN ANY WAY -->
+	<img src="https://ads.yahoo.com/pixel?id=2436223&t=2" width="1" height="1" />
+	<!-- End of segment tag -->
+
+<script>
+	doPageView("N", "產品館別", "★3CE品牌旗艦館★", "", "韓國3CE(3CONCEPT EYES)蘋果光飾底乳15ml【D113234】", "04210019");
+</script><!-- 20140609 - 宇匯-->
+<script type="text/javascript">
+	(function(){var e={"mid":109,"uid":""};var f='undefined';var g="http://";var h="https://";var i="//";var j=g;if(document.location.href.indexOf(g)!=-1){j=i}else if(document.location.href.indexOf(h)!=-1){j=i}function l(v){if(v=="")return false;return(eval("typeof "+v)!=f)}function m(a){var s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('src',a);return s}function n(a){var b=document.getElementsByTagName('head')[0];if(b)b.appendChild(m(a));else document.body.appendChild(m(a))}function o(a,b){var c=setInterval(function(){if(l(a)){clearInterval(c);b()}},50)}function p(a,b,c,d){if(l(b)==false){n(a);o(b,function(){if(c)c();if(d)d()})}else{if(d)d()}}var k=j+"rec.scupio.com/recweb/js/rec.js";p(k,"scupioec",null,function(){self.scupioec.call(e)})})();
+</script>
+
+	<!-- tagtoo 2014/06/06 - ALL/FINISH -->
+	<script type='text/javascript'>
+		var tagtoo_advertiser_id = 163;
+		var tagtoo_ga = document.createElement('script');
+		tagtoo_ga.type = 'text/javascript';
+		tagtoo_ga.async = true;
+		tagtoo_ga.src = '//ad.tagtoo.co/media/ad/track.js';
+		var tagtoo_s = document.getElementsByTagName('script')[0];
+		tagtoo_s.parentNode.insertBefore(tagtoo_ga, tagtoo_s);
+	</script>
+
+
+	<!--2014/03/31 vizury ALL-->
+	<script type="text/javascript">
+		(function () {
+			try {
+				var viz = document.createElement("script");
+				viz.type = "text/javascript";
+				viz.async = true;
+				viz.src = ("https:" == document.location.protocol ? "https://cdn6.vizury.com" : "http://cdn6.vizury.com") + "/analyze/pixel.php?account_id=VIZVRM1871";
+
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(viz, s);
+				viz.onload = function () {
+					try {
+						pixel.parse();
+					} catch (i) {
+					}
+				};
+				viz.onreadystatechange = function () {
+					if (viz.readyState == "complete" || viz.readyState == "loaded") {
+						try {
+							pixel.parse();
+						} catch (i) {
+						}
+					}
+				};
+			} catch (i) {
+			}
+		})();
+	</script>
+
+</body>
+</html>

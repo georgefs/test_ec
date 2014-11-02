@@ -1,0 +1,1086 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="js/jcarousellite.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+    <script src="js/jquery.jqzoom-core.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/slide.js"></script>
+    <link href="./CSS/SKY.css" rel="stylesheet" type="text/css" /><link href="./CSS/footer.css" rel="stylesheet" type="text/css" /><link href="css/Menu.css" rel="stylesheet" type="text/css" /><link href="CSS/in-page.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" type="text/css" href="css/index.css" /><link rel="stylesheet" type="text/css" href="css/layout_index.css" /><link rel="Stylesheet" type="text/css" href="css/layout_member.css" /><link rel="stylesheet" href="css/jquery.jqzoom.css" type="text/css" />
+    <script type="text/javascript" src="./js/OB_ywa.js"></script>
+    <title>
+	OB嚴選品牌旗艦店：『1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色』
+</title>    
+        
+    <script type="text/javascript">
+        function MM_swapImgRestore() { //v3.0
+            var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+        }
+        function MM_preloadImages() { //v3.0
+            var d = document; if (d.images) {
+                if (!d.MM_p) d.MM_p = new Array();
+                var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                    if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; } 
+            }
+        }
+
+        function MM_findObj(n, d) { //v4.01
+            var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+            }
+            if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+            for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+            if (!x && d.getElementById) x = d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+            var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
+                if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+        }
+
+    </script>
+    
+<style type"text/css">
+    
+body{margin:0px;padding:0px;font-family:Arial;}
+a img,:link img,:visited img { border: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+:focus { outline: none; }
+*{margin:0;padding:0;}
+p, blockquote, dd, dt{margin:0 0 8px 0;line-height:1.5em;}
+fieldset {padding:0px;padding-left:7px;padding-right:7px;padding-bottom:7px;}
+fieldset legend{margin-left:15px;padding-left:3px;padding-right:3px;color:#333;}
+dl dd{margin:0px;}
+dl dt{}
+
+.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.clearfix{display:block;zoom:1;}
+
+
+ul#thumblist{display:block;}
+ul#thumblist li{float:left;margin-right:2px;list-style:none; height: 64px;}
+ul#thumblist .li-2{float:left;margin-right:2px;list-style:none; height: 40px;}
+ul#thumblist .li-2 a{display:block;border:1px solid #CCC; margin-left:2px; margin-right:2px;}
+ul#thumblist li a{display:block;border:1px solid #CCC; margin-left:5px; margin-right:5px;}
+ul#thumblist li a.zoomThumbActive{
+    border:2px solid #01c3bc; margin-left:5px; margin-right:5px;
+}
+
+.jqzoom{
+
+	text-decoration:none;
+	float:left;
+}
+
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var orgcolor;
+        $(".L-side li a span").mouseover(function () {
+            orgcolor = $(this).css("color");
+            $(this).css("color", "#34acab");
+        });
+        $(".L-side li a span").mouseout(function () {
+            $(this).css("color", orgcolor);
+        });
+
+        if ($("#errtxt").val() != "") {
+            alert($("#errtxt").val());
+            $("#errtxt").val("");
+        }
+
+        $('.carousel').each(function (index) {
+            $(this).find('.jCarouselLite').each(function (index) {
+                $(this).jCarouselLite({
+                    btnPrev: $(this).parent().find('.prev'),
+                    btnNext: $(this).parent().find('.next'),
+                    visible: 3,
+                    vertical: true,
+                    circular: false
+                });
+            });
+        });
+
+        $('.commall').each(function (index) {
+            $(this).find('.comm_imgR').each(function (index) {
+                $(this).jCarouselLite({
+                    btnPrev: $(this).parent().find('.prev'),
+                    btnNext: $(this).parent().find('.next'),
+                    visible: 2,
+                    vertical: false,
+                    circular: false
+                });
+            });
+        });
+        
+        $('.jqzoom').jqzoom({
+            zoomType: 'reverse',
+            lens: true,
+            preloadImages: false,
+            alwaysOn: false
+        });
+
+        if ($("#hiddenNoStock").val() == "Y") {
+            $("#ddlCount").append($('<option>', {
+                value: 0,
+                text: "無庫存"
+            }));
+        }
+
+        //加入購物車
+        $("#LinkButtonAddCart1").click(function () {
+            if ($("#hiddenColor").val() == "") {
+                alert("顏色未選擇");
+                return false;
+            }
+            if ($("#hiddenSize").val() == "") {
+                alert("尺寸未選擇");
+                return false;
+            }
+            if ($("#hiddenSelectProductID").val() == "") {
+                alert("規格未選擇");
+                return false;
+            }
+            if ($("#hiddenSelectCount").val() == "0") {
+                alert("產品無貨");
+                return false;
+            }
+            try {
+                sendBeacon(); //這個function安裝在GTM中visit.js
+            }
+            catch (e) { }
+            
+            $.ajax({
+                type: "POST",
+                url: "product.aspx",
+                async: false,
+                data: { Func: "AddCart", ProductID: $("#hiddenSelectProductID").val(), SelectCount: $("#hiddenSelectCount").val(), hiddenURL: $("#hiddenURL").val() },
+                success: function (data) {
+                    if (data.substring(0, 3) == "OK:") {
+                        var AddName = $("#Label系列名稱1").html();
+                        if (AddName.length > 15) {
+                            AddName = AddName.substring(0, 15) + ".....";
+                        }
+
+                        var Amount = parseInt($("#hiddenSelectCount").val()) * parseInt($("#hiddenPrice").val());
+                        var TotalAmount = Amount;
+                        var TotalCount = parseInt($("#hiddenCartCount").val()) + parseInt($("#hiddenSelectCount").val());
+
+                        if ($("#liShowCart_Total").length > 0) {
+                            TotalAmount = parseInt($("#liShowCart_Total").html().split("$")[1]) + Amount;
+                        }
+                        else {
+                            var html = [];
+                            html.push('<ul style="background-color:#FFF;">');
+                            html.push('<li class="li-01" id="liShowCart_Name"><span style="color:#2c7987">品名</span></li>');
+                            html.push('<li class="li-02" id="liShowCart_Spec"><span style="color:#2c7987">規格</span></li>');
+                            html.push('<li class="li-02" id="liShowCart_Count"><span style="color:#2c7987">數量</span></li>');
+                            html.push('<li class="li-02" id="liShowCart_Amount"><span style="color:#2c7987">小計</span></li>');
+                            html.push('<li class="li-03">');
+                            html.push('<br><span style="color:#F39" id="liShowCart_Total"></span>');
+                            html.push('<br><a href="./cart01.aspx"><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/order-ico.gif" border="0"></a>');
+                            html.push('</li>');
+                            html.push('</ul>');
+
+                            $("#ShowCartLi-5").append(html.join(''));
+                        }
+
+                        $("#liShowCart_Name").append("<br>" + AddName);
+                        $("#liShowCart_Spec").append("<br>" + $("#hiddenColor").val() + "," + $("#hiddenSize").val());
+                        $("#liShowCart_Count").append("<br>" + $("#hiddenSelectCount").val());
+                        $("#liShowCart_Amount").append("<br>" + Amount);
+                        $("#liShowCart_Total").html("總金額：$" + TotalAmount);
+                        $("#ShowCart_TotalCount").html("(" + TotalCount + "件)");
+                        $("#hiddenCartCount").val(TotalCount);
+
+                        var YWAData = data.substring(3).split("|");
+                        doAddToCart(YWAData[0], YWAData[1], YWAData[2], YWAData[3], YWAData[4]);
+                    }
+                },
+                error: function () {
+                }
+            });
+
+            return false;
+        });
+
+        //加入貨到通知清單
+        $("#LinkButtonAddWishList").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "product.aspx",
+                async: false,
+                data: { Func: "AddWishList", ProductID: $("#hiddenSelectProductID").val() },
+                success: function (data) {
+                    if (data.substring(0, 3) == "OK:") {
+                        alert('已加入"貨到通知"清單');
+                    } else {
+                        alert(data.substring(4));
+                    }
+                },
+                error: function () {
+                }
+            });
+
+            return false;
+        });
+
+        $(".btnColor").click(function () {
+            var Color = $(this).html(); //目前點選的顏色
+            if ($(this).attr("checkEnabled") == "False" || Color == $("#hiddenColor").val()) { return false; } //checkEnabled=False或點選已點選的顏色則不做事
+            if ($(this).attr("enabled") == "False" && $("#hiddenColor").val() == "") { return false }
+            $(".choose_style").removeClass("choose_style").addClass("color_style"); //將已點選的顏色回復為預設class
+            $(this).removeClass("no_colorHaveCursor").removeClass("color_style").addClass("choose_style"); //將目前點選的顏色換成點選中的class
+            $("#hiddenColor").val(Color); //記錄目前點選顏色
+            $("#ddlCount").html("");
+            $("#hiddenSelectCount").val("");
+            $("#hiddenSelectProductID").val("");
+            $("#hiddenPrice").val("0");
+
+            $("#LinkButtonAddCart1").show();
+            $("#LinkButtonAddWishList").hide();
+
+            $(".btnSize[checkEnabled='True']").each(function () {
+                var Stock = parseInt($(".ALLData[Color='" + Color + "'][Size='" + $(this).html() + "']").attr("Stock"));
+                if (Stock > 0) { //有庫存
+                    $(this).removeClass("size").removeClass("no_size").addClass("size").attr("enabled", "True");
+                }
+                else { //無庫存
+                    $(this).removeClass("size").removeClass("no_size").addClass("no_size").attr("enabled", "False");
+                }
+            });
+
+            if ($("#hiddenSize").val() != "") { //已有選擇尺寸
+                var Product = $(".ALLData[Color='" + Color + "'][Size='" + $("#hiddenSize").val() + "']");
+                var Stock = parseInt(Product.attr("Stock"));
+                if (Stock > 0) { //有庫存
+                    $(".choose").removeClass("size");
+                    $(".btnColor[enabled='False'][checkenabled='True']").removeClass("no_color").addClass("no_colorHaveCursor");
+                    $(".btnSize[enabled='False'][checkenabled='True']").removeClass("no_size").addClass("no_sizeHaveCursor");
+                    $(".btnColor[enabled='True']").removeClass("no_colorHaveCursor");
+                    $(".btnSize[enabled='True']").removeClass("no_sizeHaveCursor");
+                    $("#hiddenSelectCount").val("1");
+                    $("#hiddenSelectProductID").val(Product.attr("No"));
+                    for (i = 1; i <= Stock; i++) {
+                        if (i > 20) break;
+                        $("#ddlCount").append($('<option>', {
+                            value: i,
+                            text: i
+                        }));
+                    }
+                    SetPrice();
+                }
+                else { 
+                    if (Product.attr("Notice") == "Y") { //該尺寸顏色有或到通知
+                        $(".choose").removeClass("size");
+                        $(".btnColor[enabled='False'][checkenabled='True']").removeClass("no_color").addClass("no_colorHaveCursor");
+                        $(".btnSize[enabled='False'][checkenabled='True']").removeClass("no_size").addClass("no_sizeHaveCursor");
+                        $(".btnColor[enabled='True']").removeClass("no_colorHaveCursor");
+                        $(".btnSize[enabled='True']").removeClass("no_sizeHaveCursor");
+                        $("#hiddenSelectCount").val("1");
+                        $("#hiddenSelectProductID").val(Product.attr("No"));
+
+                        $(".choose_style").removeClass("no_color").removeClass("no_colorHaveCursor");
+                        $(".choose").removeClass("no_size").removeClass("no_sizeHaveCursor");
+                        $("#LinkButtonAddCart1").hide();
+                        $("#LinkButtonAddWishList").show();
+                    }
+                    else { //該顏色已選尺寸無庫存, 將選尺寸回到預設
+                        $("#hiddenSize").val("");
+                        $(".choose").removeClass("choose"); //.addClass("size");
+                        $(".no_colorHaveCursor").removeClass("no_colorHaveCursor").addClass("color_style");
+                        $(".no_sizeHaveCursor").removeClass("no_sizeHaveCursor");
+                    }
+                }
+            }
+            //開始處理有設定貨到通知的商品
+            var NoticeProduct = $(".ALLData[Color='" + Color + "'][Notice='Y']");
+            $.each(NoticeProduct, function () {
+                var Size = $(this).attr("Size");
+                $.each($(".btnSize"), function () {
+                    if ($(this).html() == Size) {
+                        if ($(this).hasClass("no_size")) {
+                            $(this).removeClass("no_size").addClass("no_sizeHaveCursor").attr("enabled", "True");
+                        }
+                    }
+                });
+            });
+            $.each($(".btnColor"), function () {
+                if (!$(this).hasClass("choose_style") && !$(this).hasClass("no_colorHaveCursor") && !$(this).hasClass("color_style")) {
+                    $(this).addClass("no_colorHaveCursor");
+                }
+            });
+        });
+
+        $(".btnSize").click(function () {
+            var Size = $(this).html(); //目前點選的尺寸
+            if ($(this).attr("checkEnabled") == "False" || Size == $("#hiddenSize").val()) { return false; } //checkEnabled=False或點選已點選的尺寸則不做事
+            if ($(this).attr("enabled") == "False" && $("#hiddenSize").val() == "") { return false }
+            $(".choose").removeClass("choose").addClass("size"); //將已點選的尺寸回復為預設class
+            $(this).removeClass("no_sizeHaveCursor").removeClass("size").addClass("choose"); //將目前點選的尺寸換成點選中的class
+            $("#hiddenSize").val(Size); //記錄目前點選尺寸
+            $("#ddlCount").html("");
+            $("#hiddenSelectCount").val("");
+            $("#hiddenSelectProductID").val("");
+            $("#hiddenPrice").val("0");
+
+            $("#LinkButtonAddCart1").show();
+            $("#LinkButtonAddWishList").hide();
+
+            $(".btnColor[checkEnabled='True']").each(function () {
+                var Stock = parseInt($(".ALLData[Color='" + $(this).html() + "'][Size='" + Size + "']").attr("Stock"));
+                if (Stock > 0) { //有庫存
+                    $(this).removeClass("color_style").removeClass("no_color").addClass("color_style").attr("enabled", "True");
+                }
+                else { //無庫存
+                    $(this).removeClass("color_style").removeClass("no_color").addClass("no_color").attr("enabled", "False");
+                }
+            });
+
+            if ($("#hiddenColor").val() != "") { //已有選擇顏色
+                var Product = $(".ALLData[Color='" + $("#hiddenColor").val() + "'][Size='" + Size + "']");
+                var Stock = parseInt(Product.attr("Stock"));
+                if (Stock > 0) { //有庫存
+                    $(".choose_style").removeClass("color_style");
+                    $(".btnColor[enabled='False'][checkenabled='True']").removeClass("no_color").addClass("no_colorHaveCursor");
+                    $(".btnSize[enabled='False'][checkenabled='True']").removeClass("no_size").addClass("no_sizeHaveCursor");
+                    $(".btnColor[enabled='True']").removeClass("no_colorHaveCursor");
+                    $(".btnSize[enabled='True']").removeClass("no_sizeHaveCursor");
+                    $("#hiddenSelectCount").val("1");
+                    $("#hiddenSelectProductID").val(Product.attr("No"));
+                    for (i = 1; i <= Stock; i++) {
+                        if (i > 20) break;
+                        $("#ddlCount").append($('<option>', {
+                            value: i,
+                            text: i
+                        }));
+                    }
+                    SetPrice();
+                }
+                else { 
+                    if (Product.attr("Notice") == "Y") { //該尺寸顏色有或到通知
+                        $(".choose_style").removeClass("color_style");
+                        $(".btnColor[enabled='False'][checkenabled='True']").removeClass("no_color").addClass("no_colorHaveCursor");
+                        $(".btnSize[enabled='False'][checkenabled='True']").removeClass("no_size").addClass("no_sizeHaveCursor");
+                        $(".btnColor[enabled='True']").removeClass("no_colorHaveCursor");
+                        $(".btnSize[enabled='True']").removeClass("no_sizeHaveCursor");
+                        $("#hiddenSelectCount").val("1");
+                        $("#hiddenSelectProductID").val(Product.attr("No"));
+
+                        $(".choose_style").removeClass("no_color").removeClass("no_colorHaveCursor");
+                        $(".choose").removeClass("no_size").removeClass("no_sizeHaveCursor");
+                        $("#LinkButtonAddCart1").hide();
+                        $("#LinkButtonAddWishList").show();
+                    }
+                    else { //該尺寸已選顏色無庫存, 將選顏色回到預設
+                        $("#hiddenColor").val("");
+                        $(".choose_style").removeClass("choose_style"); //.addClass("color_style");
+                        $(".no_sizeHaveCursor").removeClass("no_sizeHaveCursor").addClass("size");
+                        $(".no_colorHaveCursor").removeClass("no_colorHaveCursor");
+                    }
+                }
+            }
+            //開始處理有設定貨到通知的商品
+            var NoticeProduct = $(".ALLData[Size='" + Size + "'][Notice='Y']");
+            $.each(NoticeProduct, function () {
+                var Color = $(this).attr("Color");
+                $.each($(".btnColor"), function () {
+                    if ($(this).html() == Color) {
+                        if ($(this).hasClass("no_color")) {
+                            $(this).removeClass("no_color").addClass("no_colorHaveCursor").attr("enabled", "True");
+                        }
+                    }
+                });
+            });
+            $.each($(".btnSize"), function () {
+                if (!$(this).hasClass("choose") && !$(this).hasClass("no_sizeHaveCursor") && !$(this).hasClass("size")) {
+                    $(this).addClass("no_sizeHaveCursor");
+                }
+            });
+        });
+
+        $("#ddlCount").change(function () {
+            $("#hiddenSelectCount").val($("#ddlCount").val());
+        });
+
+        function SetPrice() {
+            var Color = $("#hiddenColor").val();
+            var Size = $("#hiddenSize").val();
+            var IsDiscount = $("#hiddenIsDiscount").val();
+            var Discount = parseInt($("#hiddenDiscount").val());
+
+            var Price = parseInt($(".ALLData[Color='" + Color + "'][Size='" + Size + "']").attr("Price"));
+            var DiscountPrice = Price;
+            if (IsDiscount == "Y") {
+                DiscountPrice = Price - Discount;
+            }
+            if (Price == DiscountPrice) {
+                $("#ShowPrice").html("NT$ " + Price);
+                $("#hiddenPrice").val(Price);
+            }
+            else {
+                $("#ShowPrice").html("NT$ " + Price);
+                $("#ShowDiscountPrice").html("NT$ " + DiscountPrice);
+                $("#hiddenPrice").val(DiscountPrice);
+            }
+        }
+    });
+    
+    function SetPromoItem() {
+        $('.commall').each(function (index) {
+            $(this).find('.comm_img').each(function (index) {
+                $(this).jCarouselLite({
+                    btnPrev: $(this).parent().find('.prev'),
+                    btnNext: $(this).parent().find('.next'),
+                    visible: 6,
+                    vertical: false,
+                    circular: false
+                });
+            });
+            $(this).find('.comm_imgL').each(function (index) {
+                $(this).jCarouselLite({
+                    btnPrev: $(this).parent().find('.prev'),
+                    btnNext: $(this).parent().find('.next'),
+                    visible: 3,
+                    vertical: false,
+                    circular: false
+                });
+            });
+        });
+    }
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26315574-1']);
+    _gaq.push(['_setDomainName', 'obdesign.com.tw']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<!--商品詳情書籤-->
+<script type="text/javascript">
+	$(function(){
+		// 預設顯示第一個 Tab
+		var _showTab = 0;
+		var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+		$($defaultLi.find('a').attr('href')).siblings().hide();
+		
+		// 當 li 頁籤被點擊時...
+		// 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+		$('ul.tabs li').click(function() {
+			// 找出 li 中的超連結 href(#id)
+			var $this = $(this),
+				_clickTab = $this.find('a').attr('href');
+			// 把目前點擊到的 li 頁籤加上 .active
+			// 並把兄弟元素中有 .active 的都移除 class
+			$this.addClass('active').siblings('.active').removeClass('active');
+			// 淡入相對應的內容並隱藏兄弟元素
+			$(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+			return false;
+		}).find('a').focus(function(){
+			this.blur();
+		});
+	});
+</script>
+<script type="text/javascript">
+        function CreateCookie(name, pid, days) {
+            var cookie = document.cookie;
+            var value = "";
+            if (cookie.indexOf(name) < 0) {
+                value = "'"+pid+"'";
+            }
+            else {
+                value = ReadCookie(name);
+                if (value.indexOf(pid) < 0) //not read
+                {
+                    value ="'"+ pid + "'," + value;
+                }
+                else
+                {
+                    var tmpValue = value;
+                    var tmp = tmpValue.split(",");
+                    value = "";
+                    for(var x =0 ; x < tmp.length && x < 14 ; x++)
+                    {
+                        if(tmp[x] != ("'"+pid+"'"))
+                        {
+                            value  =  value + "," + tmp[x];
+                        }
+                    }
+                    value  = "'"+ pid + "'" + value;
+                }
+            }
+
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            }
+            else {
+                expires = ";";
+            }
+
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+        //read Cookie
+        //name : Key
+        function ReadCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return unescape(c.substring(nameEQ.length, c.length));
+            }
+            return null;
+        }
+        
+        function clickColor()
+        {
+            //alert("tt");
+            //$("#LabelDebug1").html("testClickColor");
+        }
+        
+    </script>
+
+ <script type="text/javascript" src="js/oeya.js"></script>
+ <script type="text/javascript" src="js/oeya2.js"></script>
+ 
+<meta property="og:title" content="OB嚴選品牌旗艦店：『1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色』" /><meta property="og:site_name" content="OB嚴選品牌旗艦店" /><meta property="og:description" content="1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色" /><meta property="og:url" content="http://www.obdesign.com.tw/product.aspx?seriesID=KD0790&amp;no=3024" /><meta property="og:type" content="article" /><meta property="og:image" content="http://image.obdesign.com.tw/catalog/141001qow/KD0790-L.jpg" /><meta property="fb:admins" content="100000848575921" /><script type="text/javascript">
+dataLayer = [{
+"addgoods":"'','','1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色','KD0790','599','http://image.obdesign.com.tw/catalog/141001qow/KD0790.jpg','KD','','1','579','',''"
+}];
+</script>
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5SZNG5" 
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5SZNG5');</script>
+<!-- End Google Tag Manager -->
+
+    <!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+    _atrk_opts = { atrk_acct: "a2+Qh1aon800US", domain: "obdesign.com.tw", dynamic: true };
+    (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=a2+Qh1aon800US" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+    <form name="form1" method="post" action="product.aspx?seriesID=KD0790&amp;no=3024" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="lhQO7LWpwb9E7pnIj6POvv8AGhzxE90kMN808rsTslWICLoi0dFAs/yplyMP6hBzQ1tk8bf4v9MsEQ1oe4D1wkoO7TaXI9pmhP7K6OtAEqbi2M1Jud5j+N2rBUGHLOp8rQ2nehyCoQ0O37Z+yh0jwps+hb96FZz8FSLb8E0XkR0r1Wp06++HhjhllvK5XIkfUgl3/HtUPhT10Be2vVnLsbLOwBTkig9c2/2+0ve1ooTRlYjve1cq5gRfyufY7TDUIURAfNxNuHC9+8ssKMnlOk2b381pEb7gEMj4nlo2OOW9mN4auto8Ojfheg7sCVCTqOhifkdiVVt8u6d/5lcuX0EKTfv4QztGDNGe2nRX+XwdOAA+nMmlnSkKMqR7r3GDxYRb9ExlvpVHQ0tK4JcYOnWKCgkXXARHQC/IKyguAWz2JoNMiWd+dONq2R97rgqLd9hsgQ5Z1lE2HUc89O+7EaXNcPVx82vMTtbLnBEmU1TbV/2QnP4mrrmHu+88+fgMC6bm6z5dpEnQC6DuDMzBERGxBOtPyXoJgwMBa7eYOJmzx//Qh+rGRScYvMMY0WGZ40T+4+5yr7MXUEMa60BuUacqPLKe8qNvxyHfBFI1vatt7sotAJa6lgAzqMXXvFhZvJNfyU7xFLFKyq7XB6B9JiiExHDUPBJQPAPSqxEDMha33O/KU7pSSuS4/ESitBJYw+6A+KJkgHTGWgm9iCo5Qsqg+bB0P6F77tq4f3Hxn+4+r7SCC2jRfCK9PDjLy0SxLOAEez8LgGSDVr6DEYRJ6Clv+NhRfbTu4/4ZXO5fbElWH9nJjUcjIHvXw9Af0adE/BjNBNz04p86nsTYHJ96kI4aHoP4VcKDx9LRxfkCHFzVyRu74DPElYS1cGUEqdDQlAoF5kCmlK5hAnEZVbeSjPTkawcok9/djqg/jyxSsjM3DLP57Ki4BBov2s1HVofEXSwRb8bJna1Fu2fgJq42fZJ9NJY56iS0FpgD8WOkBNzFU0jvnbuGMFJxZEpt7qDzKDVqoI2w4mRNnafJ1Xj8HBQZruuf2lG6+bu/bpeCb8WCdT9imSQpTZf4kLYuZt9+q40wUp8XY47yO8tCvSEWpBFt/7uxX7BgxyPRc7kSyoVH6Y3lO5/RQa8wQbm6OVX82IibBqo+e+c2sv2PxRXNkfaCulCArpSqgETPvcGsHw5J8EtmivUBG3XDAy20lJa4GZfwbr5iXqKTrNh5jrQ7o0+2PvX2mvjKIU0FOvXJQZXt3UJD33dbCQ1+3DQ9u+5L5pUlQN0pIFRywG3/tYCzdF4jdL+eUKFFoFvpwez+C5+4Dkb6dC44bpN6HpxZp2TMkh5+Jz4mlPn17ZLB53PTU6bDpkywD6/Wp/my6q57bDGIuRGTv3xbbvj1HHgsy3VEk0IGgpM9HeGr6UvlpmvCexhpvo5766jajO2YMo703fXoghRKOP6pjJAKfXnsJtevKGIu0BFlnNU4K/aB/QNfTMOHipJHbzN0ELYY4Vdrs6Pid2Rwh6/9ryQe/y5DECbMM/tIL/SukTvpTIa+L84HWXy518I/UqvhRZWGSvzyU1M2TuDM+AiKA3VjDRHJcS7W0+PwUhYJYGGKoomFUp1lbLq3QRpiZ5YdsjC2WJU5k5AoH0lTb9zh9rkwLcPz8EEvcYKFJLPyfEkcshQG886iAhmms3dlZJCgm3BpVClb7xeAn8xeYWEoa3/kg4fHttn1IFnJF+wY/fVjQEWGwnMhAgGQhZ5Lx0Szrqecqup304ZGBR+ZNeP2dXqHWc5SvZprA6TSc4IZwcm1xN1K70+fz8uCE8liloVDSNWeriNhqafaA1fPPHRj36K6klQguZCFjBmwmwo03tUQChXxhjx5oZRb3EjvoRxB/tocKtTA0ZSSoT2gl4xD9R/ZJRbWFicwwT6t89PmOvHmOyzq+2LOXw8FRV2xiXJ2gzdOOCJc2hXZPxhvGDlJMLxKpjc6BiFqWDssSvHbxCFIXg0nn4HzJcHwoNrdCNv9+PifacIjvfbWC+fy7e+uzBkj1vFGUj4qO/DPr3+NpfzbuX86OWUe4J92Vl14ic85rOfMmVXYZj2iw1hIfwoWLKL6UiqM2akKqF7y/mUAhWzkrTuVzLbCKFb9GoltblmUtnyhxf1mYAa1OmfarTpQUcQ/5a2RHm1dBH4xH7it0EGffuUXCsVlsCKTkX+BE2qE6ChKYDwY27WSqyYaePmOvnLQ+7+ApnqfIBocEjs2LXoPlaBnZhkJxUMpQqO62cAWr2GaUJIdjvWTWuQfTzIx1JSDtdWc7SI2MAAwhIffRWEfs+VEwFo774kXNdI4sqLQfUPa4+VkyPScYJudywK4RWae291Iu56wHgsFCCfT+SEUpOCwdw1MaPr/2IWYiWUCBC7TolMpEHqfrsGTB+/jpRPnjMEwK9VEpGgpwNekDJUVjGY/wimOCyFiW5U1h08T4Pg+lfMbd9Wx7CQL4AqZshUb9Etqgos+TeePFR2m8MVilUDtTCq07qv7vffL3LhgNieyS+1gEAhBHLliKLRO/m5KfNZxMZsHXAMtB4NDvjaUkeDudtgGmevkjxbd46MAhTo2ZB0XvTAUQ82QVkj/XIm45ZnF7m+SbGudQVMQXoelOSHykYRxaaWo+IVZQKG7zHqb8ExgLe9fzeOX7CVRfwuPRl1BWDg/FgdfhKZq9F/qRaLMf1h85edDSgR9sw10ozIRjkXgW0lIKwKkhKbW8VywM4/qSo8kTWoX3bq+GT5XUbZZAeURPQksMOL5TIl3O6GdyWQ/5w03lJ54FrU07rhlyRMayINqd3JiZa6Ybi0wMegfeSA5MGSyUU0kdam18bztn1EGS1b6fM0FiLWMrsBCvfQRzFI1l6Aq3McdzCjDMOEr6GrkMzHq5K+eMzerxBCCm44luuetkoalapWlhhL6eA5F+53JUpFsqHff8ABCyzWRD50RJXRh47800iDJjD93VfXonmoWnlNcKKutBSKqQBPRlIKJjps+1dUSAIJyiJEEzdFYTzpculYnwcgbSqwxnG8OgDkvZ3w76RHVOuls3X0sOJlNbb1e524qYTmiAVnLYkkNGHHg9w8pNHCRiBtf7zzaBCSV/2HyAEwtVccekehvZbF9LUCU8VMG+67Qv7zvQUF8KbAcPcEdIH1+Mpdb+TA56EhX4WXORwKLcXZGmqcbtcy/skty6+OEZdk43lEnLYjS9+Sc1SYtoAZ6dYU9GowPSbbPMRzQkL1wU6kj4rzKDSHi3TrdvbZ0zUnq0X2KeBmFpqhbN6tphExtblFA0Od/6KoABlnKmOY6aBwYrvpoZP9zsq4n8lHHVtaAv/64wEVR6BM9+RuiZ1tLODzHSFdb+gvDYLV87jz1bq0KmRHoYnFP5I+kKANY5qsok2Djqga+ZwnfuXkicxzIKGBbEUtD+uoPn9neRBYnqNRTt+eq3NwUzBF+PRwBsp82EWpkXJyazMyrZipvO5O6r0dSaZz+Fd9wQa2jt16/WN8oPOFJoVTyJO0/3nv/QaVbxgbIZHjVKo7qcb8QCGPzWfCegGsvRZQbu3CH+HlBR03He+ZWIW6eDSg4rEDCeBG950CQXhKF6XldVDAl/Y4x1SEJiHbFofoUtQ/gHxet753yejeHGUkRKTsDjkr9kyLuRSv9G4G7dlUFLnOqvAEr6DsJc/5Synn77Hcpd5rgbVljGTO1D0BeVYLLYWJdYPydfI+Dhp9Hpmw5ilpA0yDNZ55dQIAOj0wc3AS2VecukPJQ4642hB9YwwkaX3aIlMOgXGqoKIHYd43/dxrEEwQ9Usv3Gmd7uELOug0zAVjjN9rBJ5Qwebh+vRKxzSyr9SHf6wDg7dPoLteW/n4TTFlHnEBtaUPp0WMdr19q9QORkrNkMhSYznOxJuKxUbKM8+OsOFtKxlUHkX+RfmqYe918JlK9WE/QMSPFf0/2G+XFrpylONd6I1sMX5DJgY7PfyPl1VdUUlAec+psarMcRUvvEbrpZP+jmhUg/rKb11++Uv7/7cWydCtp9zolZaOQfnUwHCgaFQIqDqIcl+tL3uLnKITAFCPJ98cl3CWQtslTtFdicYXehYoUy3l9cmxGaTZgZUigEN+dEKvMw8yRr6Z+gb3GmaWy4D/OHuoFttOBbB4RoGxnGAUzqpSGLYtDbL8d8CHBHP6fEVmAUp3htAaaHbpX0imSW1z8C8Jinvs9gMv+IomIaktexGkepas0RP50V8tSMvTbtB+GTzboLik3CAwcakRreeUN/fvjGqVigtNz8YNB2cQzc5hn09S4OKMZ2UrDOP/1oZHeC7ZXfrohHe1UrXGa8YBeMjAscIms35R5gutjTYVs3XNwS2ZrHkbyDvlQD1NHyHg3ICOAgFzlEDccx+XE3nSWGAKZD2j5Grue1e7W+C1kLLNt3gwHP3NAoZ6keRhMWnoLf43eP3lgMmzOiMdVZesAgNeBPHXXs1nZhwJw1T1T0Sa2ArDIIqUGnifLNupii8D6eh8jR6lwGjWtKVdYbhriD0FAtGpW5l9V8KIgltxpJ12JAZeI64n0tZah2NKq9I+8ukyKQt/eUhlGm88UHnDP6q/IFtGLWknAOuv8mZhXHULU4u9HHlIE9MGXY8b4H7tOZxNqmto7UsQpiWPyiqrh/et4vFlSbhr1gYyo6k+Lm9gABUd4YTAOTZFw2mKiIWh2e1u2QV1oVDPybiniCZlsRUZtjD/AzIzwXJzyf8DDOfHCqr05QmyGdSDLp9mif+gTprUtae5Wi5/GTbPKfXresV+BXAj+O0gUdB3JRcyWmPaqFHpxeB1mW8XQyYk5yfcdcLAaOW/PYIaQjL7JieZPY58LzC5bS6DAoUyNVv3YHMIDL9kGitQskmusprS10aK2yciAf53ROJyLl0bfEqjqSR2tysAiX5nGQpK5Y/nQpXZcZRo/mMZIBmth5mHo+E07F2Sl0rfOLbncYpFbAiOpO+jGLb7MKifx7o7DyUjA3sgJzJVOvv7VORoVMHBuuYOTKcDEgH6DLQBUdje3C8ChckVfOliM+3gnoUXdPEZstJv4QdRlXyx+H7FVjVzOFXvq0eUxcOW8L2QpWFinSgdRa7t9M4sqXpz0qMo2vyqWmoPbKeAFRqXXOl+6MnuzJ9Sx/Ap46AzG7l4/8E/59RksraLrnWgUwvIALaIjEfcx3+Yqe8+v7aFl1W2m5Yh8HB4FxNf1b0vdZDDopxzcNs8M139Wqq408YI4VHFDZupPQEXqk8oKVGzeWs5/nrKtiheQm8WlH1ZLCit0Dccr6Q9RpuTasIL+ozffH7h4G9JKsGGEVwAz1P+MRj1thUzii9J7mwOIVQvX49B/q7ioMryNIvTVlBSc+0tIovDhM/zg1k3YUVSUd9wlqj7asGOcytGC4aRmYCbyMC/QMUBWDgee7RmHT+Qjak1nSUkbHYoPL4db/pHIY2FZuK1PrHNSSevpVzMRcEwlSSmvdCgDchW5eHxXqS4t9hjFFNX8ry+oFhctrW97mhjW91w6c2wD6jQmiIErEbEjK8D8ERlMk9uLSHr3INpB7wERy4iiLNO4Iiw/vbABYxbRLlJUfhEw+bUXAGbsSjK1ExFAWc7Cqn1xkB98brd0FlGARbL0IzUiJGSCKwJoRf2Rl/+U93n5nRnv8D1E5UeQS8hjxSkJVIgWApVG49TxMd72KmaF4DkI7kglVVi8o1+Dpbes7ANkCfbXuvtwtF/5HvgscXwZalCT1HXVu0WsTYttlJkuNvE58XSzOJuDQqFeVEhAEvs8aYL+yFD6TIhZFd6y2FJIwJTZtkWP5IfEuTNyhwq+bwDZpnw5ILllRF7yaH4VdKs9RSxbYs83CJzHCA1JMqN1zC/T/A9FTCE3srGjdQwZ6h0drw/jY7vDB2U7/V9ZHCA5BhG9E8+MP1qGYMjsMYsMtMoe+cs8ND0WfwBBUXkjo9kEO+7zj2YSrTh9AfTj7/qhEaZNvIdRXxCopkJuKNWu6TaTaJ9EPMgV/YYck7Vp+y5D7hlZye30upyR7jbSBwveJq4ssxnjDNQ9FdVr39hmBRRmMSbvZjyFJfB6nLle2RaM+5FSJcq5oB4oLnJlwQLZxwCkzLyt8hGP89lW+7+kvvBXPmYA9Wuzj4LOtPPY2hO7x5QO7dU/7i19FFlxXa+2cBAoqK/H1jdv2aEagYINbr5os/PScz8sCkFQDtlxTx9ThW+0WqAZK+18tcxfBc+PQm0hCvUBk5O4YFnqr6SJl2LTQ3rN3ueAYhVvwq4OBu7dmvfhj/KOqTefDPDjg+KeoJUFNjOt6cuxLGO2F2eUj4AHivL/NeF5ThCAtjHy9bi9Z2ERLtNCwcXJ45r5uyGrXxg6wbMT2dWX3JAVsS74AYOjxKSLTnURSkWst8aBzDCp6Bztm/lVNTb7B+w1xKVuLdK6dzTXhUTVcsgm77qISRDJ+IQyjX+0jrUjmJoHfjBkiEq9g/gsnXJLgYNRMWohZMG9vrIk67OGISk2fA08q/pSnhVELrZ0xLOq+81bXNm550y+e+wm0poLz5nOFa3VVr9aDmQXdGaZdsnRCzfXCcrCKrBkOllMKFxS9V8YAEUCfe9UTL0feSyhL9d7sB3+DjGPhVW/u0Eiy+6dYFt5rwmW4qyiSVAynBdNPbQUP/t90xXeaX3fa20H7jjNvMCsbO1rIs5BJ+5kKk2heBaTvb2wwxT91KbXIM3hA0H7wcKOyQuLCDqjsYZN31dEMdNwYUsDCA2Znc9HwBsp5ykl1jID70dg/bcZLpt2B0zHdiluOhFZGiEOUGqNbah2wKruZBY9KM3YCW8HGbWs2m+p8A2d/faUhThmDpgRr1IMQOhGDIU/42up0ieAMLerpl85y77vHoYMdLxkjEKhVqewwVrcYVx7d5ZiJAn2w3AeiM86UJMg+dxqAd5QCvV5GenGm8tMfThQLsen4IbhMP1beN1ZYuklyf3IbwywfOIwBx47916KsRuh8J2quKjWt8IC5xVitbpRPGKv/BAjyVw/Nw4XzfR172KGqkVdL8ooPOWNvvJTidQk3zcjJ3O9jR1CdKpilGkyzwTLLyGDmcBaLhR2x17FixNCX02Z7PwOZIs9l1h3GDIyoiSdlcHjVJqoGR0BPgFMEmKVCFBaebEdyGacBUGJXyE3ICyb//v72KqWq+VCCZDXh7HJP1PXKanJSA+IpnFpKwqzGYhXomAPKRkVs0cIDEPl32tkzsisTA7HvqrVU7M773bqiFXOjmrPSB658AVqRwIKPvHc4pFvQWXS8RflbvI6mm59TFkd1iFYQP7ppMQ0+wvTEDaELjAzJCZj7H0n8d8Mb7JnhSIvSileTXBoP6FqNIynJncp3ufv/i/4ljrgolPnBrR7QWo+tdaQH8emlzr9E//gn6+A/hyoosM7qlsAqahGf4sBJek9ZrDVI8lk5T829Ddbq9BnMlIuNZxYCtKjHzrKKKO4OXf1BAz/D9Dgg4ZGATUvomTLteRHrHepLrhoGlk9GoIgtxB4CAG8UjCkoYz0rQENyBaId5T/9lhik8H3nVeLDoH6DjM5WzQuHIfXKrEtdxz6HrLUIeHhPpglvZQab7KiFc54zN8v9ut2/+CxsHVZOqHmZSjjph9jvqBAKUEWt7+wTNtRFqt/rva5BsA46/80OWTG1QXNBGrRw5MJT3zAR2hazHySYS/rItE+8pfdXQ4S22Kegsfu9p7guGGsBGsIieOCZiB+vLrsVRW8TpIAUrqMYXQw7slVvJKCjndXwofhMQFoBGr3W1Y8vequWr1FPCtxRK4DWOuq88l81WLa0hyZYbSUxyg+4JKr86OadSsn+icojlOleuDWohHS0CNMrSwr5qo/RsKJ2EN/DEaTWjNraTyEniwuZCD+9vqkRIhnBUwmeltRoyi9yb9TdyDNTpQNGwk7RQzsbV28Keyb6eAbiH9bAA9bVkAGJDZHz3UYHt/OEOE10eVUefkRlF2GzrdsamZLvHAR4QRD4TCFjC0EL7NfDAVGyWggW1yTWmKyESRFt4E4HSMtm2dWiiRxlmWQPbrG3K+8VuHe4heSGBcFFqdVrolT72Au763Gg350kqF3yAyfyT1jXeMg1Wn9j8wkj1ayDBCgdRUyAiLLZTp2958/OJUw5ncRWR+TSW6e6TrKJ0cEgHioQnf/QBm+nYYMkoblfeRVmbQ6h4Qls8ey5psJuH63WoV5QpTvVyotra0sXMbLC5En0fbLvvJPIA6rj2nAq2eX2ujXa2mWXIA+v9P/L+rMjcY+5ulvB/qytWQyPF1NTN1M9LF+6Eq6d3Ne9AMp2rfTSv72Ye2nZ85y5XnZeLnpfPqu2VuFKt9X8wYvKPTs2Er8Fumyd1ZJqk1zJ35yzXY+Koc2jM80NiDm6Bp2Gj6e/Oikj3HmqR8/OpOTwPMgVEprYJV+wvk61Zj8STDDIDDQGNzsHkrsOtITL5nAG6FLlWjNFFuWSLZqbgDHohKV6I6QSe2dWTwP6/6fGUXYrynADB9JpeI7oDbfi6gx0jN+UPgibyiR8XjyWph/rgVvYWAYoQgspqBc98zqkgwbJMfp7zptKIQaOcM1QNeyni20RrtP3WVXjljx53TzAp4bkGf1HMC9+Q1VqlgKFjF8MLtqjKUY3YDY3CUodQ12vIiGQUmTozwDE53TyeePwAep5rXRXR0N3ZCcwdoCrv4ou1cqm3i6FR3Ydt/ZpGSl2IuhcKwlW63dKrKm2zbLvq6FfIWOm0SUCwIxWYjCm8vzlN2lmyY22KS5SdSrgPMwz5AXU3PtCQnsHyzn5B1muo1NnS6KeGFbE10iHUv7XjCE2n5huyoD1l98m34TaiIvkXMJjqL88B1zOY3xy3p/9TQQl7ue7dNMQjq0C4xHNqZwN05vAVC/pD/wbJFyEBUQThy2Tbq2vn52D8E1IRuuCOmOm0kKcAZvtwanuQBQ4WcOU1hO/u8XSwnPY2qGPh4/uz2qFScm8mgvE5BLteer2h5MwEuLq/OtzrcAbk/oP6h+4rOBJUwPeMINCrhOT1vxO3t4TkQr0Pga4FAYW4vlBF8pr6EY8zPewyxqlUd2VmD0FTeSko+W43i21Sd2BrSbgfKP9MyVVhWMLOAJafzz+hOybZWEuukf6DdAtlKPSlHkP7on+eO8FHJjmU6Fjkau1TOyaXUNugCvFZ9F5ZTws8vIlXEk4Wx7pSyWk1s7MWIYpRVwvk8SO6BGNg1j+NOVF2NrIrPrEMGedG9BhMgt/f6LqrGYkpEVmSitiIJXgUO12hjenHmuA6H+aXh7UUOtUFbYhcCnO3syLtqbnH717qz5VgXUVwKXP+YfU4lOllAymS+GUl0aoBNuRn78a6JklYFRbU++rD0j5ykbMU7Lw4yn13ejRmK6TmcIdykKcZvZrd6VaMmBpnv06rWGphutspYpgAdoWRxfPszxz4stMdNun9d3ujv7iZQKYQjV75R91BMc64qSvRyy+sDIKfqYhnhxqz6u3ugLwSgjvclHnAq0S1nnXY5tQsgngjsQ257+hGMK1z13db5lyAz0P119Xqay7THsCWYMPgfe1eTt3iFXHRYrUExH5slixGpZ6mAt5mXNXNsuDMrnBM2ioONe6XOY4DcnMCRIoE+l8pjdoDjooXMtcjsZ5KlRBMQduPA7k5jYW0yJDqqVn4F/31lbLd+B2YchPck7Y6LJlTd7WkOxTSgzt3rtVhBHXnrDt+PeRtU5feVvciY2Smms74V6G4H5b0toJko5iIAsh7jA7JK2biqvWpJqi9c/YFZZx9g/TZGGMpJKxEO3PRLJfcTyoTfEQC1QyYwZgH0GFkUKrJwUFdyWNyKK6+jTJi4iYfZ7g0Rv7G1Y10Le/chvH+G/AMqhn/deXcc85emc4ak+3+YSureZPjv5QnKeluNF2U02CpL0bVd/mdaUinCXkOLu2tjjcRG5Z26A+j/tw+b3tuLheo0mRueBZmJHKCFzArp0oypi7kby4T9zslMs3TKZam2H/j76ZpKXH0bV8lQad8htkTQA+2t36CVQIZ+/f80dk2Xo7eKois3bSlSAlpK6iyRnIabXeLOlKfinT1TdXCkd1FaQdIoTX3wVyePKNWAb1Z8gDQbxJpP//Wq9qTQIh0Ixln55YYQQEMIh/Xj+pLFEe97KMXOu1kNdawBysV4y/e8SO9RtHamARbZYlKiIAZ/2t4oRbSjnGYdp4DTzOksKFrxZ196OEBI8okcVVNOSiIwbmI7cN2ipVH+hh3r+5LW8Cp0/DaXiGse4aWee4sR3d7/h9SZ1smGRh5e4xNkIvBz45sxBZoCdhazljb9AvWDuyN71E9Euo19fqX1HZpZ9/77bymObB0/ocVDDGeMl4raG811pm6h2bV4c9hdDxJQ84Rj6KAzPwYjEN7q19smaomfmnlhq+N7ftcPkpTQpWVLm7RxcBCsFi3uTPx4S/kAp7UvPxrGtk0vgvj7xf3SHnXqdEqRdYSrfTeVV57BfrW6mdMyM4WM+Co+RZaZDIqCvFvgxMiBWiCZGIXtO9Kffq03lai0T6PLZ8GDxVpOBZypJIVjHFFS/xou4Gv7mqOG5K+2GOr3+0xdfIpWr/dCc5XZldjBc+k8uEeBN8NH673Xd525J1RDa+hF0Vx5rdmb83WaxRH1w3tLthQL262z54WISzxMHyc8qcTxzzw5QXFzeRgh5sM2H9sA9uZAl/Inmc4lKpXLGpVrIoZDuBpayHr5pFGVxSzoMVUM18EPkaXCVGLp1eCP0vxEnh44B5POGd4/F4canczm5XHj/ZYJVOtBgqusFqqAKPMdl8qisc6yUHqUceVKRgV5ciNRxvlK6x+7JXxmBbmk3jsQ6WyDRSK5/uy1/zocR+FWIwhKQPzJIAqBsD9DmaBPPEfMVT6iVLAymKsy5ZPmtxg3qX+GqwHdyBDcldoVAIUCd8X2+ujbI9bO212v8796w2ZGbVQiIPDXD2U9j3P35Hl8p3MLkMVXlUhTbo4YFDLPpnIGn0/NloZTWYhwO4XdjQ1wS05e43EshISO7+WHiuhK4/WDuuKRiOJPeYqQR+NsxY8N8PWmK4l6LkLDgYRuraY486GE2TmROCMGyrY0H6osbDNcYp9Ic0f6OflHv8ngA0Q785gSEizeviqrE7jhOh49um5BB3ulbuX1+VEeU2ZPaU+wr08s0s/MxjgeiioAaqtkFnn/gxh60QfRtwYgHFSoKuEYJXbnARLtWMhC1dFJJOPsLCZJIrdXSGrV6kR+av0Cyfzw5JR4Jd0DoBQCasN13PynZBV5/KgN+DFXtaGEAbyOkemd+GIoR+Qo8yenADpi4Ieoj4KRkZ/CbmcQXoS5QDeWnB1w5h2N/I6/zUw+ACnjG4RMfNBvlDXn0gJLIWzA1QilBBYrogNWnmQHVYOs+xhJ/AbiEHw3bjaQ3+sf1gmZnXVCoVdjNOVOt1FQ3V1MLA48aq+YLZE51yprtMsa3svJ3IVdh2ujsGffS1gfS/EkDls6XjB4f9SKkcRU8jFymxKCZ4lYca04KmnXjuffm8TfpUkBEVPXOPlrkPTZ5LkVptQ3MPUtJHlSnjEjqLkaAA1Kh9rE821cSXD/BdDu/EMBQZUcNtyd3WFcvguppUI/p0yRFGqhqSt7VtU1B/kEwiHWGdzWue1thpg3pvzzfTzIdPNRr9gN5djfm4xPGR9c5v2XSmaMIF2f2hdWgyJYzBZU/RgNo8Fakp5zdYOrtWhCUStPPXF2Z6bPt4mndQqi0uKS11np1N4FDmY1zP5El7hLavXj41e8HkrnVTqf72V/RjwmPaNUhn5ZdqQ/bIJ7EswYQFq4j2wJPrgOTLaiKkA/FaE80iJ9XLRbDqLj8uX3C9iM8XSGOYXXuHHXKOetZNsSlspavBlnmwamIDjRQKc7XBQNQGW4K89L3d/tiwBp7EZ7G79YEHKm2qvVOmcqCAGBLUQ2HzN1puB4fTxEjhhwhGG/uLN0qe+QTwG7XXlAsqr7FvHZsXmI8DHBWNiZHanJR7QfoFYNwm4Ktiem/UItJ7NEGBmq2Nu6m7W6YbC/Jv6KV2J4HXq415kOvVNB/W1pp7b1gGYfEj/GMsoEMnhccyKePHW4CbxCk8hNDHgJQ9Xfw2Ty2CMRFh8viLNf+gRMUlJnyUKTKOjTxN4PtYOThHO/J+FujynRbSwlFfj88xOtOQHzgMfpAr7vGR0OWPUxKia/UW7H3KtjPBuqwdeAOghMwNlgmtgk7VfIjjttzO6nMDk/h4ICN5FR0FJ0qkz7CjzBp20eUwdhwA79tQ9EeivbbWM1TGnc2gZcodWohX7nC8vQKQQDqd8wVKiG7KJtzRZpZVIFNjT90gGDd4md8rYTvFUEXxWR/YfM51UrJEu0c4cQ2yd26gfQxY2tk1pR2qJv23P/aAoGsPJXpPsM3FZvfHn5FF9HOYK3uK/Y3dUS/jUFsyZRIRYhHYFpqoJa3tLmRy5Br3gRlw4w8Ep0u3J4chGBSDCcnV6gNxASqCnGlB7XjmNuUrcFwhomfZk8R+BhgYQRk7GrwMZJXT7TjVgk3HKjRgTe9CqRE2GF86v3AUKI2ieINeHxE1AGkI7wtw0ZHrJ6RYPqwawHp9Ne0aX4S1X+omXuaG4F4DO2f/AZfWmMD94hHhR/ufTK6FqWjO+BtlFW4dDPOdmSqxEYn6lokMQEEkpmDtvBTfsueNPoOXQ+FgSF+nVr4Hxb5S7TwPwutENJ79wS7fJuDDHVueiO+DDDmmdyR1osdmVE1U+S1TbsdPqJb4GHxgAcQmXrCQSdAOgKPVRfNiGHmPBE/sUOVCwt315uXRdoxhlD+XD17R9PbyEDqPpeepYUkQZhsV4ELPcjq+bD2OXip6SDIImSpdOj5kRLTFl5zP4jFOvCmj3MSl3LmTB7gcm3yFqxayZZOQjvH9E3yB5WNuy6L9Qw1RJSxh/WD9xCg80vZIeXo96P9Prjs5lOii6v/pRE5V2d+LOMxT7XXG7JPGI39NTvoEyf5Zz5yXxMQrA9c1lZLdpGvIqZn+yncL6rBWFKfV8HXIG5i1tTp/9rFVyFZgWQLdgkxosCr0+FvSOvrGeFSuyxdcdTuFgbSEBa5cZp3B3V2BWMi9HzGimZvM+RfimU1QpypivmP3Jnu+ndapTfnf/wtY/x4toK1AQGmXW4wV5aRgWcj9cqfl3lBe65ugSqzkzYAirQjX6AyoLUIr7uFBuKycOmsb70pcNwQERh7yC850BOXAAFMZrlsHVgJBcnARtUiH/36TnVZnCviKnWMAas7OQ5AeY+SzJqfKGXuEmOEdynSjXuv/DYaTOtgEAne7FlMJbaJo6TA0TjRT7iMdkBUCWxXupA+C0RQ3ROOBX/8GosGwzhiUlpDUI4Tp4Murxn8UdTRM8dzaSUePN1VLcFuDXcY2mKLkFcZEh9SlkHn/HEG4ive2O5jWupSLakHfrfAMHoMgRiyNpP9s+lS1FrO8NIM65uQKder7bb+cQQmEy5MBMat2vtyTyX6JHMcV8BLSpC/ezEc3zieeAn1A8a1LdZezc2PIDPyoQKroCCslvg8ur8x7qSg51mhx7422kY+eRN2gSu3RfbgUFMuK73tgKEfxwclI7C+MDma4xsCeizPNeB9aiHncaESo1adVQZkf1XdQMpE/x6AoTs/6DpVhsdOh+2fL6NHfa6+1gSh9I/nuJKiAoyRG9eNV6XMWDafllHKvUQT76Cp1D3wizfzj7NK1eH3VsQftQ21pDkVS/a9n6pCtnBHtUzSQjTIgtM/WpM/BBQGM7uymwnBDcOzUXKN8d4/k6gVDtLFGnQO5RmG78bMZDvYi+3zTiE2s5KQCFqhaiMP4EZggPNX0eBK8ZsYhTYNoRLClhHv7R5RQGdBnXY3F5wy2TOyo/TF5Oque7wxMjS7a9LyOL/cToprBbdLh32Oy11+NPOVZM4cZMAeNfTJTjYN55SHeIbp9jrdJjH3Tx1sS0xEzWGaWRKfl69v0Wk1Z+Vz5BGZ8Bya4BhDOOuJ09gDaeo3cnL+0FsshelIG7QztTk7OTFiu1Cta1LC8+pT/haO4vzSGhbSQVWkV9tYLAwJF9DkSSGoQ9RqhV/Qc1VQ18ee8GR6cayWWXNeI4foHGRYqHZ9UX8gwCS7wSGyJOSgyU8TZ3zoeYjfSaofoL9RK2QCxARhW2s5L92NgixwIeYrJBM7wQp4Y36/wdKLzltk+D5iqc/7uc18OQxHfmpfcvTRySdx3wsAj9VQqm4lbRo3d6oaAC5Y5Jhe5K3ObxBB1ucE/Y3gQrAY7SGqVwAmkhbY0DGXTdYshRKR5BSo/i6GLntkQex0mgS+iDhvNdNGqxG3PX38Pr38q7A0SAPe3IHXuYFdO+Gcxx1swiuK9ykE0HV92OtJWT/FoxGAHKh4s3WkQ5CBIbUAPb+dbZu/0OAIqnwKl4sKDUBiFU4MYJoLjnSvWGmSKpabOhIsDxaWTyzHkXKQ0jjmms3N5SSkKnM/bDfVqJXIMIDCN1DYdCs+HShHdqRriNFIS9JSoLz6Qnd/g/0C8v5kyr3MS5rOIFzEVvc6BPQJPtkEpzA8VIX8cnuGJhlVNLkp6XFOyvk0JM+uKXV36MqTxOOlkPyvDiRcXaKb+XgnGVOWG/DMdG+2RljeVET4HpyNOgT/MUaBD9S1Ke/Piy90bp7ggfagT5MB0oGw6JUcfofGWuHvh+9PQEsVTch9OyBcCYHFzLExDj8BZDFz6TW7Z3WXkeFKVGa2lwIcRLkb8Rgzn0sGfldo55ZQLyRvFaBHKfXh+WiShDw0WJ0+DvagGN16EVVHGb9MKMAGItBIRVsxJXxKSsboSUjtTXa2RsynRfMxws6/HCDAM8hZ+VAaFwAiAL+OqVZz1gGq2ap2anvOH2+meQzakTv0zZHjuH2PjpAlYBmk4FeX4sBKtmm/gSYgGLv31yRqbKkeRfFBIu5o+V9FP+WD/lquYrTjjY/qZlMHbRTqDYhdo4+JtUsYx6FmdaknZBMkz+n5eJASOGcD8vP9krVmOS388M1Dt3eDjJbBsYROWoQ72lJ0GbUF4+bxQzRShCUoH6KxdeozIIJT/w56ADuC1rCl2P5V3KZj3Ca9Wpm17+3AjB6pcgoMc7HFSUTMT7AoUtmp4GVWkPpyUVgNdrRDhHYk9XfDch1fJy71zQBYhi+WwrdIZ7TnHLAkn/Z89qmCblfkswjZUej8G8FRWWX4c3lOqyIm4/WfoOFW4wMNk6MxVmW6FTLOXB7sy/UksjRcc3UWUOUoqYXTaPlZx1NuoGnUw9BT7nUOPJwKl9JC/UqHxeRu0a4j8iRvUSSiSt5xGMTyzBHcnoZ0TQhGqLGipXkKXy8HG75sFA7UIhdZ7e1e6ic/fY7YzxR4NXOxHz3Eoz/s337v9RzCI2U86/i1/np95170Q2e3U9T7m7T0BOrZKExJP6YD8/kBPPxAq+4+yEQ2/4eAYgcRctQAvo+qsO+tCpTEFJRRTndBaxfdGZ1XQqq168eMuA8Oybtf1zp5zTigQfzFbfPMayiFl4kwZgGx7wqzku4EoNkgX1HBld6b4Ie8zsDHlpoIXMlo0EjkwoGfuFM+VJSDdKtckh8F49qk+j9pMlOmXroRRpPrbhFOygY5DNm+WJcU2UFlHXkA32fRGsYXaghd27/f39hzRZFTS/9DKgwxBIvpKcM0WapJVAnl2dwAI4LYcyDDUi3t/LYCtNwxcMr14RZs1XmCEsyCkuKiqbRFt82A1SEi5U79YOpYOtT9odaRU6dt8eta+tCURiQPHe2WRLbPiRT1cb5oMGH+r/OLUbT8oTpwQtTh1Akz3kKJt26Peye3Np2cIAeTRlIH6MoHvL0mlSlMV44gAsy0eyb/CrYzODtagKOSoqicXz7jetlINfz8rxqIubL6zn+eaEwwrIik/5oPTp3B9XyPAac29IR3lxLZviUH4RQYMjZAegtyuJJNoLWW3NE2w7cAoiPSAOqF7M1AAqttEuGDimdBh4YfRTjbEHuF0BJZw8Yw3b0eqj+f1MbQe+WpRqKdd9vHuen+gXBlISVg54CNp7FQeKT1mvotjSjZAeY0ryoSP9BnAki09TAzdDLkpwE+1CJEQdbeHQUoWFhY1mJBb2Pd58kxV8+tkVG8NpDo9kl8Qy6cHsUHDDAbtK3LTb81TLxzFhkjZqFRMrJ2JrU3YLOTn7u5R+1a61WUDUc23JH8PvqdJFa3sD+pUvqwDp4ftHL8f0goKFHBaJKdFVLvyOgSdOmLD9xcSVT8DT0jKZYXglMgz6XotzNHkjfsalqlE4sE2BbbEmbphDDdDn9Ip6nSz+pnFjC65yhCWQ9GKe0ymzMtI72x3cRTtCaQBWT0yFb9Cg0GJFdtDhW+owPc8+J5pI57Y/Vex8GqDXfOfPEl1C+x1A1LJMaRM03ki7k9bRJwP9DSbsgaYHE0Qqx50B48UJL8tRBpcGCEhT1M2LjeAn8wps6d8k9vbSIKTgFmrLzNFSSliTyQSXfq92Vi1orhhgpyYaYeEQfm4yJioGjpGq1lw4YaepspTumqXLVSuSBuEDPXgYw4TUkmTswY2Fb7bwOBzwijBR7YEbCOUsEISwhkxERliLJ8Zq2KL63TCJ8oU/U9ljpwBmMOKBMhPs5Kdx4BsCoAVQkj0df249IEOvhiwatzrJl1fTSr409T1mDKLW3E6Ek9YhTfDgGKj6Qs0TGxKTE65egnSX8/us6fqbaqgWgiz1GZrIo8KWWiGcXuo+Ccm+o1wq5ecBCzzeiJbO2VIjYfRFp+Sj0RhXqOr/59MXzfMgFlUzq4j4qssItXj3wgDTIR26ddBmkuz+x5YrsHZ+CEybXAyxNXHQj/pu8KUmJ0woeyTpWrZMkEZpWWAACnjMQyQdbwxbW2HcotoKE8KEsE5eUl1SF8rM4LtuqsqAE+uKLGtHTE1V/YeQLwDn48ELYAdjLPD1ERV9ZbO23Wut9azGmWhOiBBsH7hQwKTt4MVIaNVteLgadSLhtBZdHMDfgQ9RMpghBupevTS+upktn7wMKzpfwngyMxd/69CBE2nCHlq1vg7Qxq50v6z8IU6M1dyixSS+gkEr1+N+wvFxlr6ICktWRfn5w5RQnvn1fJui+UYCc4hIeA1mp8o5gtmcfygBFk+HMOmv+b6Q7ZqqPy7Y4gVVUuNgZY2zjNzXZI+rp2uKAPud1du1fGx4deQw8pPay9+gGYM/Vc6SmhZME9J1t9bnbuhnSMwbeArn/btRueAzF2H4jxzWGypXATg6OLKZsPyevGYKWFhzGicWVMiR9ED0nAEe2+SrSZo0QzNG5mup3XPqGHzM+KCzxYfN0QpSgLSMcVZY+uJXrsZ/xBcs1IJfimMO3SLrRhDwamHJED40yr9YkbsG7T2Tyq7sS9kRJv29MPJiUWoOH7dgkr9qrOOnFZNAawn6azUwaX5WtmybiKGD0ZBz5DPX2wFbjzS9KcSu/M3jFFJJlzbrxe4/FBsosrqFV9kWaRMMpmbQbFull5PaEATsrall2ghiDFKYxS307JqU3K8ImEK5tRtL8Qh6ecZisN97DTTf9HcOi+iLL32ctUADxnLL9Kn3LJWfsZLqoMjV0FUHN0OLgh7YdLyijuLuF2SkJ6ILBm/VTgsxaNyfFg24Hfk80KfboH0+6ReARN1UMPd8tOEmz6r9PBT0gUFDqZkBciMP/3eydugUdNyNQwinPOlNexYqch5gIqAeBrdWeG9RTHRJIhqLI8wsovq6aCphjcxae8BToUPFnBC2/SBBqaqNHBZiQEwdPeL8NONvYXxrVVZhD3t6YeItwsZdaY5YGOcDoqRV4Dpgx+GBKh77OOr5MD3UKZqXruucEYGSRPexBE0fQOU15YcOqoNUx247cl6F8l62vHas3uRu+cpTjMB5TKATqhAaJD/skCjHiDsyNspDqqlD1c2ozsfY4k6nfD5yN2RbD2OdOPB2kgCYKdWMktag15kYttBJY9oZt+cZHXKYR1R7LiOXSVXUTQPHXTSTvQWG0JonM5EdoBvaLBrl/+MX6J06jrvhigTd5690ndRrtVSZZ7HNdtkHBfYKjBhRTXlDDSdcx8a4rQ5lvuPLZba/uG7ypw3QFbLOJySOAGsRq12e1lJZz14wAHBL5bni2XYx/cqC2V9DWKzrVhJHEy1DVLD9QS108k8BhMD5vIHD+pcwSGWVb4IrIj10cF2UO1kII6fdN2qS3t8d2o3Eoz4kwZ90L9JlrAgeAtHq04Dc/NIEdNguwpoS9iQYOgylmVXgdcXijkbSYv8DthZF+AfDAmQZD3ZbVduS83PV2sdofKCu88NbguwHbbvfAmr03L1B6YW+4/9bXtCI1WhLl2jCP7wqU3hIqeqG/v1SnhqI4sJi2s+neSBVpcUGP1veod4YS9hbn3daZr8WyNUL0qDazlyV1mgBxCZJf9OB6tDMV0YL4R3/zVliQTm2BMuYQhP73Cnz5zLlV6jgHU5DWdwOCxvLGXAahot1w1pe13OJD4KrbJgey2483lo3A1RfyN469bJ8fcMwbY6l1qgiL8ExeFJxgTI2Uffz6rV0XehoPbdtcOo199Wwb6a0OdZ8XwBxkwHnjlKxwydu2hcc7/Bi6Y4QDHGbOQmXQ6cTkZXaDfPN2BzdliwIUgirvT9GPa3WEnQXH7DSqXEGxKnMWN/7IuCOBaptt4/LcrcQA1bvY4zd03p+d89XuiC/8F7ICfVEl04BDltdnI28406/noZcbUDL3XEtkziSfznqjSEgd8sNSZmi1zSAKuqlgZlH2GtL7tx0sgeg7eg1vgdNzNN+8YxgzUTUninojq0TQbe1Heol+LAS17Ypj0uq/dYfdrAmLLaxmZO8Qno3nIB4OtsxJ/wX+JJxq5E6hT7rYBJivoLb5MzBl6j7aQ2kYQ3Fg0bwl7uQbMQPqLR9ytQ5UFv/18yMEu52mw3MGq/wLl4gySjJZ7zTpvQQ/m4FcVscrpGcJga9Xp24yju6/alwI1nNQMe+Au/7XVXiKVBmhK7gHcOrFdRWPG8T+TdNDBQ0Vivskna34/AzERMIUxC+4pz7v1fyEbzFRs2TgEXzMaybIeFolVYOO22vhNJZ7+mBD6jNrpDNKAtz9+vUmBlh6ZyQGgYBaPf7ai8B4aq11LEsBhoPKHPF3M/MpGIdmmfARBYsCptVrWefrvWBUkxCXlosDSKarnqPGf8Ijxdr+pNyWPj0uSzCo8FubCfP9fw8hY8DUrA1R7ZAoz2ohkhxpR+0O34198DlhpcAPYIYJ5lx/TuQC+E6lmc+8gcnKek3O91+SqYZvaPdLbye0EIsmaM36UFaeeSQl44tg1YALlOOMl0cyWRLXMHajSRAwq2KmOIfP3POh1UGc668fLu97MBAbzLocMih/WG/5AzihpTMIzZTLfyjkc+zmN562FUpv5iQB3+/TLkbVRIlFk0t91QLaKaKdtJQvzfdWtBDbKZTdvu1gFqiDJnmog1rtrl2lWxjREYWCnActoAvsOcNyFduv+QSU8/neXR1rE5eTLk5jxIiPGv7yQ85Tmubx7tnETMtpRGTLXSxv9I3+ByXjmBxVJcEPMMflVI1PSDuYq7vD+plQh7pfp+twB1d6oi2r/VpwmUefI4f8R8PNMqWPEui4GAoIFpo2PMR2sE7pgqG8nFwHQQCYvICbveGcmBkhJUhUcA3wMvBpy/7pikdSESws7+T7ER4IjXluHAEc5eUzZX5JS4XY3SCemQGAfk8btmo9MZDeY0M3ue1rw5GZpoC5jW4Cf2+8tnXAxWi8WVXGg6MBfEbeGZkPzv/lkgHAumS9MDhglYSu0MCDjFOcjW2jKO3phZtc16ZUrY4Y/WNNuPYA29FD2bSI2FhGCxzkYVbIMC2pBKejWr3GdY3K1rAgW6JT1DUInQU+q/MgBlbJkIjShYZ71fcoCzBIMvL8El1fUokZdcbTctJzC8VuWBtM/5Rrfvzo/MwL73dgPvzVGvn8EiAMD53jD9gPP+PoHcLgW0qVGG7GOjpDJyG7AghL0V4EiLBnRtn9S39Vxlo0rUI/h9AszGMCvHlAVXtaZZJzaxk18lhXKunWY36hNO/VejBJ+OjvtkkUfcKr3IvU1UqmDi4oGvK1qQIuvFVq9n5Ya+lI1tepk05ozF5cbgmB/BXS6m3SEKCJCHF0RptniI28RsrwXg0mmm0MzVZzG8c7EhL4pYEqam+7nk0pejO/uEN4L4R+mnnlyMlbL8ZU3dMO7G2PlL7N3w5LcuCNaHtXR8j81VruVoA9yZQEXMro7l5jdHO2pOqlp/+bVvm+4M5qOH51e23kVfTnyErreUbK0RbaD2rbYOkUQUCDy9/CQfczQ3BK1NI7tPKAeO5sm0mSk0bLzCD1yvgSkYhhxPUee2ggdPX0dCdWaGiNQ01v/c16TMSxD41I35l1v3L+N207FplPUZ5SJtoIrXJ2CGeL/qXBtGODDmu/KiSMbck8gV+62/syfOu4xyN5CQ7+UCKBlP/YVLWpuYRr6SGDTxJQQ8RyZEnp8eg3KFQq/2ePGInMgXCZChNvsDI2H/XqWGdFrWaIM0KzPCtK0w6u94gtkgLWDGqUWHSO45ybbw1UJjRwSYkfA5/qefhjh3otf5sd2z9ttMBnUSRcGTRyxTbnE1AjEKSD8UJIKEA7FvkK2wclPVtczBveYjrW93qyrIUReIKo4xReUbJFVybaWjLxnw8BltclE1RF765lPSahRISMgIXS5F1DuQTiUsVHMaO8UyqI30UAOtgO5m6tZskWEjbjhd1Ej9Y6ksfkMRqBFiA9dxGq8HVwfEQsAKltimhycXBw/VbL8KadelY2GJ0pBZik180u7zUsltAdOc70NzUXOx0YhfETJK3w3oYaqXmwKvTT5KdZodjYZ8jGDhiFZFtPOqAEElYO2O3Su1SgNPEhp/9tHIlCFFBTIHP982QQEhwK9Jk87ZLl3nK16jFJXRIFW4cz6ClZguNnW/ZgW4TPmYQKDLfVNhlfQ/uXIjsj43JOn/rsHkUp9/yvPPHamP4ICnnn8e4dnwGyE8FFSZwTrgKoAIIoYdUF8sy0/vdJ7lmDO0ROmepk9+rfMnA37FgiKDfQ0Pp+z+byGT2D8L1y3HcuxBJ8Tqm3HPrn5SQLZDCV64TEm46loWkV2Qx08snkH8T8D39Xwf4klToUmnJqF2yGp5n7JY/wFrbnCBVRfYyWpqBMrDQYyMs8zluQGZOtfn7sHbHDvJ3UtH0HfJOxmhFXy6hxDPiFyWUWzG82dkvT9ELwXHhq9N0fmrmf10H8LGPOKgbwEl0xPhYUrAAe9rv8ssK+iFP+UB7YcfzliaqCNr/nKegJWi9W21RNzmmw5PMkqN+l/yG4HTh17pniZEOt43gARr6Bwrn3EOgicslh5ug6TgURqiK4qa7EnAiqR5S7DwwfhsVTSTAPmz5s7jbd0ogvyLfUi5QsDLe4tO/85bc9zni0cnRXOL6eu3+qib/X9AlFCZ/epGi6fucDbZVNcvD+Oij330ZhGaJdyjqCgYP8DlMyU+v0P3LaVU8EQCh7G1hjL5OQJwM+SdPWhmSKnDSnsqyRGiYfxbAlYU200n3Ub1KdCL7f48wSo8E/In3T+6uTB421qoSG3zq3ycNM2ta3HD4R4/rm/1tKKb8K//19eNYMKMGwq4IXKw85OB4mnLYBMF9BBFYOam3KOTM/ak9yFq5/LhKqgi8QD49KARpZC/paVvGQABHHIcAOJrinAP9QnJcvSAWWy42P0c2QzBk8DBj2pC5LUxMHYulUW65UuxPaIAfk5Apq2jPQD2Y17XATbWfdrD4nYwoCOo277UsA0HKIf/xvqBU7fAUoPdYO5I1k2VtUdsiU2K69Agx1yMYF1aQTtZePvMM7tpVLzVtc+4wMYb6Ix2y05tDDfwPwNV9t4tA7wr/idIIBbmT/0Pt+5/wYO13+y2aCA8V3sKLz7ql6dY+uzbpzgLqMCUhgSrRzoKEndaRcMoO7SvXNSPppvkqbLDoIGN3puFpJy6elrhJ+lURjmhO6YkL+gzpaF1D3cDB3kVbPT75yRNs8+oD3/mBNi+mrKJYdoxrkfbeokU7qlBjQNOp+5I+c0dgoNyqn4U+x1zhTYJKLP2gVgpi3xW6/9/o9L4IjUIaQjKsBfMQl9opczeZT19vZo4RZrXBBitAEpC9t7aA3B8PenpvhkwrVU1R21CskXsGXf9r20MUz2ExcJLeFGWqnRSHOKDjTjLLHVp9Bo4btGJxPb2EP9YEZLPcExBuinppUfzhg0ecgjfEiNtxUZiJ2vwi4znnncXFquh15TGFjUOPfJDAyiyEW5CDrzSSGnBKYRUtNROBv0mgji1qlz1cpYiZzvPzcfABojkGGcUJVcRg4jjlZZj/o4UJl7s8+uyQmNnKpfJmr3ue22gvsDea3hIV2waXCFTXxx+jV3dzvMQpU6ElgKn+eyW049ko7e/tpqfynDa3nJfbRRivMXIntwlqRFkRlFqR/J7dGsEnPRA6HoAxpq8o9hm7nZTdZ94D33z0pcplrVR3aHN2ftbCLCQrlkxcW5uh/seMAYQnvqblZICh2Zg/H9N/QsxmvXlaWqLqJom47hY2ZBzlBRzG9ApEv+I+huMVUgMptXTPjLy88omBkigOndaqgI4farCQaU97ax4oVAH/WRijKXK/i8YWXsQtsdywJn2K8HKq0jdR2ey+yS8gZ8eH9bGm5LxzRDI57Q22gyZaBgSASXvQTrwHvPwoFf5eItOqGk9uYZq4nhDRVBNHj5h5TFa6oxIvTOV3+CGIaybKQ2IvZzOXZOP9+AL0bmh39Q6uWdMeFOymj1h7l0rrcfAO3Ep2hB4PDiuwCOrOgAaKBjapcZJ6IrWTsctMTIMxv2Dc5JEkqL5B0d0KP3PMOB7kjom/xXT9LUgkiGoJxpreIKd1MfcaEOuUgiVPP7rIP1OuzFC0zubsIDc4t9vEpKYwdAYlUN5SkSXqN0o5u14+w2FKT+6xJ6k+Cx1v59UeZyh/26JfAMqyFHSiTWvJgdewFduIDmd0P3pOxS3aMbgj/j8BXIzlVtPs0o5pZmvqY0eZ1Gcm5efrwtkLTHd5crp6zNv76l0X3dMynlLZxDy5gEWAuoEdBSmUpAP4XYpFz48jTUiET5Vvi0xseuvLtEVisowtZ5lT59bqcj/F74r9N+okteXJ+QRyE+mGgtBsN0dJx7D7iBKU4iGah3TrOuPb5e/Zbrr/cCK2SVGwziSzabXdi04IZDeDWwSy6O636fp3DtsHoxgdlyX+0DT3Y/gYhA7P7b+b0c96PCfdPLB1PW1nsiIIZoU/eTJSeEfyRw7WzAzxHiK7tk8tn8X5MzYFHD/4mC/jTpAAGlJmF/ZOESgQEMKhIq/Ck6tnV+SngjqMuFqJPNmLkq2YLgGdgxdvRjV2D0qaYPCKx17DtIPtMUf4D8BfFi8QgO1GWprdhWsgPGH4d5n7paDm+vwc0qofu5iPWVlKywEFxzD51JiXMrzO5rG+fZVVOA9wAZu+SPqd6mL7cF9JBvJb4b01jzabIEcPIzcgq6dKlRtI4HQ3Em/X67cfyHcNxC4jZnQMEQ5ZgJejpBEhhZ4fXhktdPIWCA3FyveoBC+y1jjbyVfUCWtYjDLLZw3EqWgjdpOX/ISYNB55m4CMo9oJ1ZwL0rfMd6zpkIY5cn19hMI+xJ2U4qSTWidjACTg4NHPC3wMNiM/i6RdLo6PZMcADb0Iq9tHaCEtWWqvNWJoRqjI9ityFf8odxYPIRwSbLoVzG2GwE2kwq8PsyH2voL53FAO5lTE4u24xLpgnqALWsnRlGD353Snw4HZ6SuU4PjGTbsaivINroQMAP5SVaw+3Q2LAO+qBg7Xg81wGz+MP7JM8MnEyf8LCFvARhThNiJSMCQ6XJvaJiL7DLYpM5Y46VJEvrA0sSfwlnl7KKoylxfaIez6WY8yH/rS3sC/M9sCsBkfpOMXCqzIfzJViA3QY1+nJ77zNIaiX90C0/Lj8XdWLRFpA6NsKG/g8fFkOyprfopkHnhQ==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="986F59E2" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="IEl+Qn0JrK2H14PtowO/fVKNm/hVuMKzylTfAKgkMTuIu0pfIBLi/RySCsclWyR4CLP3BzEH4X7TD8Vz/NA70EyxmBeCSNqlMNo0N3KwG08htxZwNw/N47kCHWwvO2R/nBBp/fPXRV2BluEwSOm+SVY9Wcp/qCIuUrnz7jhef9ZsZd8IbF5QkgULNzJO6q1ExfXMJw==" />
+        
+<!--天-->
+
+        <div class="sky">
+
+   <div class="logo"><a href="http://www.obdesign.com.tw/inpage.aspx?no=1"><img src="./img/sky-LOGO.jpg" border="0" /></a></div>
+
+  <div class="Member">
+   <ul>
+   <li><a href="./inpage.aspx?no=1293#tit-4"><img src="./img/sky-icon-Overseas.jpg" border="0" /></a></li>
+   <li><a id="PageHeader1_HyperLinklogin" href="Login.aspx"><img src="./img/sky-icon-Login.jpg" border="0" /></a></li>
+   <li></li>
+   <li><a href="./MemberCenter.aspx"><img src="./img/sky-icon-Member.jpg" border="0" /></a></li>
+   <li><a href="./inpage.aspx?no=1293"><img src="./img/sky-icon-Message.jpg" border="0" /></a></li>
+   <li><a href="./MemberCenter.aspx?type=4"><img src="./img/sky-icon-EDM.jpg" border="0" /></a></li>
+   <li style="margin-top:9px;"><input name="PageHeader1$TextBoxSearch1" type="text" maxlength="50" id="PageHeader1_TextBoxSearch1" size="24" name="keyword" value="商品關鍵字查詢" OnFocus="javascript:if(this.value=='商品關鍵字查詢'){this.value=''}" OnBlur="javascript:if(this.value==''){this.value='商品關鍵字查詢'}" style="color:#888;height:20px;" /></li>  
+   <li style="margin-top:10px;">
+       <input type="image" name="PageHeader1$ButtonSearch1" id="PageHeader1_ButtonSearch1" src="img/sky-icon-Search.jpg" border="0" /></li>
+   <li style="margin-left:0px;width:190px;" border="0"><a href="http://www.obdesign.com.tw/EN/">
+   
+     <img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0927index/adImg/sky-icon-EN.jpg" 
+           style="margin-left:79px;" border="0" /></a></li>
+   </ul>
+   </div>
+  
+  
+  <div class="Brandicon">
+  <ul class="dropdown dropdown-linear dropdown-columnar">
+  <li class="li-1" onclick="window.location.href='./inpage.aspx?no=158'"></li>
+  <li class="li-2" onclick="window.location.href='./inpage.aspx?no=629'"></li>
+  <li class="li-3" onclick="window.location.href='./inpage.aspx?no=175'"></li>
+  <li class="li-4" onclick="window.location.href='./inpage.aspx?no=1762'"></li>
+  <li class="li-5" onclick="window.location.href='./cart01.aspx'" id="ShowCartLi-5">
+    <table width="100%" border="0" style="margin-top:8px;">
+    <tr>
+    <td width="160">&nbsp;</td>
+    <td valign="bottom"><span style="margin-top:10px; font-size:13px" id="ShowCart_TotalCount">(0件)</span></td>
+    </tr>
+    </table>
+<!----------購物車下拉內容------------>
+      
+<!----------購物車下拉內容------------> 
+  </li>
+  
+  
+  <li class="li-6" onclick="window.open('http://www.facebook.com/pages/OB嚴選/397486643273');"></li>
+ </ul>
+  </div>
+
+
+
+
+   <!---------最新消息內容------------> 
+      <div class="news">
+        <a href="http://www.obdesign.com.tw/evpage.aspx?no=3046">◎感恩回饋♥任選8折 </span></a> 　 　
+        <a href="http://www.obdesign.com.tw/evpage.aspx?no=2811">◎迪士尼♥歡樂秋祭88折</span></a>　
+        <a href="http://cdn.obdesign.com.tw/images/ObdesignBanner/EDM/vip-0201/141013.html"><span style="margin-left: 30px;">◎滿千送5%回饋金</span></a>　　
+   <a href="http://www.obdesign.com.tw/inpage.aspx?no=595">◎暖感首選外套</span></a>　
+<a href="http://www.obdesign.com.tw/inpage.aspx?no=594">◎顯瘦必備褲著</span></a>　
+        <a 
+        <a 
+  </div>
+   <!---------最新消息內容------------> 
+
+
+</div><!--天-END-->    
+
+        <input name="errtxt" type="hidden" id="errtxt" />
+        
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <table width="1180" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="190" valign="top">
+            <div class="L-side" width="190px">
+<div class="logo" width="190px"><img src="./images/content/inpage/OBD.jpg" border="0" /></div>
+<ul class="ul_unline">
+<li class="class_title">熱門活動</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./evpage.aspx?no=2811"><span style="color:#0088A8">迪士尼．歡樂秋祭88折</span></a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./evpage.aspx?no=2411">授權商品♥ 單件$197UP</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./evpage.aspx?no=3014">迪士尼套裝♥ 限時8折</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=1282">美腿的秘密．健康睡眠美腿襪</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">新品上架</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=3051">1030初秋新品上市</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=3038">1027初秋新品上市</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=3024">1022初秋新品上市</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=3012">1020初秋新品上市</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2985">1013初秋新品上市</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">館長推薦</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=175"><span style="color:pansy">Click．全部商品</span></a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=1092">特輯．純棉設計T恤</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">DISNEY</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=1598"><span style="color:pansy">Click．Disney迪士尼當季新品</span></a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2493">Disney．上衣</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2494">Disney．洋裝/長版T</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2495">Disney．下著</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2498">Disney．男裝</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2500">Disney．情侶裝</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">HELLO KITTY</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=502"><span style="color:pansy">Click．HELLO KITTY</span></a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2501">KITTY．上衣</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2502">KITTY．洋裝/長版T</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2503">KITTY．下著</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2504">KITTY．童裝</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">橘醬系列</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2859">橘醬系列當季新品</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">熱銷款式</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=183">上衣類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=213">洋裝類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=525">背心類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=185">下著類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=182">外套類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=184">襯衫類</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=186">內著/帽襪類</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">授權電影</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=1338">Click．怪獸大學</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">MARVEL</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2041">Click．MARVEL系列</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">TOMICA</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2222">Click．TOMICA</a></li>
+</ul>
+<ul class="ul_unline">
+<li class="class_title">男裝/童裝/情侶裝/孕媽咪系列</li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=180">男裝</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=181">童裝</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=178">甜蜜情侶裝</a></li>
+<li><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/bum.jpg" border="0" /><a href="./inpage.aspx?no=2572">孕媽咪系列</a></li>
+</ul>
+</div>
+        </td>
+        <td width="10" valign="top"><img src="./images/h.gif" width="17" height="17"></td>
+        <td width="980" valign="top" >
+            <!--右--> 
+            <div class="R-side">
+            <!--商品內容--> 
+            <div class="Pro">
+                <div class="Record"><!--瀏覽紀錄-->
+                    <div style="margin-top:0px; background-color:White; line-height:20px;">
+                        <div class="h1">瀏覽紀錄 </div>
+                        <div class="carousel">
+                            <div class="prv prev">▲</div>
+                            <div class="jCarouselLite">
+                                <ul class="Re_img">
+                                
+                                </ul>
+                            </div>
+                            <div class="prv next" style="margin-top: 10px;">▼</div>
+                            <div class="clear"></div>   
+                        </div>
+                        <div class="go_top"><a href="#">Top</a></div>
+                    </div>
+                </div><!--瀏覽紀錄END-->  
+                
+                <!--麵包屑-->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom:15px; *margin-bottom:18px;">
+<tr>
+<td width="95%" height="24" align="left">
+<img src="./images/content/inpage/btn_menu.gif" width="10" height="10" style="margin-right:10px;">
+<span class="verdana_sp_gy">
+<a href="./inpage.aspx?no=1">
+首頁
+</a>
+</span>
+<span class="verdana_sp_gy"> > </span>
+<span class="verdana_sp_gy">
+<a href="#">
+OB DESIGN 
+</a>
+</span>
+<span class="verdana_sp_gy"> > </span>
+<span class="verdana_sp_gy">
+<a href="#">
+新品上架
+</a>
+</span>
+<span class="verdana_sp_gy"> > </span>
+<span class="verdana_sp_gy" id="greenaaa">
+<a href="./inpage.aspx?no=3024">
+1022初秋新品上市
+</a>
+</span>
+</td>
+</tr>
+</table>
+
+
+                
+                <div style="clear:both;"></div>
+                
+                <div class="Pro_img"><!--商品圖--> 
+                    <div class="clearfix" id="content">
+                        <div class="clearfix">
+                            <a id="HyperLink1" class="jqzoom" rel="gal1" href="http://image.obdesign.com.tw/catalog/141001qow/KD0790.jpg"><img id="Image2" border="0" alt="1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色" tltle="1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色" src="http://image.obdesign.com.tw/catalog/141001qow/KD0790-X.jpg" border="0" style="width:400px;" /></a>
+                        </div>
+	                    <br/>
+                        <div class="clearfix">
+                            
+                                    <ul id="thumblist" class="clearfix">
+                                        
+                                    <li><a class="zoomThumbActive" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: 'http://image.obdesign.com.tw/catalog/141001qow/KD0790-X.jpg',largeimage: 'http://image.obdesign.com.tw/catalog/141001qow/KD0790.jpg'}"><img src="http://image.obdesign.com.tw/catalog/141001qow/KD0790-S.jpg" width="60" style="display:block;"></a></li>
+                                
+                                    <li><a class="" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: './img/400x400-noInform.jpg?a=8',largeimage: './img/730x730-noInform.jpg?a=8'}"><img src="./img/60x60-noInform.jpg?a=8" width="60" style="display:block;"></a></li>
+                                
+                                    <li><a class="" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: './img/400x400-noInform.jpg?a=9',largeimage: './img/730x730-noInform.jpg?a=9'}"><img src="./img/60x60-noInform.jpg?a=9" width="60" style="display:block;"></a></li>
+                                
+                                    <li><a class="" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: './img/400x400-noInform.jpg?a=10',largeimage: './img/730x730-noInform.jpg?a=10'}"><img src="./img/60x60-noInform.jpg?a=10" width="60" style="display:block;"></a></li>
+                                
+                                    <li><a class="" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: 'http://image.obdesign.com.tw/catalog/141001qow/KD0790-11-X.jpg',largeimage: 'http://image.obdesign.com.tw/catalog/141001qow/KD0790-11.jpg'}"><img src="http://image.obdesign.com.tw/catalog/141001qow/KD0790-11-S.jpg" width="60" style="display:block;"></a></li>
+                                
+                                    </ul>
+                                
+	                    </div>
+                    </div>
+                    
+                </div>
+                <div class="Pro_info"><!--列表-->
+                  <div class="pro-name"><span id="Label系列名稱1">1022新品 迪士尼超保暖刷毛系列~M字米奇棒球外套‧女3色</span></div>
+                    <ul>
+                                <li class="li-tit">▪ 商品貨號</li>
+                                <li class="li-tit-info"><span id="Label系列編號1">KD0790</span></li>
+                                <li class="li-tit">▪ 會員價</li><li class="li-tit-info"><span class="p" id="ShowPrice">NT$ 599</span></li>
+<li class="li-tit"><span style="color:#cc0000">▪ 優惠價</span></li><li class="li-tit-info"><span style="color:#cc0000" id="ShowDiscountPrice">NT$ 579</span></li>
+
+                                 <li class="FB-like">
+                                    <fb:like href='http://www.obdesign.com.tw/product.aspx?seriesID=KD0790&no=3024' send="false" layout="button_count" width="450" show_faces="true" font="arial"></fb:like>
+                                 </li>
+                                 <li class="pro_Line"></li>
+                            </ul>
+                            <dl>
+                                <dt class="size_tit">顏色： </dt> 
+                                <dd>
+                                    
+                                            
+                                                
+                                                <a class='color_style btnColor' enabled='True' checkEnabled='True'>正紅/淺麻灰袖</a>
+                                        
+                                                
+                                                <a class='color_style btnColor' enabled='True' checkEnabled='True'>深紫/淺麻灰袖</a>
+                                        
+                                                
+                                                <a class='color_style btnColor' enabled='True' checkEnabled='True'>中麻灰/正黑袖</a>
+                                        
+                                        
+                                </dd>
+                                <div style="clear:both;"></div><!--間容ie7的div浮動-->
+                                <dt class="size_tit">尺寸： </dt> 
+                                <dd>
+                                    
+                                                
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>S</a>
+                                        
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>M</a>
+                                        
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>L</a>
+                                        
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>XL</a>
+                                        
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>2L</a>
+                                        
+                                            
+                                            <a class='size btnSize' enabled='True' checkEnabled='True'>3L</a>
+                                        
+                                        
+                                </dd>
+                                <br><br>
+                                <div style="clear:both;"></div><!--間容ie7的div浮動-->
+                                <div>
+                                    <dt class="size_tit">數量： </dt> 
+                                    <dd>
+                                        <div><span id="lblNotHasProduct" class="select_pic"></span></div>
+                                        <select id="ddlCount" class="select_pic" style="width:70px;">
+                                        </select>
+                                        
+                                        <a onclick="window.open('./ProductSizeTable/201411/KD0790.html','a','menubar=yes,status=yes,scrollbars=yes,top=100,left=200,toolbar=no,width=850,height=600');return false;" id="button1" class="size_rpo" href="javascript:__doPostBack('button1','')">尺寸表/試穿報告</a>
+                                    </dd>
+                                </div>
+                            <div style="clear:both;"></div>
+                            </dl>
+                        <dt></dt> 
+                         <a id="LinkButtonAddCart1" href="#">
+                            <dd class="go-by"></dd>   
+                        </a>
+                        <a id="LinkButtonAddWishList" href="#" style="display:none;">
+                            <dd style="color:white;background-color:black;height:48px;width:212px;text-align:center;line-height:48px;font-weight:bolder;">貨到通知我</dd>   
+                        </a>
+                        <dt></dt> 
+                        <span id="LabelError1"><font color="Red"></font></span>
+                </div>
+                
+                <div style="clear:both;"></div>
+                <div class="abgne_tab">
+	                <ul class="tabs">
+	                    <li class="active"><a href="#tab1">適用活動</a></li>
+	                </ul>
+
+	                <div class="tab_container">
+	                    <div id="tab1" class="tab_content">
+                            無
+                        </div>
+		                <div id="tab2" class="tab_content">
+                            <p>深受大家喜愛的華特迪士尼系列登場囉!<br/>就讓無限歡樂的迪士尼成員們<br/>帶領大家走向潮流無敵、可愛迷人的STYLE!<br/><br/>************************<br/>選用最能夠代表米奇的字母──「M」作為外套設計主軸!<br/>可愛小米奇以主角之姿站在旁邊不言而喻!<br/>************************<br/><br/>提醒您: <br/>細緻印花，請反面低溫熨燙！<br/>建議單獨洗滌，手洗或放洗衣袋洗最佳喔(勿用熱水) <br/>請勿浸泡過久以及避免使用含有漂白溶劑的洗劑！</p>
+				            
+		                </div>
+		                <div id="tab3" class="tab_content" style="display: none;">
+                            <p>材質彈性：56%棉 44%聚酯纖維，有彈性<br/>色系：3色<br/>配件: 無</p>
+		                </div>
+	                </div>
+                </div>
+                <div style="clear:both;"></div><!--間容ie7的div浮動-->
+              </div>
+          <!--商品內容END-->  
+                <!--搭配商品及推薦商品-->
+                <dl id="dddcomm">
+    <dt class="comm">推薦商品： </dt>
+    <div class="commall"> 
+        <div class="comm_img_Arr prev">◄</div>
+        <div id="bwrec" class="comm_img">
+        </div>
+        <div class="comm_img_Arr2 next">►</div>
+    </div>
+    <dd class="comm_img">
+    </dd>
+</dl> 
+
+                <!--搭配商品及推薦商品END-->
+        </div>
+        <!--右END-->
+        <table align='center' width='730'><tr><td align='center'><table width='730' border='0' align='center' cellpadding='0' cellspacing='0' id='___01' ><tr><td align='center' style='line-height: 2.0;'><font size='4' color='#FF5A00' ><b>《KD0790》</b></font><P  align=center><font size='4' color='#666666' style='line-height: 2.0;'>深受大家喜愛的華特迪士尼系列登場囉!</P><P align=center>就讓無限歡樂的迪士尼成員們</P><P align=center>帶領大家走向潮流無敵、可愛迷人的STYLE!</P><P align=center></P><P align=center>************************</P><P align=center>選用最能夠代表米奇的字母──「M」作為外套設計主軸!</P><P align=center>可愛小米奇以主角之姿站在旁邊不言而喻!</P><P align=center>************************</P><P align=center></P><P align=center>提醒您: </P><P align=center>細緻印花，請反面低溫熨燙！</P><P align=center>建議單獨洗滌，手洗或放洗衣袋洗最佳喔(勿用熱水) </P><P align=center>請勿浸泡過久以及避免使用含有漂白溶劑的洗劑！</font><table width='730' border='0' cellpadding='0' cellspacing='0' align='center'><tr><td align='center'><table cellspacing='3' cellpadding='3' border='0' width='100%' bgcolor='#FFFFFF' height='122'><tbody><tr><td height='50' colspan='4' align='center' valign='bottom' bgcolor='#FFFFFF'>　</td></tr><tr><td width='24%' height='30' align='center' valign='middle' bgcolor='#312e29'><font size='2' color='#EEEDE8'> 材質彈性</font></td><td width='30%' height='30' align='center' valign='middle' bgcolor='#312e29'><font size='2' color='#EEEDE8'>色系</font></td><td width='28%' height='30' align='center' valign='middle' bgcolor='#312e29'><font size='2' color='#EEEDE8'>配件</font></td></tr><tr><td width='24%'  height='50' align='center' valign='middle' bgcolor='#ffffff'><font size='2' color='#333333'>56%棉 44%聚酯纖維，有彈性</font></td><td width='30%' height='50' align='center' valign='middle' bgcolor='#ffffff'><font size='2' color='#333333'>3色</font></td><td width='28%' height='50' align='center' valign='middle' bgcolor='#ffffff'><font size='2' color='#333333'>無</font></td></tr></tbody></table></td></tr></table></td></tr></table></td></tr><table width='730'> <center>
+<img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790.jpg' border='0'><BR><BR><img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-1.jpg' border='0'><BR><BR><img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-2.jpg' border='0'><BR><BR><img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-3.jpg' border='0'><BR><BR>
+<img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-4.jpg' border='0'><BR><BR>
+<img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-5.jpg' border='0'><BR><BR>
+<a href='http://www.obdesign.com.tw/findresult.aspx?Key=' target='_blank'><img src='http://image.obdesign.com.tw/catalog/141001qow/KD0790-6.jpg' border='0'><BR><BR>
+</center></table>
+
+
+        </td>
+    </tr>
+    </table>
+         
+        
+        
+        
+        
+
+<div class="copyright">
+    <div style=" z-index:-999; position:absolute;" >
+        <h1><span id="PageFooter1_lblH1"></span></h1>
+        <h2><span id="PageFooter1_lblH2"></span></h2> 
+    </div>
+    <div style="z-index:50;"><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/forGood.jpg" border="0" > </div>
+</div>
+<!--FOOTER-->
+<div class="footer">
+<table width="1180" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="102"><img src="http://image.obdesign.com.tw/images/ObdesignBanner/13-0318index/adImg/footerLOGO.jpg" border="0" ></td>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+    <td align="center" class="td"><a target="_blank" href="http://bid.obdesign.com.tw/promotion/store/">門市資訊</a></td>
+    <td align="center" class="td"><a href="http://www.obdesign.com.tw/inpage.aspx?no=311">公司簡介</a></td>
+    <td align="center" class="td"><a target="_blank" href="mailto:fanyu@obdesign.com.tw">廠商合作</a></td>
+    <td align="center" class="td"><a target="_blank" href="http://www.104.com.tw/jobbank/cust_job/introduce.cfm?j=403a44255646402552583a1d1d1d1d5f2443a363189j48&jobsource=checkc#02">人才招募</a></td>
+    <td align="center"><a href="http://www.obdesign.com.tw/inpage.aspx?no=315">隱私權保護</a></td>
+    <td align="center"><span style="color:#FFf">客服電話代表號 (02)7722-6870轉9   (週一至週五)10:00~12:00/13:30~18:00</span></td>    
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+</div>
+<div class="copyright">
+COPYRIGHT©OB DESIGN CO.,LTD. ALL RIGHTS RESERVED.
+BEST VIEWED WITH INTERNET EXPLORER 8 + SITE OPTIMIZED FOR 1920 × 1080 DISPLAY
+
+</div>
+
+        
+    <input type="hidden" name="hiddenNO" id="hiddenNO" value="KD0790" />
+    <input type="hidden" name="hiddenIsDiscount" id="hiddenIsDiscount" value="Y" />
+    <input type="hidden" name="hiddenDiscount" id="hiddenDiscount" value="20" />
+    <input type="hidden" name="hiddenColor" id="hiddenColor" />
+    <input type="hidden" name="hiddenSize" id="hiddenSize" />
+    <input type="hidden" name="hiddenSelectCount" id="hiddenSelectCount" />
+    <input type="hidden" name="hiddenSelectProductID" id="hiddenSelectProductID" />
+    <input type="hidden" name="hiddenNoStock" id="hiddenNoStock" />
+    <input type="hidden" name="hiddenPrice" id="hiddenPrice" />
+    <input type="hidden" name="hiddenCartCount" id="hiddenCartCount" value="0" />
+    <input type="hidden" name="hiddenURL" id="hiddenURL" value="http://www.obdesign.com.tw:80/product.aspx?seriesID=KD0790&amp;no=3024" />
+    <div style="display:none;">
+        <div class='ALLData' No='KD0790' Size='合併下標區' Color='中麻灰/正黑袖' Stock='568' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-2L' Size='2L' Color='正紅/淺麻灰袖' Stock='25' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-3L' Size='3L' Color='正紅/淺麻灰袖' Stock='19' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-L' Size='L' Color='正紅/淺麻灰袖' Stock='31' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-M' Size='M' Color='正紅/淺麻灰袖' Stock='26' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-S' Size='S' Color='正紅/淺麻灰袖' Stock='9' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-1-XL' Size='XL' Color='正紅/淺麻灰袖' Stock='35' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-2L' Size='2L' Color='深紫/淺麻灰袖' Stock='33' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-3L' Size='3L' Color='深紫/淺麻灰袖' Stock='22' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-L' Size='L' Color='深紫/淺麻灰袖' Stock='45' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-M' Size='M' Color='深紫/淺麻灰袖' Stock='33' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-S' Size='S' Color='深紫/淺麻灰袖' Stock='21' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-2-XL' Size='XL' Color='深紫/淺麻灰袖' Stock='40' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-2L' Size='2L' Color='中麻灰/正黑袖' Stock='34' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-3L' Size='3L' Color='中麻灰/正黑袖' Stock='32' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-L' Size='L' Color='中麻灰/正黑袖' Stock='52' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-M' Size='M' Color='中麻灰/正黑袖' Stock='43' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-S' Size='S' Color='中麻灰/正黑袖' Stock='20' Price='599' Notice='N' />
+<div class='ALLData' No='KD0790-3-XL' Size='XL' Color='中麻灰/正黑袖' Stock='48' Price='599' Notice='N' />
+
+    </div>
+    
+<script type="text/javascript">
+    adroll_custom_data = {"product_id": "KD0790"};
+    adroll_adv_id = "IQWI2PMNHFG7RKX7HXHREW";
+    adroll_pix_id = "JILXW2C7DZHMBLBLBCSJDG";
+    (function () {
+        var _onload = function () {
+            if (document.readyState && !/loaded|complete/.test(document.readyState)) { setTimeout(_onload, 10); return }
+            if (!window.__adroll_loaded) { __adroll_loaded = true; setTimeout(_onload, 50); return }
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) { window.addEventListener('load', _onload, false); }
+        else { window.attachEvent('onload', _onload) }
+    } ());
+</script>
+<script type="text/javascript">
+    var product = {
+        identifier: 'KD0790'
+    };
+</script>
+<script type="text/javascript">
+    (function(){
+        var s   = document.createElement('script');
+        var x   = document.getElementsByTagName('script')[0];
+        s.type  = 'text/javascript';
+        s.async = true;
+        s.src   = ('https:'==document.location.protocol?'https://':'http://')
+                + 'ap-sonar.sociomantic.com/js/2010-07-01/adpan/obdesign-tw';
+        x.parentNode.insertBefore( s, x );
+    })();
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+CreateCookie('RecentView', 'KD0790', 7);//]]>
+</script>
+</form>
+
+    
+    <script type="text/javascript">doYWA("N");</script>
+
+    <img src="http://tags.rtbidder.net/track?sid=52c6484855314b2b58d80e4b" width="0" height="0" border="0" alt="" />
+
+<!-- Advertiser '橘熊科技股份有限公司', Include user in segment 'TW_OrangeBear' - DO NOT MODIFY THIS PIXEL IN ANY WAY -->
+<img src="http://ad.yieldmanager.com/pixel?id=1930158&t=2" width="1" height="1" />
+<!-- End of segment tag -->
+</body>
+</html>

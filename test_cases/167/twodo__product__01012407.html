@@ -1,0 +1,1144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<title>Twodo Girlshop- 商品頁</title>
+			<LINK href="css/main.css" type="text/css" rel="stylesheet">
+			<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-38090717-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/stickysidebar.jquery.min.js" type="text/javascript"></script>
+<script language="javascript">
+	$(document).ready(function() {
+		$("body").css("background-image", "url(/banner/images/20140818102013.jpg)");
+		$("#fixed_cart").css("right", ($(window).width() - 1000) / 2 - 80 + "px");
+		$(".div_red").each(function() {
+			$(this).wrap("<div/>");
+			//$(this).parent().append("<hr/>")
+		});
+
+		$("#main,#header img:not(.item1)").mouseover(function() {
+			$(".iteml2").hide();
+		});
+
+		if ($(".stickybox").length > 0) {
+			//$("#main").height($(document).height() - $("#header").height() - $("#footer").height() + 100);
+			$("#main").css("min-height", $(document).height() - $("#header").height() - $("#footer").height() + "px");
+			$(".stickybox").stickySidebar({
+				speed: 500
+						, padding: 200
+						, easing: "linear"
+						, constrain: true
+			});
+		} else {
+			$("#main").css("min-height", $(document).height() - $("#header").height() - $("#footer").height() + "px");
+		}
+	});
+	
+	function AddFavorite() {
+		title = 'Twodo Girlshop';
+		url = 'http://www.twodo.com.tw/';
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, "");
+		} else if (document.all) {
+			window.external.AddFavorite(url, title);
+		} else if (window.opera && window.print) {
+			alert('請用 Ctrl + D，或手動加入我的最愛');
+		} else if (window.chrome) {
+			alert('請用 Ctrl + D，或手動加入我的最愛');
+		}
+	}
+
+	function dimImg(objThis, isHover) {
+		//alert(isHover);
+		if (isHover) {
+			if ($(objThis).parent().attr("id") != "divDim") {
+				$(objThis).wrap("<div id='divDim' style='background-color:black;'>");
+				$(objThis).fadeTo("fast", 0.8);
+			}
+		} else {
+			$(objThis).unwrap("<div id='divDim'>");
+			$(objThis).fadeTo("fast", 1);
+		}
+	}
+	
+	function swap_img(objThis, isHover, folder) {
+//		if (folder) {
+//				if (isHover) {
+//						if (objThis.src.indexOf("hover") < 0)
+//								objThis.src = objThis.src.replace(folder + '/', folder + '/hover/');
+//				}else {
+//						objThis.src = objThis.src.replace(folder + '/hover/', folder + '/');
+//				}
+//		} else {
+				if (isHover)
+						objThis.src = objThis.src.replace('.jpg', '-h.jpg');
+				else {
+						objThis.src = objThis.src.replace('-h.jpg', '.jpg');
+				}
+//		}
+	}
+
+		function mySlide(me, duration) {
+			this.slideLength = 0;
+			this.currentSlide = 0;
+			this.obj = me;
+			this.duration = duration;
+			this.timeout = null;
+		}
+
+		// Set total First
+		mySlide.prototype.slide = function() {
+			var nodes = this.obj.childNodes;
+			var nodesSub;
+			for (var i = 0; i < nodes.length; i++) {
+				if (nodes[i].tagName != null && nodes[i] != null && (nodes[i].tagName.toLowerCase() == "img" || nodes[i].tagName.toLowerCase() == "a")) {
+					nodesSub = nodes[i].childNodes;
+					if (nodesSub.length > 0) {
+						if (nodesSub[0].tagName && nodesSub[0].tagName.toLowerCase() == "img") {
+							nodesSub[0].tagName && nodesSub[0].setAttribute("style", "display:none;");
+							this.slideLength++;
+						}
+					} else {
+						if (nodes[i].tagName && nodes[i].tagName.toLowerCase() == "img") {
+							nodes[i].tagName && nodes[i].setAttribute("style", "display:none;");
+							this.slideLength++;
+						}
+					}
+				}
+			}
+			this.showSlide(0);
+		}
+		// Recursive Show images
+		mySlide.prototype.showSlide = function(intPos) {
+			if (this.timeout != null)
+				clearTimeout(this.timeout);
+			this.currentSlide = intPos;
+			if (this.currentSlide == this.slideLength)
+				this.currentSlide = 0;
+			$(this.obj).find(".main_rotate_tumb img").css("border", "1px solid #767475");
+			$(this.obj).find(".main_rotate_tumb img:eq(" + this.currentSlide + ")").css("border", "1px solid #811B30");
+			var posCount = 0;
+			var nodes = this.obj.childNodes;
+			var nodesSub;
+			for (var i = 0; i < nodes.length; i++) {
+				nodesSub = nodes[i].childNodes;
+				if (nodesSub.length > 0) {
+					//image under anchor <a><img/></a>
+					if ((nodesSub[0].tagName && nodesSub[0].tagName.toLowerCase() == "img")
+												 || (nodes[i].tagName && nodes[i].tagName.toLowerCase() == "img")) {
+						//try IE, if faild do the normal way
+						objShowHide(nodesSub[0], false);
+						if (posCount == this.currentSlide)
+							objShowHide(nodesSub[0], true);
+						posCount++;
+					}
+				} else {
+					//pure image <img/>
+					if (nodes[i].tagName && nodes[i].tagName.toLowerCase() == "img") {
+						//try IE, if faild do the normal way
+						objShowHide(nodes[i], false);
+						if (posCount == this.currentSlide)
+							objShowHide(nodes[i], true);
+						posCount++;
+					}
+				}
+			}
+			var objSelf = this;
+			this.timeout = setTimeout(function() { objSelf.showSlide(objSelf.currentSlide + 1) }, objSelf.duration);
+		}
+		function objShowHide(obj, isShow) {
+			if (!isShow) {
+				/*
+				try {
+					obj.style.setAttribute('cssText', 'display:none;', 0);
+				} catch (e) {
+					obj.setAttribute("style", "display:none;");
+				}
+				*/
+				$(obj).fadeOut("fast");
+			} else {
+				/*
+				try {
+					obj.style.setAttribute('cssText', 'display:block;', 0);
+				} catch (e) {
+					obj.setAttribute("style", "display:block;");
+				}
+				*/
+				$(obj).fadeIn("fast");
+			}
+		}
+
+		function setBlock(intBlock, intTotalBlock) {
+			for (var i = 1; i < intTotalBlock + 1; i++) {
+				objShowHide(document.getElementById("div_mri" + i), false);
+				if (i == intBlock)
+					objShowHide(document.getElementById("div_mri" + i), true);
+			}
+		}
+
+		//********** Mask ****************
+		function myMask(me, duration, imgOn) {
+			this.obj = me;
+			this.duration = duration;
+			this.imgOff = this.obj.attr("src");
+			this.imgOn = imgOn;
+			this.isFinished = false;
+
+			var x = this;
+			$(this.obj).closest("div").mouseover(function() {
+				x.on();
+			});
+			$(this.obj).closest("div").mouseout(function() {
+				x.off();
+			});
+		}
+		myMask.prototype.on = function() {
+			if (this.obj.attr("src") == this.imgOff) {
+
+				var x = this;
+				x.isFinished = false;
+
+				this.obj.attr("src", this.imgOn);
+				var h = $(this.obj).height();
+				$(this.obj).css("position", "absolute");
+				$(this.obj).css({ "top": "-" + (h - 20) + "px","left":"0px" });
+
+				$(this.obj).stop(true, true).animate({ "top": "0px", "left": "0px", "queue": false }, this.duration, 'linear', function() {
+					$(this).css("position", "relative");
+					$(this).css("top", "0px").css("width", "216px").css("height", "326px");
+					x.isFinished = true;
+				});
+			}
+		}
+		myMask.prototype.off = function() {
+			if (this.obj.attr("src") == this.imgOn && this.isFinished) {
+				$(this.obj).stop(true, true);
+				this.obj.attr("src", this.imgOff);
+				$(this.obj).css("position", "relative");
+				$(this.obj).css({ "top": "0px", "left": "0px", "width": "216px", "height": "326px" });
+			}
+		}
+
+		/********** photoSlide_thumbbar ************/
+		function photoSlide_thumbbar(me, bgcolor, color, bgcolor_hover, duration, fadeout, fadein) {
+			this.slideLength = 0;
+			this.currentSlide = 0;
+			this.obj = me;
+			this.bgcolor = bgcolor;
+			this.color = color;
+			this.bgcolor_hover = bgcolor_hover;
+			this.duration = duration;
+			this.durationFO = fadeout;
+			this.durationFI = fadein;
+			this.timeout = null;
+
+			var d = $("<div style='width:960px'></div>");
+			$(d).width($(this.obj).find("img").length * 960);
+			$(d).append($(this.obj).html());
+			$(this.obj).html("");
+			$(this.obj).append(d);
+
+			$(me).find("img").addClass("slide");
+			$(me).css("position", "relative").css("height", $(me).find("img").eq(0).height() + "px").css("overflow", "hidden");
+			var count = $(".slide").length;
+			this.slideLength = count;
+			var s = "";
+			for (var i = 0; i < count; i++) {
+				s += "<div class='noZReset thumb' style='margin:1px 1px 1px 0px; width:159px; cursor:pointer; z-index: 2000; float:left;'>"
+					+ "<img src='" + $(".slide:eq(" + i + ")").attr("src") + "' style='width:159px; height:75px;' "
+					+ " onclick='slide1.stop(); slide1.show(" + i + ");'"
+					+ "/>"
+					+ "</div>";
+			};
+			$("#brand").append(
+				'<div id="brand_main_thumb" class="noZReset" style="width:960px; height:77px; z-index:2100; position:absolute; left:0px; bottom:0px; padding-left:1px; display:none; background-color:#333333; overflow:hidden;">'
+				+ "<div class='noZReset' style='width:" + count * 160 + "px;'>"
+				+ s
+				+ "<div class='noZReset' style='clear:both;'></div></div>"
+				+ "</div>"
+				);
+
+			var x = this;
+
+			$('#brand_main_thumb').fadeTo("fast", 0.8);
+			$('#brand_main_thumb img').fadeTo("fast", 0.65);
+			$('#brand_main_thumb img').mouseenter(function() { $(this).fadeTo("fast", 1); x.stop(); }).mouseleave(function() { $(this).fadeTo("fast", 0.65); });
+
+			$("#brand_main_thumb").hide();
+			var x = this;
+			$("#brand")
+				.mouseenter(function() { $("#brand_main_thumb").slideToggle(); x.stop(); x.show(x.currentSlide); })
+				.mouseleave(function() { $("#brand_main_thumb").slideToggle(); x.autoinit(); });
+
+		}
+		photoSlide_thumbbar.prototype.autoinit = function() {
+			this.stop();
+			this.show(this.currentSlide);
+			var x = this;
+			this.timeout = setTimeout(function() { x.auto() }, this.duration);
+		}
+		photoSlide_thumbbar.prototype.auto = function() {
+			this.currentSlide++;
+			if (this.currentSlide > this.slideLength) {
+				clearTimeout(this.timeout);
+				this.currentSlide = 0;
+			}
+			this.show(this.currentSlide);
+			var x = this;
+			this.timeout = setTimeout(function() { x.auto() }, this.duration);
+		}
+		photoSlide_thumbbar.prototype.stop = function() {
+			clearTimeout(this.timeout);
+			//var x = this;
+			//this.timeout = setTimeout(function() { x.auto() }, this.duration);
+		}
+		photoSlide_thumbbar.prototype.show = function(index) {
+			if (index < 0) {
+				//alert("Min!");
+				return;
+			}
+			if (index > this.slideLength - 1) {
+				//alert("Max!");
+				return;
+			}
+			this.currentSlide = index;
+
+			this.scrollThumb(index);
+
+		}
+		photoSlide_thumbbar.prototype.scrollThumb = function(index) {
+			//alert(index);
+			if (index == 0) {
+				$(this.obj).animate({ scrollLeft: index * 960 }, 0);
+				$("#brand_main_thumb").scrollLeft(0);
+			} else {
+				$(this.obj).animate({ scrollLeft: index * 960 }, 500);
+				$("#brand_main_thumb").scrollLeft((1 + (index - 3) * (159 + 1)));
+			}
+		}
+	</script>
+	</head>
+	<body>
+		<form name="formlogout" method="post" action="Login.asp">
+<input type="hidden" name="btnlogin" value="logout">
+</form>
+<div id="header">
+	
+	<table>
+		<tr>
+			<td>
+				<a href="Default.asp"><img src="images/index/index_01.jpg" /></a>
+			</td>
+			<td width="193"></td>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<div style="border-bottom:5px solid black;">
+								<table cellpadding="10" align="right">
+									<tr>
+										<td align="right">
+											
+												<a href="Login.asp">登入</a>
+											
+										</td>
+										<td><a href="TWO_member.asp">會員中心</a></td>
+										<td><a href="TWO_HTML.asp?url=/photo/2013item/process.html">購物說明</a></td>
+										<td><a href="OrderList.asp">訂單查詢</a></td>
+									</tr>
+								</table>
+								<div style="clear:both;"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td><a href="OrderCheck.asp"><img src="images/index/index_04.jpg" /></a></td>
+									<td>
+										<div style="position:relative; width:191px; height:71px;">
+											<img src="images/index/index_05.jpg" style="position:absolute; top:0px; left:0px;" />
+											<form action="PDList2.asp" method="GET">
+											<input name="keyword" type="text" value="" style="position:absolute; top:30px; left:23px; width: 151px; height: 22px;" />
+											</form>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<div style="width:976px; margin:20px auto 0px auto;">
+		<div style="padding:20px 0px 0px 0px; border-top:1px solid black;">
+			
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=01">CLOTHES</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=01&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;T恤/棉麻上衣</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;針織衫</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;襯衫</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;背心/小可愛</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;雪紡上衣</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;有領衫/POLO衫</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;毛衣</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;洋裝</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=09'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=10'>&nbsp;&nbsp;/&nbsp;&nbsp;兩件式</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=11'>&nbsp;&nbsp;/&nbsp;&nbsp;假兩件式</a></div><div class='item'><a href='PDList2.asp?item1=01&item2=12'>&nbsp;&nbsp;/&nbsp;&nbsp;連帽T</a></div>
+	</div>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=02">COAT</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=02&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;棉質/棉麻外套</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;針織外套</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;牛仔外套</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;風衣/大衣</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;西裝外套</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;皮衣</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=02&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;背心式罩衫</a></div>
+	</div>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=03">PANTS</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=03&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;牛仔/單寧褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;棉質褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;西裝褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;內搭褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;連身褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;褲裙</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;針織褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=09'>&nbsp;&nbsp;/&nbsp;&nbsp;老爺褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=10'>&nbsp;&nbsp;/&nbsp;&nbsp;吊帶褲</a></div><div class='item'><a href='PDList2.asp?item1=03&item2=11'>&nbsp;&nbsp;/&nbsp;&nbsp;休閒褲</a></div>
+	</div>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=08">SKIRT</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=08&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;短裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;長裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;及膝裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;襯裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;吊帶裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;百褶裙</a></div><div class='item'><a href='PDList2.asp?item1=08&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;連身裙</a></div>
+	</div>
+</div>
+<div class="iteml1" onmouseover="$(this).find('a:eq(0)').text('背心');" onmouseout="$(this).find('a:eq(0)').text('VEST');">
+	<a class="iteml1a" href="PDList2.asp?item1=01&item2=04">VEST</a>
+</div>
+<div class="iteml1" onmouseover="$(this).find('a:eq(0)').text('襯衫');" onmouseout="$(this).find('a:eq(0)').text('SHIRT');">
+	<a class="iteml1a" href="PDList2.asp?item1=01&item2=03">SHIRT</a>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=05">SHOES</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=05&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;低跟鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;高跟鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;平底/娃娃鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;涼鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;布鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;短靴</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;長靴</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;楔型鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=09'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=10'>&nbsp;&nbsp;/&nbsp;&nbsp;雪靴</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=11'>&nbsp;&nbsp;/&nbsp;&nbsp;慢跑鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=12'>&nbsp;&nbsp;/&nbsp;&nbsp;休閒鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=13'>&nbsp;&nbsp;/&nbsp;&nbsp;帆布鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=14'>&nbsp;&nbsp;/&nbsp;&nbsp;厚底鞋</a></div><div class='item'><a href='PDList2.asp?item1=05&item2=15'>&nbsp;&nbsp;/&nbsp;&nbsp;雨鞋</a></div>
+	</div>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=06">BAG</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=06&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;側肩背包</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;手提包</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;大方包</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;水桶包</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;皮夾</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;化妝包</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;其他</a></div><div class='item'><a href='PDList2.asp?item1=06&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;後背包</a></div>
+	</div>
+</div>
+<div class="iteml1">
+	<a class="iteml1a" href="PDList2.asp?item1=07">ACCESSORIES</a>
+	<div class="iteml2">
+		<div class='item'><a href='PDList2.asp?item1=07&item2=01'>&nbsp;&nbsp;/&nbsp;&nbsp;耳環</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=02'>&nbsp;&nbsp;/&nbsp;&nbsp;項鍊</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=03'>&nbsp;&nbsp;/&nbsp;&nbsp;手環</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=04'>&nbsp;&nbsp;/&nbsp;&nbsp;帽子</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=05'>&nbsp;&nbsp;/&nbsp;&nbsp;戒指</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=06'>&nbsp;&nbsp;/&nbsp;&nbsp;眼鏡</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=07'>&nbsp;&nbsp;/&nbsp;&nbsp;手錶</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=08'>&nbsp;&nbsp;/&nbsp;&nbsp;髮飾/窟</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=09'>&nbsp;&nbsp;/&nbsp;&nbsp;圍巾</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=10'>&nbsp;&nbsp;/&nbsp;&nbsp;皮帶</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=11'>&nbsp;&nbsp;/&nbsp;&nbsp;襪</a></div><div class='item'><a href='PDList2.asp?item1=07&item2=12'>&nbsp;&nbsp;/&nbsp;&nbsp;雜貨</a></div>
+	</div>
+</div>
+<div class="iteml1" onmouseover="$(this).find('a:eq(0)').text('現貨');" onmouseout="$(this).find('a:eq(0)').text('STOCK');">
+	<a class="iteml1a" href="PDList2.asp?keyword=stock:2">STOCK</a>
+</div>
+
+<script language="javascript">
+	$(".iteml1").mouseover(function() {
+		$('.iteml2').hide(); $(this).find('div').show();
+		$(this).find(".iteml1a").css("color", "white");
+	});
+	$(".iteml1").mouseout(function() {
+		$(this).find(".iteml1a").css("color", "black");
+	});
+	$(".iteml2 .item").mouseover(function() {
+	$(this).find("a").css("color", "white");
+	});
+	$(".iteml2 .item").mouseout(function() {
+		$(this).find("a").css("color", "black");
+	});
+</script>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div id="fixed_cart" style=" position:fixed; top:100px; right:0px; z-index:2100;">
+	
+<div id="cart_bar" style="position:relative;">
+		<div id="miniCart" onmouseover="$('#miniCartDetail').show();" onmouseout="$('#miniCartDetail').hide();">
+			<a href="MyCar.asp" /><img src="images/sticky/shoppingcart.jpg" /></a>
+		</div>
+		<span id="cart_item" style="display:none;"></span>
+		<div id="miniCartDetail" onmouseout="$('#miniCartDetail').hide();" onmouseover="$('#miniCartDetail').show();" 
+		style="position:absolute; top:70px; right:0px; z-index:100; width:200px; background-color:#EFEFEF; padding:0px; border:1px solid black; display:none;">
+		</div>
+</div>
+
+
+</div>
+		<div id="main">
+			<div id="content">
+				<table border="0" cellpadding="0" cellspacing="0" width="960">
+<tr>
+ <td><img id="default9" src="images/default/default9-h.jpg" onmouseover="$('#default10').attr('src','images/default/default10.jpg'); $(this).attr('src','images/default/default9-h.jpg'); $('#slideBest').hide(); $('#slideNew').show();$('#divScroll').scrollLeft(0);" /></td>
+ <td><img id="default10" src="images/default/default10.jpg" onmouseover="$('#default9').attr('src','images/default/default9.jpg'); $(this).attr('src','images/default/default10-h.jpg'); $('#slideNew').hide(); $('#slideBest').show();$('#divScroll').scrollLeft(0);" /></td>
+ <td><img name="default11" src="images/default/default11.jpg" width="695" height="62" border="0" id="default11" alt="" /></td>
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="960">
+	<tr>
+	 <td><img name="default12" src="images/default/default12.jpg" width="10" height="220" border="0" id="default12" alt="" /></td>
+	 <td><img name="default13" id="default13" src="images/default/default13.jpg" onclick="$('#divScroll').stop(true,true).animate({scrollLeft: $('#divScroll').scrollLeft() - 220 },1000);" style="cursor:pointer;" /></td>
+	 <td>
+			<!--<img name="default14" src="images/default/default14.jpg" width="876" height="220" border="0" id="default14" alt="" />-->
+			
+			<div id="divScroll" style="width:876px; height:220px; overflow:hidden;">
+				<div id="slideNew" style="display:block; margin:10px 0px 0px 0px;">
+					
+<!----v2 - 全站 - 輪播 NEW ( 200 x 200 )-------------------------------------------------------------------------><a href="http://www.twodo.com.tw/PDContent.asp?yano=01020669" target="_blank" title=""><img border="0" src="/banner/images/20141024152355.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDContent.asp?yano=03090038" target="_blank" title=""><img border="0" src="/banner/images/20141024152408.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01020666" target="_blank" title=""><img border="0" src="/banner/images/20141024152342.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07110054" target="_blank" title=""><img border="0" src="/banner/images/20141024152234.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012406" target="_blank" title=""><img border="0" src="/banner/images/20141024152243.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012409" target="_blank" title=""><img border="0" src="/banner/images/20141024152256.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07040073" target="_blank" title=""><img border="0" src="/banner/images/20141024152307.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012425" target="_blank" title=""><img border="0" src="/banner/images/20141024152318.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06010117" target="_blank" title=""><img border="0" src="/banner/images/20141024152331.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02040100" target="_blank" title=""><img border="0" src="/banner/images/20141024152422.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01030743" target="_blank" title=""><img border="0" src="/banner/images/20141024152436.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03010376" target="_blank" title=""><img border="0" src="/banner/images/20141024152454.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01040332" target="_blank" title=""><img border="0" src="/banner/images/20141024152512.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02010177" target="_blank" title=""><img border="0" src="/banner/images/20141024152530.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06010118" target="_blank" title=""><img border="0" src="/banner/images/20141024152545.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02010178" target="_blank" title=""><img border="0" src="/banner/images/20141024152602.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02010179" target="_blank" title=""><img border="0" src="/banner/images/20141024152617.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02020191" target="_blank" title=""><img border="0" src="/banner/images/20141024152634.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02020193" target="_blank" title=""><img border="0" src="/banner/images/20141024152652.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=05060037" target="_blank" title=""><img border="0" src="/banner/images/20141024152708.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012312" target="_blank" title=""><img border="0" src="/banner/images/20140917095035.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03100057" target="_blank" title=""><img border="0" src="/banner/images/20140929131508.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01020625" target="_blank" title=""><img border="0" src="/banner/images/20140917095045.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03110012" target="_blank" title=""><img border="0" src="/banner/images/20140929131522.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03010358" target="_blank" title=""><img border="0" src="/banner/images/20140825093619.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03010359" target="_blank" title=""><img border="0" src="/banner/images/20140825093630.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=12010003" target="_blank" title=""><img border="0" src="/banner/images/20140929130850.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07040069" target="_blank" title=""><img border="0" src="/banner/images/20140929130859.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06070018" target="_blank" title=""><img border="0" src="/banner/images/20140929130908.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06010104" target="_blank" title=""><img border="0" src="/banner/images/20140825093401.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07110052" target="_blank" title=""><img border="0" src="/banner/images/20141017150342.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06020032" target="_blank" title=""><img border="0" src="/banner/images/20141017150401.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03110007" target="_blank" title=""><img border="0" src="/banner/images/20141017150418.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=05010028" target="_blank" title=""><img border="0" src="/banner/images/20141017150430.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012369" target="_blank" title=""><img border="0" src="/banner/images/20141017150444.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=05150002" target="_blank" title=""><img border="0" src="/banner/images/20141017150454.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03040234" target="_blank" title=""><img border="0" src="/banner/images/20141017150505.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012395" target="_blank" title=""><img border="0" src="/banner/images/20141017150527.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01020650" target="_blank" title=""><img border="0" src="/banner/images/20141017150543.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03010373" target="_blank" title=""><img border="0" src="/banner/images/20141017150557.jpg"  width="200" height="200" ></a><!----v2 - 全站 - 輪播 NEW ( 200 x 200 )------------------------------------------------------------------------->
+
+				</div>
+				<div id="slideBest" style="display:none; margin:10px 0px 0px 0px;">
+					
+<!----v2 - 全站 - 輪播 BEST ITEM ( 200 x 200 )-------------------------------------------------------------------------><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07110054" target="_blank" title=""><img border="0" src="/banner/images/20141024151229.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=07040073" target="_blank" title=""><img border="0" src="/banner/images/20141024151249.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=06010118" target="_blank" title=""><img border="0" src="/banner/images/20141024151304.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012406" target="_blank" title=""><img border="0" src="/banner/images/20141024151321.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=03010376" target="_blank" title=""><img border="0" src="/banner/images/20141024151339.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012409" target="_blank" title=""><img border="0" src="/banner/images/20141024151354.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012424" target="_blank" title=""><img border="0" src="/banner/images/20141024151459.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=05060037" target="_blank" title=""><img border="0" src="/banner/images/20141024151524.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=01012425" target="_blank" title=""><img border="0" src="/banner/images/20141024151552.jpg"  width="200" height="200" ></a><a href="http://www.twodo.com.tw/PDList2.asp?keyword=02040100" target="_blank" title=""><img border="0" src="/banner/images/20141024151609.jpg"  width="200" height="200" ></a><!----v2 - 全站 - 輪播 BEST ITEM ( 200 x 200 )------------------------------------------------------------------------->
+
+				</div>
+			</div>
+	 </td>
+	 <td><img id="default15" name="default15" src="images/default/default15.jpg" onclick="var x = this; $('#divScroll').stop(true,true).animate({scrollLeft:$('#divScroll').scrollLeft() + 220 },1000,function(){if($(x).attr('x')==$('#divScroll').scrollLeft()){$('#divScroll').scrollLeft(0);} $(x).attr('x',$('#divScroll').scrollLeft());});" style="cursor:pointer;" /></td>
+	 <td><img name="default16" src="images/default/default16.jpg" width="10" height="220" border="0" id="default16" alt="" /></td>
+	</tr>
+</table>
+
+<img name="default17" src="images/default/default17.jpg" width="960" height="16" border="0" id="default17" alt="" />
+
+<script language="javascript">
+	$(document).ready(function() {
+		//$("#slideNew img:last").css("margin", "0px");
+		//$("#slideBest img:last").css("margin", "0px");
+		$("#slideNew").width($("#slideNew img").length * 220);
+		$("#slideBest").width($("#slideBest img").length * 220);
+
+		var tiv = setInterval(function() { $("#default15").click(); }, 3500);
+		$("#slideNew img, #slideBest img").mouseover(function() { dimImg($(this)[0], true); }).mouseout(function() { dimImg($(this)[0], false); });
+		$("#slideNew img, #slideBest img").wrap("<div style='background-color:Black; width:200px; height:200px; float:left; margin-right:20px;' />");
+	});
+</script>
+				<div style="width:960px;">
+					
+				</div>
+				
+<script language="javascript">
+
+function cmdadd(isMini)
+{
+	if (document.formPD.selectpd.value == "") {
+			alert('請選擇您的規格!');
+	}
+	else {
+//			if (isMini) {
+//					document.formPD.target = "ifCart";
+//					document.getElementById("isMini").value = "Y";
+//			} else {
+					document.formPD.target = "_self";
+					document.getElementById("isMini").value = "";
+//			}
+		document.formPD.submit();
+	}
+}
+
+function cmdaddList() {
+	if (document.formPD.selectpd.value == "") {
+		alert('請選擇您的加購規格!');
+	}
+	else {
+		document.formPDList.selectpd.value = document.formPD.selectpd.value;
+		document.formPDList.submit();
+	}
+}
+
+function showCart() {
+		$("#ifCart").css("display","block")
+}
+
+function setStyleAttr(obj, val) {
+		try {
+				obj.style.setAttribute('cssText', val, 0);
+		} catch (e) {
+				obj.setAttribute("style", val);
+		}
+}
+
+</script>
+
+<!-----商品明細------------------------------------------------>
+<script language="javascript">
+		var pd00 = "01012407";
+		var colorsize = [{"isPresale":"0","color":"B50","colorname":"黑","size":"F","sizename":"F","maxqty":"4","value":"01012407::01012407::上衣．Unique items染印樹葉造型TEE上衣*黑::B50::F::01::01::1::4::330"}];
+		var lastcolor = "";
+		var sColorImg = "";
+		for (var i = 0; i < colorsize.length; i++){
+				if(colorsize[i].color != lastcolor){
+					if(colorsize[i].isPresale == "0")
+						sColorImg += "<img class='clsPDColor' width='20' src='photo/ColorIcon/"+colorsize[i].color.toString() + ".jpg' alt='" + colorsize[i].colorname + "' title='" + colorsize[i].colorname + "' value='"+colorsize[i].color + "' onclick='changeColor(this.getAttribute(\"value\"), this);' style='cursor:pointer; margin:0px 10px 10px 0px; padding:6px;' />";
+					else
+						sColorImg += "<img class='clsPDColor' width='20' src='photo/ColorIcon/"+colorsize[i].color.toString() + ".jpg' alt='" + colorsize[i].colorname + "' title='" + colorsize[i].colorname + "' value='"+colorsize[i].color + "' onclick='changeColor(this.getAttribute(\"value\"), this);' style='cursor:pointer; margin:0px 10px 10px 0px; padding:6px;' />";
+				}
+				lastcolor = colorsize[i].color;
+		}
+		$(document).ready(function(){
+				$("#pdcolor").html(sColorImg);
+				$(".imgColor").each(function(){
+						var src = $(this).attr("src");
+						if(src == "images/spacer.gif")
+								$(this).parent().remove();
+				});
+				$(".clsPDColor:eq(0)").click();
+		});
+//    function setImg(color, num){
+//        var xnum = "";
+//        if(num!="")
+//            xnum = "-" + num;
+//        $("#pdImg").attr("src","photo/01012407/01012407-" + color + xnum + ".jpg");
+//        $("#pdImg").attr("alt","photo/01012407/01012407-" + color + xnum + ".jpg");
+//    }
+	var tColor = null;
+		function changeColor(sColor, objThis){
+				var sSize = "";
+				var sSelect = ""; 
+				
+				$(".clsPDColor").css("border","0px");
+				$(objThis).css({"border":"1px double #8B8B8B" , "padding":"5px"});
+				document.formPD.selectpd.value = "";
+				$("#spanColor").html($(objThis).attr("alt"));
+				if($(".clsPDColor").length > 1){
+					$("#pdImg").attr("src","photo/01012407/01012407-" + sColor + ".jpg");
+					$("#pdImg").attr("alt","photo/01012407/01012407-" + sColor + ".jpg");
+				}
+				$(".divColor").hide();
+				$("#divColor_" + sColor).show();
+				sSize = "<select id='jsSel' onChange='changeSize($(\"option:selected\").attr(\"mycolor\"),$(\"option:selected\").attr(\"mysize\"), this);'>";
+				//sSize += "<option value=''>請選擇尺寸</option>";
+				for (var i = 0; i < colorsize.length; i++){
+						if(colorsize[i].color == sColor){
+								if(isSize(colorsize[i].value))
+										sSelect = " selected ";
+								else
+										sSelect = "";
+								sSize += "<option " + sSelect + " mycolor='"+colorsize[i].color+"' mysize='"+colorsize[i].size+"' >"
+												 +colorsize[i].sizename
+												 +"</option>";
+						}            
+				}    
+				sSize += "</select>";
+				$("#pdsize").html(sSize);
+				changeSize($("option:selected").attr("mycolor"),$("option:selected").attr("mysize"), $("#jsSel")[0]);
+				
+				tColor = setTimeout(function(){
+					clearTimeout(tColor);
+					$("#pdImg").attr("src","photo/01012407/01012407.jpg");
+					$("#pdImg").attr("alt","photo/01012407/01012407.jpg");
+				},5000);
+		}
+		function changeSize(sColor, sSize, objThis){
+				for (var i = 0; i < colorsize.length; i++){
+						if(colorsize[i].color == sColor && colorsize[i].size == sSize){ 
+								document.formPD.selectpd.value = colorsize[i].value;              
+								$(".clsPDSize").css("border","0px");
+								$(objThis).css("border","1px solid #8B8B8B");
+								var qtyOption = "";
+								for(var j=0; j<colorsize[i].maxqty; j++)
+										qtyOption += "<option value='" + (j+1) + "'>" + (j+1) + "</option>";
+								$("#spanQty").html("<select name='qty_ajax' onchange='$(\"#qty\").val(this.value);'>"+qtyOption+"</select>");
+								//ajax object doensn't work on the non IE8
+						}
+				}
+				$("#spanQty select").change();
+		}
+		function isSize(value){
+				if(document.formPD.selectpd.value == value)
+						return true;
+				else
+						return false;
+		}
+		
+		function popImg(src)
+		{
+				$("#imgPop").show();
+				$("#imgPop").attr("src",src);
+		}
+		
+		function popImgHide()
+		{
+				$("#imgPop").hide();
+		}
+</script>
+
+<table border="0" cellpadding="0" cellspacing="0" width="960">
+	<tr>
+	 <td><img name="pdcontent1" src="images/pdcontent/pdcontent1.jpg" width="960" height="40" border="0" id="pdcontent1" alt="" /></td>
+	</tr>
+	<tr>
+	 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="960">
+		<tr>
+		 <td><!--<img name="pdcontent2" src="images/pdcontent/pdcontent2.jpg" width="631" height="520" border="0" id="pdcontent2" alt="" />-->
+			<div style="width:599px; height:448px; border:1px solid gray; padding:35px 15px 35px 15px;">
+				<img id="pdImg" src="/photo/01012407/01012407.jpg" border="0" width="600" height="450" onerror="src='images/noimage.gif'">
+			</div>
+		 </td>
+		 <td><img name="pdcontent3" src="images/pdcontent/pdcontent3.jpg" width="21" height="520" border="0" id="pdcontent3" alt="" /></td>
+		 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="308">
+			<tr>
+			 <td width="308" height="43"><!--<img name="pdcontent4" src="images/pdcontent/pdcontent4.jpg" border="0" id="pdcontent4" alt="" />-->
+			  上衣．Unique items染印樹葉造型TEE上衣*黑
+			 </td>
+			</tr>
+			<tr>
+			 <td width="308" height="43"><!--<img name="pdcontent5" src="images/pdcontent/pdcontent5.jpg" border="0" id="pdcontent5" alt="" />-->
+			 商品編號: 01012407
+			 </td>
+			</tr>
+			<tr>
+			 <td>
+				<!--<img name="pdcontent6" src="images/pdcontent/pdcontent6.jpg" width="308" height="24" border="0" id="pdcontent6" alt="" />-->
+				
+			 </td>
+			</tr>
+			<tr>
+			 <td>
+				<div>
+				<span style="font-size:20px; line-height:38px; vertical-align:middle;">NT.330</span>
+				<!--<img name="pdcontent7" src="images/pdcontent/pdcontent7.jpg" border="0" id="pdcontent7" alt="" />-->
+				<img src='banner/images/20130418102643.jpg' width='58' height='25' style='margin-right:2px; vertical-align:middle;' />
+				<!--<img name="pdcontent9" src="images/pdcontent/pdcontent9.jpg" width="196" height="34" border="0" id="pdcontent9" alt="" />-->
+				</div>
+			</td>
+			</tr>
+			<tr>
+			 <td><img name="pdcontent10" src="images/pdcontent/pdcontent10.jpg" width="308" height="23" border="0" id="pdcontent10" alt="" /></td>
+			</tr>
+			<tr>
+			 <td>
+				<!--<img name="pdcontent11" src="images/pdcontent/pdcontent11.jpg" width="308" height="29" border="0" id="pdcontent11" alt="" />
+				<img name="pdcontent12" src="images/pdcontent/pdcontent12.jpg" width="308" height="34" border="0" id="pdcontent12" alt="" />-->
+					<div style="width:308px; font-size:11px;">
+							<form method="POST" action="MyCar.asp" name="formPD">
+							<input type="hidden" name="buyer" value="Y">
+							
+								<div style="margin:10px 0px;">
+									商品顏色/COLOR：<span id="spanColor">已售完</span>
+								</div>
+								<div id="pdcolor"></div>
+								
+								<!--<img name="pdcontent13" src="images/pdcontent/pdcontent13.jpg" width="308" height="29" border="0" id="pdcontent13" alt="" />-->
+								<table align="left" border="0" cellpadding="0" cellspacing="0" width="300" style=" border-bottom:1px dotted silver; border-top:1px dotted silver;">
+									<tr>
+									 <td><!--<img name="pdcontent14" src="images/pdcontent/pdcontent14.jpg" width="147" height="97" border="0" id="pdcontent14" alt="" />-->
+									 <div style="width:150px;height:97px; position:relative">
+										<div style="width:150px; height:50px; position:absolute; top:15px; left:0px; background-color:White;">
+											選擇尺寸/SIZE
+											<div id="pdsize"></div>
+										</div>
+									 </div>
+									 </td>
+									 <td><!--<img name="pdcontent15" src="images/pdcontent/pdcontent15.jpg" width="161" height="97" border="0" id="pdcontent15" alt="" />-->
+									 <div style="width:130px;height:85px; margin:3px 0px 0px 0px; padding-left:20px; position:relative; border-left:1px dotted silver;">
+											商品數量:
+											<div id="spanQty"></div>
+											<input type="hidden" id="qty" name="qty" value="1" />
+									 </div>
+									 </td>
+									</tr>
+								</table>
+								<select size="1" id="selectpd" name="selectpd" style="font-family: Verdana; font-size: 9pt; display:none;"><option value="">請選擇顏色</option>
+<option style="display:none;" color="B50" value="01012407::01012407::上衣．Unique items染印樹葉造型TEE上衣*黑::B50::F::01::01::1::4::330">顏色：黑 / 尺寸：F</option>
+</select>
+							
+							
+							<input type="hidden" id="isMini" name="isMini" value="">
+						</form>
+						<form method="POST" action="MyList.asp" name="formPDList">
+								<input type="hidden" name="buyer" value="Y">
+								<input type="hidden" name="yano" value="01012407">
+								<input type="hidden" name="pdno" value="01012407">
+								<input type="hidden" id="pdsel" name="selectpd" value="01012407::01012407::上衣．Unique items染印樹葉造型TEE上衣*黑::::::01::01::1::10::330" />
+						</form>
+					</div>
+			 </td>
+			</tr>
+<!--			<tr>
+			 <td><img name="pdcontent16" src="images/pdcontent/pdcontent16.jpg" width="308" height="17" border="0" id="pdcontent16" alt="" /></td>
+			</tr>-->
+			<tr>
+			 <td><!--<img name="pdcontent17" src="images/pdcontent/pdcontent17.jpg" width="308" height="83" border="0" id="pdcontent17" alt="" />-->
+				 <img src="images/pdcontent/btn_cart.jpg" style="cursor:pointer;" onclick="cmdadd(true);" />
+			 </td>
+			</tr>
+			<!--<tr>
+			 <td>
+				<img name="pdcontent18" src="images/pdcontent/pdcontent18.jpg" width="308" height="12" border="0" id="pdcontent18" alt="" />
+			 </td>
+			</tr>-->
+			<tr>
+			 <td><!--<img name="pdcontent19" src="images/pdcontent/pdcontent19.jpg" width="308" height="52" border="0" id="pdcontent19" alt="" />-->
+			 <img src="images/pdcontent/btn_list.jpg" style="cursor:pointer;" onclick="cmdaddList();" />
+			 </td>
+			</tr>
+		</table></td>
+		</tr>
+	</table></td>
+	</tr>
+	<tr>
+	 <td>
+		<table align="left" border="0" cellpadding="0" cellspacing="0" width="960">
+		<tr valign="top">
+		 <td><img name="pdcontent20" src="images/pdcontent/pdcontent20.jpg" width="631" height="43" border="0" id="pdcontent20" alt="" /></td>
+		 <td width="329">
+			<div style="border-top:1px dotted silver; width:300px; margin:0px 0px 0px 20px;">&nbsp;</div>
+			<!--<img name="pdcontent21" src="images/pdcontent/pdcontent21.jpg" width="329" height="43" border="0" id="pdcontent21" alt="" />-->
+		 </td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="960">
+		<tr>
+		 <td><!--<img name="pdcontent22" src="images/pdcontent/pdcontent22.jpg" width="631" height="25" border="0" id="pdcontent22" alt="" />-->
+				<A href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));">
+				<img border="0" src="images/facebook_icon.jpg" width="22" />
+		</a>
+		<A href="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&amp;status=' .concat(encodeURIComponent(location.href)) .concat(' ') .concat('(') .concat(encodeURIComponent(document.title)) .concat(')')));">
+				<img border="0" src="images/plurk_icon.jpg" width="22" />
+		</a>
+		 </td>
+		 <td><img name="pdcontent23" src="images/pdcontent/pdcontent23.jpg" width="329" height="25" border="0" id="pdcontent23" alt="" /></td>
+		</tr>
+	</table></td>
+	</tr>
+	<tr>
+	 <td><img name="pdcontent24" src="images/pdcontent/pdcontent24.jpg" width="960" height="41" border="0" id="pdcontent24" alt="" /></td>
+	</tr>
+	<tr>
+	 <td><img name="pdcontent25" src="images/pdcontent/pdcontent25.jpg" width="960" height="28" border="0" id="pdcontent25" alt="" /></td>
+	</tr>
+	<tr>
+	 <td><table align="left" border="0" cellpadding="0" cellspacing="0" width="960">
+		<tr>
+		 <td><img name="pdcontent26" src="images/pdcontent/pdcontent26.jpg" width="135" height="82" border="0" id="pdcontent26" alt="" /></td>
+		 <td><a href="http://twodoshop.com.tw/photo/2013item/modelsize.html" target="_blank"><img name="pdcontent27" src="images/pdcontent/pdcontent27.jpg?v=2" width="81" height="82" border="0" id="pdcontent27" alt="" /></a></td>
+		 <td><img name="pdcontent28" src="images/pdcontent/pdcontent28.jpg" width="744" height="82" border="0" id="pdcontent28" alt="" /></td>
+		</tr>
+	</table></td>
+	</tr>
+</table>
+
+<div style="padding:40px 0px 40px 0px;">
+<!--<div style="margin-left:50px; height:800px; overflow:auto; border:1px solid grey;">-->
+		<style type="text/css">
+#ypsudes {background-color:#ffffff;}
+#ypsudes {float:right;}
+#ypsudes {width:900px;}
+</style>
+
+
+
+<div align="center">
+	<p><img src="http://twodoshop.com.tw/photo2/2014/1023/3/4.jpg"><p>　<p>
+		<p><img src="http://twodoshop.com.tw/photo2/2014/1023/3/5.jpg"><p>　<p>
+			<p><img src="http://twodoshop.com.tw/photo2/2014/1023/3/6.jpg"><p>　<p>
+				<p><img src="http://twodoshop.com.tw/photo2/2014/1023/3/7.jpg"><p>　<p>
+					<p><img src="http://twodoshop.com.tw/photo2/2014/1023/3/8.jpg"><p>　<p>
+	
+
+
+<div align="center">
+
+
+		<tr>
+			<td height="10">
+			</td>
+		<tr>
+			<td><cneter>
+			<a href="https://tw.user.mall.yahoo.com/edm/list?sid=twodoshop&hpp=store_act_edm">
+			<img src="http://twodoshop.com.tw/photo2/newpaper_test.gif" border="0"></a></td>
+		</tr>
+
+		
+			<tr>
+			<td height="10">
+			</td>
+		</tr>
+
+	
+		</p>
+	
+	
+	<table border="0" width="750" cellspacing="0" cellpadding="0">
+		<tr>
+					<td bgcolor="#7b5e4c" align="center" height="19">
+					<font size="2" color="#FFFFFF">/&nbsp; PRODUCT INFORMATION /</font></td>
+					</tr>
+			<td height="10" bgcolor="#FFFFFF" align="center" width="750">　</td>
+		</tr>
+		<tr>
+			<td height="61" align="center">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0" height="84">
+				<tr>
+					<td colspan="2" bgcolor="#dcdcdc" align="center">
+	
+	<table border="0" width="745" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" height="95%">
+		<tr>
+			<td height="30" align="center" bgcolor="#FFFFFF" colspan="3">
+			<font size="2">
+			<span style="letter-spacing: normal; background-color: #FFFFFF">
+			<span style="font-family: Arial">
+			上衣．</span></span><span style="font-family: Arial; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 16px; orphans: auto; text-align: -webkit-center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline; float: none; background-color: #FFFFFF">Unique 
+			items染</span></font><span style="font-family: 新細明體,serif"><font size="2">印樹葉造型</font></span><span style="font-family: Arial"><font size="2"><span style="letter-spacing: normal; background-color: #FFFFFF">TEE上衣*</span></font></span><font size="2">黑<span style="font-family: Arial; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 16px; orphans: auto; text-align: -webkit-center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: #FFFFFF">【01012407】Two 
+			Do&nbsp;</span></font></td>
+		</tr>
+		<tr>
+			<td height="10" bgcolor="#FFFFFF" align="center" width="750" colspan="3">　</td>
+		</tr>
+		<tr>
+			<td height="10" bgcolor="#FFFFFF" align="center" width="286">　</td>
+			<td height="10" bgcolor="#7b5e4c" align="center" width="178">
+					<font size="2" color="#FFFFFF">/ 商品說明 /</font></td>
+			<td height="10" bgcolor="#FFFFFF" align="center" width="286">　</td>
+		</tr>
+		<tr>
+			<td height="10" colspan="3">
+			<table border="0" width="100%" cellpadding="5" cellspacing="5">
+				<tr>
+					<td align="center" height="10">
+							</td>
+					</tr>
+				<tr>
+					<td align="center" bgcolor="#FFFFFF">
+							<p class="MsoNormal">
+							<span style="font-family: 新細明體,serif">
+							<font size="2">《水洗</font></span><font size="2"><span lang="EN-US">/</span></font><span style="font-family: 新細明體,serif"><font size="2">印刷類商品》</font></span></p>
+							<p class="MsoNormal">
+							<span style="font-family: 新細明體,serif">
+							<font size="2">廠商每批布料水洗色調深淺</font></span><font size="2"><span lang="EN-US">/</span></font><span style="font-family: 新細明體,serif"><font size="2">分布效果不盡相同。</font></span></p>
+							<p class="MsoNormal">
+							<span style="font-family: 新細明體,serif">
+							<font size="2">若有突兀水洗分布效果</font></span><font size="2"><span lang="EN-US">/</span></font><span style="font-family: 新細明體,serif"><font size="2">水洗小球，非瑕疵範圍。</font></span></p>
+							<p class="MsoNormal">
+							<span style="font-family: 新細明體,serif">
+							<font size="2">商品若有摻雜線頭</font></span><font size="2"><span lang="EN-US">/</span><span style="font-family: 新細明體,serif">掉毛</span><span lang="EN-US">/</span></font><span style="font-family: 新細明體,serif"><font size="2">化學染劑氣味屬正常現象。</font></span></p>
+							<p class="MsoNormal">
+							<span style="font-family: 新細明體,serif">
+							<font size="2">此款圖像、字母採印刷方式，若有些許印製不完整</font></span><font size="2"><span lang="EN-US">/</span></font><span style="font-family: 新細明體,serif"><font size="2">斑剝現象，屬正常情形。</font></span></td>
+					</tr>
+				<tr>
+					<td align="center" height="12">
+							</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#ffffff" align="center" height="10">
+					　</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2" height="10">
+					</td>
+				</tr>
+				<tr>
+					<td width="375" align="center">
+					<table border="0" width="370" cellspacing="0" cellpadding="0" bgcolor="#7b5e4c" height="30">
+						<tr>
+							<td align="center">
+							<font color="#FFFFFF" size="2" face="Times New Roman">MATERIAL / 材質</font></td>
+						</tr>
+					</table>
+					</td>
+					<td align="right">
+					<table border="0" width="370" cellspacing="0" cellpadding="0" bgcolor="#7b5e4c" height="30">
+						<tr>
+							<td align="center">
+							<font size="2" color="#FFFFFF" face="Times New Roman">
+								COLOR / 顏色</font></td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="375" align="center" height="30">
+							<span LANG="ZH-TW"><font SIZE="2">棉質+聚酯纖維</font></span></td>
+					<td align="center" height="30">
+					<font size="2">黑</font></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td height="10">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<img src="http://twodoshop.com.tw/photo2/2014sssize/01012407.jpg"><div align="center">
+				<table cellSpacing="0" cellPadding="0" width="750" border="0">
+					<tr>
+						<td bgColor="#7B5E4C" height="10">
+						<p align="center"><font color="#FFFFFF">&nbsp;</font><font color="#ffffff" size="2">※ 
+						庫存資料為即時更新，依結帳順序系統會依序扣除數量。 (表格僅供參考)</font></td>
+					</tr>
+					<tr>
+						<td>
+						<table cellSpacing="1" cellPadding="1" width="750" bgColor="#e6e6e6" border="0">
+							<tr>
+								<td align="center">
+								<table height="100%" width="100%" bgColor="#ffffff" border="0">
+									<tr>
+										<td width="101%" align="center">
+										<font size="2">
+										<img src="http://twodoshop.com.tw/stock/default.aspx?pd=01012407"></font></td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>　</td>
+		</tr>
+				<tr>
+			<td height="10">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<img src="http://twodoshop.com.tw/photo2/model_test.jpg"></td>
+		</tr>
+
+<!--</div>-->
+</div>
+
+<!-----商品明細------------------------------------------------>
+			</div>
+			<div class="stickybox" style="position:absolute; width:70px; height:320px; top:70px; right:-80px;">
+	<a href="#"><img src="images/sticky/top.png?v=2" /></a>
+	<a href="javascript:AddFavorite()"><img src="images/sticky/bookmark.png?v=2" /></a>
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="70">
+<tr>
+ <td>
+<!--		<a href="javascript://" onclick="$(this).next().animate({scrollTop: $(this).next().scrollTop() - 52}, 500);">
+			^
+		</a>-->
+		
+		<div style="margin-bottom:2px;">
+			
+<!-----------------------------------------------------------------------------><a href="https://zh-tw.facebook.com/pages/Twodo-Girlshop/107969989259084" target="_blank" title=""><img border="0" src="/banner/images/20140827094419.gif"  width="70" ></a><!----------------------------------------------------------------------------->
+
+		</div>
+		
+		<div id="" style="width:70px; height:160px; overflow:hidden;">
+			<div>
+			<div style="margin:0px; width:70px; height:52px; float:left;"><a target='_parent' href='PDContent.asp?yano=01012407'><img style='z-index:11;height:52px; width:70px;' src='/photo/01012407/01012407.jpg' onerror='this.src="images/noimage.gif"' /></a></div>
+			</div>
+		</div>
+<!--		<a href="javascript://" onclick="$(this).prev().animate({ scrollTop: $(this).prev().scrollTop() + 52 },500);">
+			V
+		</a>-->
+ </td>
+</tr>
+</table>
+</div>
+		</div>
+		<div id="footer">
+	<div style="margin-bottom:40px;">
+	|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/brand.html" target="_self">品牌介紹</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/notice.html" target="_self">購物須知</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/process.html" target="_self">購物程序</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/vip.html" target="_self">募集VIP/黃金VIP</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/pay.html" target="_self">付款方式</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/Postage.html" target="_self">寄送方式/郵資說明</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/after.html" target="_self">售後服務</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/foreign.html" target="_self">國外買家</a>&nbsp;|&nbsp;
+	<a href="TWO_HTML.asp?url=/photo/2013item/7-11.html" target="_self">超商取貨付款說明</a>&nbsp;|
+	
+	</div>
+	<table border="0" cellpadding="0" cellspacing="0" style="width:1000px;">
+		<tr>
+			<td>
+				<a href="http://tw.user.bid.yahoo.com/tw/booth/a0919940026" target="_blank"><img src="images/index/index_12.jpg" onmouseover="swap_img(this,true,'index')" onmouseout="swap_img(this,false,'index')" /></a>
+				<a href="https://www.facebook.com/pages/Twodo-Girlshop/107969989259084" target="_blank"><img src="images/index/index_14.jpg" onmouseover="swap_img(this,true,'index')" onmouseout="swap_img(this,false,'index')" /></a>
+				<a href="http://twodoshop.com.tw/photo/2013item/modelsize.html" target="_blank"><img src="images/index/index_16.jpg" onmouseover="swap_img(this,true,'index')" onmouseout="swap_img(this,false,'index')" /></a>
+			</td>
+			<td>
+				<div style="width:789px; height:64px; position:relative;">
+					<img src="images/index/index_17.jpg?v=2" style="position:absolute; top:0px; left:0px; z-index:0" />
+					<div style="position:absolute; top:0px; left:0px; z-index:100; width:789px; height:20px; background-color:white;">
+						<iframe src="http://www.facebook.com/plugins/like.php?locale=zh_TW&href=http://www.twodo.com.tw/" scrolling="no" frameborder="0" style="border:none; width:789px; height:30px"></iframe>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div style="width:1000px; height:17px; position:relative; margin:0px; overflow:hidden;">
+		<img src="images/index/index_19.jpg" style="position:absolute; top:-2px; left:0px; z-index:0;" />
+		<div style="font-size: 9pt; color:#666666; position:absolute; top:0px; left:5px;">康德科技　系統設計</div>
+	</div>
+</div>
+
+<script language="javascript">
+		if (document.getElementById("cart_item")) {
+				$('#miniCartDetail').html("<div><a href='MyCar.asp'><img src='images/sticky/mycart.png'/></a><a href='MyList.asp'><img src='images/sticky/mylist.png'/></a></div><div style='padding:10px;'>您的購物車有 0 件商品<br/>商品金額 $0</div><div style='text-align:center; background-color:black; padding:5px;'><a style='background-color:black; color:white; text-decoration:none;' href='MyCarCheck.asp'>立即結帳</a></div>");
+				$('#miniCartDetail').hide();
+				document.getElementById("cart_item").innerHTML = "0";
+		}
+</script>
+
+<!--2014/04/22 -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', "711990772185919"]);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(["track", "PixelInitialized", {}]);
+</script>
+<noscript><img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=711990772185919&amp;ev=NoScript" /></noscript>
+
+<!-- 2014/07/16 - ALL - TAGTOO -->
+<script type='text/javascript'>
+	var tagtoo_advertiser_id = 167;
+	var tagtoo_ga = document.createElement('script');
+	tagtoo_ga.type = 'text/javascript';
+	tagtoo_ga.async = true;
+	tagtoo_ga.src = '//ad.tagtoo.co/media/ad/track.js';
+	var tagtoo_s = document.getElementsByTagName('script')[0];
+	tagtoo_s.parentNode.insertBefore(tagtoo_ga, tagtoo_s);
+</script>
+<!-- 2014/08/05 - GA ALL -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53247290-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+	</body>
+</html>

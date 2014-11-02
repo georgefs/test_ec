@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script language="JavaScript"> 
+
+    function makevisible(cur, which) {
+        if (which == 0)
+            cur.filters.alpha.opacity = 100;
+        else
+            cur.filters.alpha.opacity = 80;
+    }
+
+</script> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HITO本舖 - 商品內容</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="zh-tw">
+		<LINK REL="SHORTCUT ICON" type="image/x-icon" HREF="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 128x128" />
+		<LINK REL="ICON" type="image/x-icon" HREF="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 128x128" />
+    <link href="css/main_css.css" rel="stylesheet" type="text/css" />
+    <script src="js/mm.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.lazyload.js" type="text/javascript"></script>
+
+<script>
+$(function() {
+	$("img.lazyload").lazyload( { effect : "fadeIn" } );
+});
+</script>
+
+</head>
+<body>
+    <script type="text/javascript">
+$(function () {
+    $("#frmSearch").submit(function () {
+        var q = $.trim($("#tbxKeyword").val());
+        //alert($("#tbxKeyword").val());
+        if (q.length == 0) {
+            alert('請輸入商品名稱或編號!');
+        } else {
+            location.href = "PDList2.asp?Keyword=" + encodeURIComponent(q);
+        }
+        return false;
+    });
+});
+
+$(function(){
+	$("#link4, div.divSetC").mouseover(function(){
+		$("div.divSetC").show();
+	}).mouseout(function(){
+		$("div.divSetC").hide();
+	});
+});
+</script>
+
+<style type="text/css">
+	.divSet {
+		position: relative;
+		top: 0px;
+		left: 10px;
+		z-index: 10;
+	}
+	.divSetC {
+		width : 180px;
+		/*height :38px;*/
+		position: absolute;
+		background-color:#000000;
+		display: none;
+		text-align:left;
+		vertical-align: top;
+	}
+	
+	.divSet a {
+		color: #FFFFFF;
+	}
+	.divSet a:link {color:#FFFFFF; text-decoration:none;} 
+	.divSet a:visited {color:#FFFFFF; text-decoration:none;} 
+	.divSet a:hover {color:#00FFFF; text-decoration:none;} 
+	.divSet a:active {color:#00FFFF; text-decoration:none;} 
+	
+	.divSet td {
+		color: #FFFFFF;
+		font-size: 10pt;
+		font-family: Microsoft JhengHei;
+	}
+	
+	.divSet ul.item2, #SubMenuSet ul.item2 {
+	    margin : 0px;
+	    padding : 0px;
+	    list-style-type:none;
+	}
+	
+	.divSet ul.item2 li.item2 
+	{
+	    list-style-type:none;
+	    padding : 3px 0px 0px 3px;
+	}
+	
+	#SubMenuSet ul.item2 li.item2
+	{
+		list-style-type:none;
+	    padding : 3px 0px 0px 40px;
+	}
+	
+	#SubMenuSet ul.item2 li.item2 a
+	{
+	    line-height:200%;
+		color:#4e4e4e;
+	}
+</style>
+
+
+
+<div id="header">
+    <a href="Default.asp"><img src="images/Logo.jpg" alt="Logo" border="0" align="middle"/></a>
+    <div class="solid"></div>
+    <table border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td valign="middle">
+                <form action="" method="get" id="frmSearch" name="frmSearch">
+                    <input type="text" name="tbxKeyword" id="tbxKeyword" maxlength="500" class="search" />
+                    <input type="image" name="btnSearch" id="btnSearch" src="images/SEARCH.gif" align="top" />&nbsp;
+                </form>
+            </td>
+            <td><a href="PDList2.asp?item1=00" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM01','','images/top01_02CH.gif',1);"><img src="images/top01_01EN.gif" border="0" id="imgMM01" /></a></td>
+            <td><a href="PDList2.asp?item1=00&ya19=n" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM02','','images/top02_02CH.gif',1);"><img src="images/top02_01EN.gif" border="0" id="imgMM02" /></a></td>
+            <td><a href="javascript:void(0);" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('link4','','images/top03_02CH.gif',1);"><img border="0" title="優惠組合" src="images/top03_01EN.gif" id="link4"></a>
+							
+								<div class="divSet">
+									<div class="divSetC">
+										<ul class="item2">
+<li class="item2"><a href="/PDSale.asp?pi=MIX1410300013">秋新品 任選每件89折</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120906000027">潮流設計 2入698</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=mix120906000026">Ｔ恤任選 3入798</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000013">精品嚴選  2入980</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000014">長褲 2入1580</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000017">鞋靴 2雙1580</a></li>
+</ul>
+
+									</div>
+								</div>
+							
+						</td>
+            <td><a href="PDList2.asp?item1=01" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM04','','images/top04_02CH.gif',1);"><img src="images/top04_01EN.gif" border="0" id="imgMM04" /></a></td>
+            <td><a href="PDList2.asp?item1=03" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM05','','images/top05_02CH.gif',1);"><img src="images/top05_01EN.gif" border="0" id="imgMM05" /></a></td>
+            <td><a href="PDList2.asp?item1=02" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM06','','images/top06_02CH.gif',1);"><img src="images/top06_01EN.gif" border="0" id="imgMM06" /></a></td>
+            <td><a href="PDList2.asp?item1=05" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM07','','images/top07_02CH.gif',1);"><img src="images/top07_01EN.gif" border="0" id="imgMM07" /></a></td>
+            <td><a href="PDList2.asp?item1=06" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM08','','images/top08_02CH.gif',1);"><img src="images/top08_01EN.gif" border="0" id="imgMM08" /></a></td>
+            <!--<td><a href="PDList2.asp?item1=07" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM09','','images/top09_02CH.gif',1);"><img src="images/top09_01EN.gif" border="0" id="imgMM09" /></a></td>-->
+          	
+            <td><a href="https://www.facebook.com/jbkkick2000" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('imgMM10','','images/top10_02CH.gif',1);"><img src="images/top10_01EN.gif" border="0" id="imgMM10" /></a></td>
+						<!-- HITO線上客服 -->
+	            <td><a href="http://27.cami.yesing.com.tw/tw/service/aGl0b2JwMjAwMDp3d3cuaGl0b2JwLmNvbS50dw" target="_blank"><img src="images/online.jpg"></a></td>
+	            <script type="text/javascript">
+								(function(){
+								      var c = document.createElement("script");
+								      c.type = "text/javascript";
+								      c.src = ("https:" == document.location.protocol ? "https" : "http") + "://27.cami.yesing.com.tw/patrol/elasticity_v2/operator/default/hitobp2000";
+								      var s = document.getElementsByTagName("script")[0];
+								      s.parentNode.insertBefore(c, s);
+								})();
+							</script>
+						
+        </tr>
+    </table>
+    <div class="dashed"></div>
+</div>
+    <div id="panel">
+            <form method="POST" action="/PDContent.asp?yano=EX1410290087" name="formlogout">
+        <input type="hidden" name="btnlogin" value="logout">
+    </form>
+
+<div class="submenu">
+
+    <a href="Login.asp">會員登入</a>
+    <img src="images/split.jpg" align="middle" />
+    <a href="Join.asp">加入會員</a>
+
+    <img src="images/split.jpg" align="middle" />
+    <a href="OrderCheck.asp">填寫訂單
+    
+    </a>
+    <img src="images/split.jpg" align="middle" />
+    <a href="OrderList.asp">訂單查詢</a>
+    <img src="images/split.jpg" align="middle" />
+    <a href="https://www.hitobp.com.tw/photo/about_hitobp/about_03-2.html" target="_blank">門市資訊</a>
+    <!--<img src="images/split.jpg" align="middle" />
+    <a href="OrderSearch.asp">商城訂單查詢</a>-->
+    <img src="images/split.jpg" align="middle" />
+
+    <a href="MyCar.asp"><img src="images/cart.jpg" border="0" align="middle" />&nbsp;購物清單：<span style=""><span id="cart_item">0</span> 個商品</span></a>
+</div>
+        <div class="clear"></div>
+        <!-- Left Content Start-->
+        <div class="lc">
+            
+<!-- Content Start -->
+  <div class="">
+      <p>
+	<img alt="" src="/WCUpload/images/WHITE(1).jpg" style="width: 185px; height: 2px; " /></p>
+
+  </div>
+<!-- Content End --><script type="text/javascript" language="javascript">
+    var currentMenu = 1;
+    function ShowSubMenu(id) {
+        if (document.getElementById('SubMenu' + id).style.display == "")
+        {
+            document.getElementById('SubMenu' + id).style.display = "none";
+            document.getElementById('icon' + id).src = "images/icon05.jpg";
+        }
+        else 
+        {
+            document.getElementById('SubMenu' + id).style.display = "";
+            document.getElementById('icon' + id).src = "images/icon03.jpg";
+        }
+    }
+</script>
+<style type="text/css">
+    a.item2
+    {
+        color:#4e4e4e;
+        line-height:200%;
+    }
+</style>
+
+
+
+<table border="0" width="185" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td align="left">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PDList2.asp?item1=00&ya19=n"><img src="images/itemNew.jpg" width="145" height="23" border="0" align="middle"></a><br>
+			<img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('Set')"><img id="iconSet" src="images/icon03.jpg" width="15" height="15" border="0" align="middle"></a> <a><img id="itemSet" src="images/itemSet.jpg" width="145" height="23" border="0" align="middle"></a><br>
+			
+				<div id="SubMenuSet" style="">
+					<ul class="item2">
+<li class="item2"><a href="/PDSale.asp?pi=MIX1410300013">秋新品 任選每件89折</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120906000027">潮流設計 2入698</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=mix120906000026">Ｔ恤任選 3入798</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000013">精品嚴選  2入980</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000014">長褲 2入1580</a></li>
+<li class="item2"><a href="/PDSale.asp?pi=MIX120809000017">鞋靴 2雙1580</a></li>
+</ul>
+	
+				</div>
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+		
+<img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('01')"><img id="icon01" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=01"><img id="item01" src="images/item01.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu01" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=01"> 春夏圓領T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=02"> 春夏V領T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=08"> 春夏連帽T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=03"> 春夏襯衫</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=05"> 春夏韓版設計</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=04"> POLO衫</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=07"> 背心</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=10"> 秋冬圓領T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=11"> 秋冬V領T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=12"> 秋冬連帽T</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=13"> 長袖襯衫</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=14"> 秋冬韓版設計</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=01&item2=09"> 針織毛衣</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('02')"><img id="icon02" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=02"><img id="item02" src="images/item02.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu02" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=01"> 皮衣</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=03"> 針織</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=04"> 騎士軍裝</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=07"> 休閒夾克</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=06"> 西裝外套</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=05"> 防寒外套</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=02"> 毛呢大衣</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=08"> 背心外套</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=10"> 牛仔外套</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=02&item2=12"> 罩衫</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('03')"><img id="icon03" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=03"><img id="item03" src="images/item03.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu03" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=07"> 短褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=06"> 休閒長褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=01"> 牛仔褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=03"> 工作褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=02"> 時裝褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=05"> 棉褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=03&item2=08"> 內搭褲</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('05')"><img id="icon05" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=05"><img id="item05" src="images/item05.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu05" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=05&item2=07"> CRAFT - 真皮系列</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=05&item2=06"> 帆布鞋</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=05&item2=01"> 造型休閒鞋</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=05&item2=02"> 時尚皮鞋</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=05&item2=03"> 靴子</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('06')"><img id="icon06" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=06"><img id="item06" src="images/item06.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu06" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=06&item2=01"> 側背包</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=06&item2=02"> 後背包</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=06&item2=03"> 側背/手提包</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=06&item2=04"> 皮夾</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=06&item2=05"> 斜背包</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('07')"><img id="icon07" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=07"><img id="item07" src="images/item07.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu07" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=03"> 手錶</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=02"> 皮帶</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=05"> 項鍊</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=06"> 眼鏡</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=01"> 戒指</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=04"> 手環</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=07"> 圍巾</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=07&item2=08"> 其它</a><br></div><img border="0" src="images/spacer.gif" width="1" height="18" align="bottom"><a href="JavaScript:ShowSubMenu('09')"><img id="icon09" src="images/icon05.jpg" width="15" height="15" border="0" align="middle"></a> <a href="pdlist2.asp?item1=09"><img id="item09" src="images/item09.jpg" width="145" height="23" border="0" align="middle"></a><br><div id="SubMenu09" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=01"> 外套</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=02"> 長袖上衣</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=03"> 短袖上衣</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=04"> 長褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=05"> 短褲</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=06"> 鞋子</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=07"> 包包</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="item2" href="pdlist2.asp?item1=09&item2=08"> 配件</a><br>		 			
+		</td>
+	</tr>
+</table>
+
+<!-- Content Start -->
+  <div class="">
+      <p></p>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fjbkkick2000&amp;width=185&amp;height=290&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:185px; height:290px;" allowTransparency="true"></iframe>
+  </div>
+<!-- Content End -->
+        </div>
+        <!-- Left Content End-->
+        <!-- Right Content Start-->
+        <div class="rc">
+            
+<script src="js/jquery.lightbox-0.5.min.js" type="text/javascript"></script>
+<link href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" media="screen" />
+<script language="javascript">
+
+    function cmdadd() {
+        //alert(document.formPD.selectpd.value);
+        if (document.formPD.selectpd.value == "" || document.formPD.selectpd.value == "您的加購規格") {
+            alert('請選擇您的加購規格!');
+        }
+        else {
+            document.formPD.submit();
+        }
+    }
+
+    //尺寸質料內容
+    function popsize(pdno) {
+        //   tstr = "height=300, width=500, toolbar=no, menubar=no, scrollbars=yes, resizable=yes,location=no, status=no";
+        //   rvalue = window.open("showsize.asp?pdno="+pdno,"popup",tstr);
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("divDescSize").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "showsize.asp?pdno=" + pdno, true);
+        xmlhttp.send();
+    }
+    function popdesc() {
+        document.getElementById("divDescSize").innerHTML = document.getElementById("divDescSize_hidden").innerHTML;
+    }
+
+    $(function () {
+        $("ul.oslist li").mouseover(function () {
+            var idx = $("ul.oslist li").index($(this));
+            $("div.osarea").hide();
+            $("div.osarea").eq(idx).show();
+            return false;
+        });
+        $("div.osarea:first").show();
+
+        var $lightbox = null;
+        var activeImg = 0;
+
+        if ($("#pd_thumb img").length > 0) {
+        		var src = $("#pd_thumb img:first").attr('src');
+        		src = src.toLowerCase().replace("s.jpg", ".jpg");
+            //$("#pdImg img").attr('src', $("#pd_thumb img:first").attr('src'));
+            $("#pdImg img").attr('src', src);
+            $lightbox = $("#pd_thumb a").lightBox();
+            $("#pdImg").click(function () {
+                if ($lightbox != null) {
+                    $lightbox[activeImg].click();
+                }
+                return false;
+            });
+        }
+        else {
+            $("#pdImg").attr('href', $("#pdImg img").attr('src'));
+            $lightbox = $("#pdImg").lightBox();
+        }
+
+        $("#pd_thumb div a img").mouseover(function () {
+            activeImg = $("#pd_thumb div a img").index(this);
+            //var pdimgsrc = $(this).find("img").attr('src');
+            var pdimgsrc = $(this).attr('src');
+            pdimgsrc = pdimgsrc.toLowerCase().replace("s.jpg", ".jpg");
+            $("#pdImg img").hide().attr('src', pdimgsrc).fadeIn(500);
+            /*
+            $("#pdImg img").fadeOut(function () {
+                $("#pdImg img").attr('src', pdimgsrc).fadeIn();
+            });
+            */
+        });
+    });
+</script>
+
+<style type="text/css">
+    ul.oslist  
+    {
+        margin:0px;
+        padding : 0px;
+	    list-style-type:none;
+	}
+	
+	ul.oslist li 
+	{
+	    list-style-type:none;
+	    width:80px;
+	    float:left;
+	    margin : 0px 0px 0px 0px;
+	    border: 1px solid #CCCCCC;
+	    text-align:center;
+	    cursor:pointer;
+	}
+	ul.oslist li:hover
+	{
+	    color:#666666;
+	    border-color:#666666;
+	}
+	ul.oslist li a 
+	{
+	    text-decoration:none;
+	}
+	ul.oslist li a:hover 
+	{
+	    color:#666666;
+	    text-decoration:none;
+	}
+    
+    div.osarea 
+    {
+        width:100%;
+        display:none;
+        height:230px;
+        overflow:auto;
+        text-align:left;
+    }
+    
+    #proposed
+    {
+        padding:3px 0px 0px 3px;
+    }
+    #proposed ul
+    {
+        list-style-type:none;
+        padding:0px;
+        margin:0px;
+    }
+    #proposed ul li
+    {
+        list-style-type:none;
+        float:left;
+    }
+    #desc,#viewed
+    {
+        margin-top:10px;
+        width:100%;
+        text-align:left;
+    }
+    
+    #viewed > div
+    {
+        float:left;
+        margin:5px;
+        width:42px;
+        height:62px;
+    }
+    #pd_thumb
+    {
+        /*margin-top:5px;*/
+    }
+    
+    #pd_thumb > div
+    {
+        float:left;
+        margin:10px 10px 0px 0px;
+    }
+</style>
+
+<!-----商品明細------------------------------------------------>
+<meta name="title" content="商品推薦" />
+<meta name="description" content="青春學院風格‧BOS撞色環袖連帽長T"/>
+<link rel="image_src" href="/photo/01120106.jpg"/>
+
+<div style="font-family: Verdana; font-size: 9pt; line-height: 200%; color:#666666; text-align:left;" height="20">HOME &gt; 商品介紹</div>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+        <!--產品大圖-->
+		<td align="left" width="420">
+            <div style="height:420px;">
+                <a href="javascript:void(0);" id="pdImg"><img src="/photo/01120106-01.jpg" border="0" width="420" height="420" onerror="src='images/noimage.gif'"></a>
+            </div>
+            <div id="pd_thumb">
+            <div><a href='/photo/01120106-01.jpg' rel='pdImg'><img src='/photo/01120106-01.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-02.jpg' rel='pdImg'><img src='/photo/01120106-02.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-03.jpg' rel='pdImg'><img src='/photo/01120106-03.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-04.jpg' rel='pdImg'><img src='/photo/01120106-04.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-05.jpg' rel='pdImg'><img src='/photo/01120106-05.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-06.jpg' rel='pdImg'><img src='/photo/01120106-06.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-07.jpg' rel='pdImg'><img src='/photo/01120106-07.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+<div><a href='/photo/01120106-08.jpg' rel='pdImg'><img src='/photo/01120106-08.jpg' border='0' width='60' height='60' alt='' onerror='this.src="images/noimage.gif"'></a></div>
+
+            </div>
+        </td>
+        <!--選擇購買顏色尺寸-->
+        <td style="padding-left:5px;">								
+            <table border="0" width="100%" style="font-family: Verdana; font-size: 9pt; line-height: 200%" cellspacing="0" cellpadding="0">
+				<tr valign="top" height="50">
+					<td colspan="2" style="font-family: Verdana; font-size: 10pt; color: #333333; font-weight: bold" align="left">青春學院風格‧BOS撞色環袖連帽長T</td>
+				</tr>
+				<tr height="50">
+					<td align="left">
+					
+					    <img border="0" src="images/icon01.jpg" width="9" height="9" />
+                        商品貨號：<font color="#333333">01120106</font>
+                    </td>
+					<td align="right">
+						<a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));">
+						<img border="0" src="images/facebook-icon.png" width="15" height="15" /></a>&nbsp;
+						<a href="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&amp;status=' .concat(encodeURIComponent(location.href)) .concat(' ') .concat('(') .concat(encodeURIComponent(document.title)) .concat(')')));">
+						<img border="0" src="images/plurk-icon.png" width="15" height="15" /></a>&nbsp;
+						<a href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)) .concat(' ') .concat(encodeURIComponent(location.href))));">
+						<img border="0" src="images/twitter-icon.png" width="15" height="15" /></a>&nbsp;
+						<!-- 將此標記放在您想要顯示 +1 按鈕的位置 -->
+						<a><g:plusone size="small" annotation="none" width="150"></g:plusone>
+						<!-- 將此顯示呼叫 (render call) 放在適當位置 -->
+						<script type="text/javascript">
+							window.___gcfg = {lang: 'zh-TW'};
+															
+							(function() {
+							var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							po.src = 'https://apis.google.com/js/plusone.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+							})();
+						</script></a>
+						<!--a href="BookMark.asp?yano=&bookmark=Y">BookMark</a-->
+                    </td>
+				</tr>
+				<!--
+                <tr>
+					<td height="30" align="left">
+					<img border="0" src="images/icon01.jpg" width="9" height="9"> 
+					付款方式：<font color="#333333">貨到付款 信用卡</font></td>
+				</tr>
+                <tr>
+					<td height="30" align="left">
+					<img border="0" src="images/icon01.jpg" width="9" height="9"> 
+					市　　價：$ 599 元</td>
+				</tr>
+				-->
+				<tr height="50">
+					<td align="left" colspan="2">
+					<img border="0" src="images/icon01.jpg" width="9" height="9" />
+					售　　價：$ 599 元</td>
+				</tr>
+    <tr height="50">
+<td align="left" colspan="2">
+<img border="0" src="images/icon01.jpg" width="9" height="9"> 優惠組合：
+<a href='PDSale.asp?pi=MIX1410300013' style='color:#4390AF; font-weight:bold; text-decoration:underline;'>秋新品 任選每件89折</a><br/></td>
+</tr>
+
+<!--選擇購買顏色尺寸-->
+				<tr>		
+					<td align="left" colspan="2">
+	                    <form method="post" action="MyCar.asp" name="formPD">
+		                    <input type="hidden" name="buyer" value="Y" />
+	
+		                    <table border="0" cellpadding="0" style="font-family: Verdana; font-size: 9pt" cellspacing="0" align="left">
+			                    <tr height="50">
+				                    <td nowrap align="left">
+                                        <img border="0" src="images/icon01.jpg" width="9" height="9" /> 規　　格：
+                                        <select size="1" id="selectpd" name="selectpd"  style="font-family: Verdana; font-size: 9pt;">
+		<option valiue="">您的加購規格</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A13::M::01::12::1::2::599">顏色：紅 / 尺寸：M</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A13::L::01::12::1::9::599">顏色：紅 / 尺寸：L</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A13::XL::01::12::1::5::599">顏色：紅 / 尺寸：XL</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A23::M::01::12::1::6::599">顏色：淺灰 / 尺寸：M</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A23::L::01::12::1::10::599">顏色：淺灰 / 尺寸：L</option>
+<option value="EX1410290087::01120106::青春學院風格‧BOS撞色環袖連帽長T::A23::XL::01::12::1::5::599">顏色：淺灰 / 尺寸：XL</option>
+
+			                            </select>
+                                    </td>
+                                </tr>
+				
+                                <tr height="50">
+				                    <td nowrap align="left"><img border="0" src="images/btn_prod.jpg" title="加入購物車" style="cursor:pointer" onclick="javascript:cmdadd();" />
+				         								&nbsp;<img border="0" src="images/btn_stock.gif" title="現貨狀態" style="cursor:pointer" onclick="window.open('/stock/default.aspx?pd=01120106')" />
+				                    </td>
+                                </tr>				
+                            </table>
+	
+                        </form>
+                    </td>
+				</tr>
+                <tr>
+                    <td colspan="2">
+                        <ul class="oslist">
+                        
+                            <li>尺寸表</li>
+                            <li>商品規格</li>
+                        
+                            <li>MODEL資料</li>
+                        
+                        </ul>
+                        
+                        <div class="osarea"><html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+</head>
+
+<body>
+
+<table border="0" width="300" height="166" style="color: rgb(51, 51, 51); font-family: 微軟正黑體; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); ">
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="23">
+		<font size="2" color="#333333">尺寸</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="23">
+		<font size="2">衣長</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="23">
+		<font size="2">衣寬</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="23">
+		<font size="2">肩寬</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="23">
+		<font size="2" color="#333333">袖長</font></td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="23">
+		<font size="2">M</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">65</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">53</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">49</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">60</font></td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="23">
+		<font size="2">L</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">67</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">55.5</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">50</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">62</font></td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="24">
+		<font size="2">XL</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">69</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">58</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">53</font></td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">63</font></td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="24">
+		　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; ">
+		<font size="2">　</td>
+	</tr>
+	<tr>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="24">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="59" height="24">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="24">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="24">
+		<font size="2">　</td>
+		<td align="center" style="font-family: 微軟正黑體; padding: 0px; " width="60" height="24">
+		<font size="2">　</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="5" style="font-family: 微軟正黑體; padding: 0px; " height="21">
+		<p class="MsoNormal" align="left"><font size="2" color="#333333">* 
+		皆為平放測量&nbsp; /&nbsp; 單位 : 公分</font></td>
+	</tr>
+</table>
+
+</body>
+
+</html></div>
+                        <div class="osarea">	<table border="0" width="300" height="175" id="table1" style="color: rgb(51, 51, 51); font-family: 微軟正黑體; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255)">
+		<tr>
+			<td style="font-family: 微軟正黑體; padding: 0px">
+			<font size="2">材質 /優質棉料</font></td>
+		</tr>
+		<tr>
+			<td style="font-family: 微軟正黑體; padding: 0px" height="30">
+			<font size="2">顏色 /淺灰 / 紅</font></td>
+		</tr>
+		<tr>
+			<td style="font-family: 微軟正黑體; padding: 0px" height="30">
+			<font size="2">備註 / 無</font></td>
+		</tr>
+		<tr>
+			<td style="font-family: 微軟正黑體; padding: 0px" height="31">　</td>
+		</tr>
+		<tr>
+			<td style="font-family: 微軟正黑體; padding: 0px">　</td>
+		</tr>
+	</table></div>
+                        
+                        	<div class="osarea"><table border="0" width="300" height="175" id="table1" style="color: rgb(51, 51, 51); font-family: 微軟正黑體; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255)">
+	<tr>
+		<td style="font-family: 微軟正黑體; padding: 0px">
+		<font color="#333333" size="2">身高 /</font><font size="2">-</font></td>
+	</tr>
+	<tr>
+		<td style="font-family: 微軟正黑體; padding: 0px">
+		<font color="#333333" size="2">體重 / -</font></td>
+	</tr>
+	<tr>
+		<td style="font-family: 微軟正黑體; padding: 0px">
+		此款ＭＯＤＥＬ穿&nbsp;&nbsp; </td>
+	</tr>
+	<tr>
+		<td style="font-family: 微軟正黑體; padding: 0px">　</td>
+	</tr>
+	<tr>
+		<td style="font-family: 微軟正黑體; padding: 0px">　</td>
+	</tr>
+</table>
+
+
+
+
+</div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+				
+		
+
+
+<!-----近期瀏覽------------------------------------------------>
+
+<div id="viewed">
+<span>近期瀏覽</span>
+<hr />
+<div><a href='PDContent.asp?yano=EX1410290087'><img src='/photo/01120106.jpg' onerror='this.src="images/noimage.gif";' width='42' height='62' border='0' alt='青春學院風格‧BOS撞色環袖連帽長T' title='青春學院風格‧BOS撞色環袖連帽長T' /></a></div>
+
+</div>
+
+
+<!-----商品明細------------------------------------------------>
+<div id="desc">
+
+</div>
+
+<!-- 2014.10.24 宇匯 追蹤碼-->
+
+<script type="text/javascript" src="//rec.scupio.com/recweb/js/rec.js">
+{
+"mid":107,
+"iid":"01120106",
+"ch":"01",
+"uid":
+}
+</script>
+
+        </div>
+        <!-- Right Content End-->
+        <div class="clear"></div>
+        
+<!-- Content Start -->
+  <div class="footer">
+      <p>
+	　</p>
+<p>
+	<img src="https://www.hitobp.com.tw/photo/banner/footer.jpg" style="border-width: 0px; border-style: solid; width: 950px; " usemap="#footer" /><map name="footer"><area coords="45,183,223,203" href="mailto:jbkkick2000@yahoo.com.tw" shape="rect" /> <area coords="44,206,188,228" href="https://www.facebook.com/jbkkick2000" shape="rect" target="_blank" /> <area coords="284,184,433,219" href="/photo/about_hitobp/01-4.html" shape="rect" target="_blank" /> <area coords="283,220,434,251" href="/photo/about_hitobp/01-5.html" shape="rect" target="_blank" /> <area coords="463,218,585,248" href="/photo/about_hitobp/02-4.html" shape="rect" target="_blank" /> <area coords="462,186,585,217" href="/photo/about_hitobp/02-3.html" shape="rect" target="_blank" /> <area coords="45,231,119,251" href="http://www.hitobp.com/" shape="rect" target="_blank" /> <area coords="461,151,586,184" href="/photo/about_hitobp/02-2.html" shape="rect" target="_blank" /> <area coords="621,186,717,216" href="/photo/about_hitobp/03-2.html#h1" shape="rect" target="_blank" /> <area coords="622,218,718,247" href="/photo/about_hitobp/03-2.html#h2" shape="rect" target="_blank" /> <area coords="464,251,585,282" href="/photo/about_hitobp/02-4.html#check" shape="rect" target="_blank" /> <area coords="283,153,433,183" href="/photo/about_hitobp/01-2.html" shape="rect" target="_blank" /> <area coords="283,118,435,151" href="/photo/about_hitobp/01-1.html" shape="rect" target="_blank" /> <area coords="283,252,434,284" href="/photo/about_hitobp/01-6.html" shape="rect" target="_blank" /> <area coords="262,319,444,371" href="/photo/about_hitobp/haonistory.html" shape="rect" target="_blank" /> <area coords="283,285,433,318" href="/photo/about_hitobp/01-7.html" shape="rect" target="_blank" /> <area coords="461,115,585,150" href="/photo/about_hitobp/02-1.html" shape="rect" target="_blank" /> <area coords="621,116,721,147" href="/photo/about_hitobp/03-1.html" shape="rect" target="_blank" /><area coords="623,249,715,283" href="/photo/about_hitobp/03-2.html#h4" shape="rect" target="_blank" /> <area coords="758,43,931,292" href="http://www.hitobp.com/" shape="rect" target="_blank" /> <area coords="620,150,713,181" href="/photo/about_hitobp/03-2.html" shape="rect" target="_blank" /> <area coords="59,350,237,394" href="https://www.hitobp.com.tw/photo/about_hitobp/modelw.html" shape="rect" target="_blank" /> <area coords="60,304,237,346" href="https://www.hitobp.com.tw/photo/about_hitobp/modelcard.html" shape="rect" target="_blank" /> <area coords="462,284,587,319" href="/OrderSearch.asp" shape="rect" /> <area coords="63,260,239,301" href="https://www.hitobp.com.tw/photo/banner/PART-TIMEWORKER.html" shape="rect" target="_blank" /></map></p>
+
+      <p>康德科技　系統設計</p>
+  </div>
+<!-- Content End -->
+
+
+<script language="javascript">
+    if (document.getElementById("cart_item")) {
+        document.getElementById("cart_item").innerHTML = "0";
+    }
+</script>
+
+<!--原GA追蹤碼-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33975768-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!--HITO申請的GA追蹤碼-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  //_gaq.push(['_setAccount', 'UA-35594705-1']);
+  _gaq.push(['_setAccount', 'UA-36523909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!--Vizury追蹤碼-->
+<script type="text/javascript">
+(function() {
+    try {
+        var viz = document.createElement("script");
+        viz.type = "text/javascript";
+        viz.async = true;
+        viz.src = ("https:" == document.location.protocol ?"https://ssl.vizury.com" : "http://serv3.vizury.com")+ "/analyze/pixel.php?account_id=VIZVRM1411";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(viz, s);
+        viz.onload = function() {
+            try {
+                pixel.parse();
+            } catch (i) {
+            }
+        };
+        viz.onreadystatechange = function() {
+            if (viz.readyState == "complete" || viz.readyState == "loaded") {
+                try {
+                    pixel.parse();
+                } catch (i) {
+                }
+            }
+        };
+    } catch (i) {
+    }
+})();
+</script>
+
+<!--台北數位(亞普達)追蹤碼-->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', "523016341151642"]);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(["track", "PixelInitialized", {}]);
+</script>
+<noscript><img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=523016341151642&amp;ev=NoScript" /></noscript>
+
+<!-- 2014.10.24 宇匯 追蹤碼-->
+
+<script type="text/javascript" src="//rec.scupio.com/recweb/js/rec.js">
+{
+"mid":107,
+"uid":
+}
+</script>
+<!-- 亞普達 Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NHQ53M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHQ53M');</script>
+<!-- End Google Tag Manager -->
+
+<!--亞普達 再行銷程式碼-->
+<!-- Google Code for &#20877;&#34892;&#37559;&#27161;&#35352; -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1000169498;
+var google_conversion_label = "YwpmCN6W2QMQmsD13AM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1000169498/?value=0&amp;label=YwpmCN6W2QMQmsD13AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+    </div>
+</body>
+</html>
