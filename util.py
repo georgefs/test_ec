@@ -50,11 +50,11 @@ class TestCase(object):
 
     @property
     def item(self):
-        return json.loads(TestCaseManager.get(self.advertiser_id, self.product_key, 'item'))
+        return cPickle.loads(TestCaseManager.get(self.advertiser_id, self.product_key, 'item'))
 
     @item.setter
     def item(self, value):
-        TestCaseManager.save(self.advertiser_id, self.product_key, 'item', json.dumps(value, indent=4, separators=(',', ': ')))
+        TestCaseManager.save(self.advertiser_id, self.product_key, 'item', cPickle.dumps(value))
 
     @property
     def html(self):
